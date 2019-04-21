@@ -312,15 +312,15 @@ catch (Exception $err){
     }
 		
 	
-	function ajouterClient2($a,$b,$c,$d,$e,$r){
-		$sql="insert into client (Firstname,Lastname,EMAIL,mobile,BIRTHDAY,adresse) values (:Firstname,:Lastname,:EMAIL,:mobile,:BIRTHDAY,:adresse)";
+	function ajouterClient2($a,$b,$c,$e,$r){
+		$sql="insert into client (Firstname,Lastname,EMAIL,mobile,adresse) values (:Firstname,:Lastname,:EMAIL,:mobile,:adresse)";
 		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
        $Firstname=$a;
         $Lastname=$b;
         $EMAIL=$c;
-        $BIRTHDAY=$d;
+     
        
         $adresse=$e;
           $mobile=$r;
@@ -328,7 +328,7 @@ catch (Exception $err){
 	
 		$req->bindValue(':Firstname',$Firstname);
 		$req->bindValue(':Lastname',$Lastname);
-		$req->bindValue(':BIRTHDAY',$BIRTHDAY);
+
 		$req->bindValue(':mobile',$mobile);
 		$req->bindValue(':adresse',$adresse);
           $req->execute();

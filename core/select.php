@@ -85,7 +85,7 @@ $result =$client->AFFClient();
                   <td id="Email" contenteditable></td> 
                   <span class="check_ok2" style="color:#149541; font-size:1em;"></span>
       <span class="check_false2"  style="color:#F55 ; font-size:1em;"></span>
-                 <td id="Birthday"  contenteditable> <input type="date" /></td>
+                 <td id="Birthday"  ></td>
                   <td id="Adresse" contenteditable></td>
                    <td id="Mobile" contenteditable></td>
 <span class="check_ok1" style="color:#149541; font-size:1em;"></span>
