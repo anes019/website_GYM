@@ -360,8 +360,7 @@ catch (Exception $err){
         
     }
 
-
-  function SuppClient($id){
+  function SuppClient2($id){
          $var=$id;
         $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
         $db = config::getConnexion();
@@ -377,7 +376,72 @@ catch (Exception $err){
         }
         
     }
-		
+  function SuppClient($id){
+         $var=$id;
+           $db = config::getConnexion();
+            try{
+         $req = $db->prepare("SELECT Id_reclamation  FROM reclamation  where ID_CLIENT ='". $var. "'");
+  $req->execute(array(':id'=>$var));
+}
+ catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+             return ("no");
+        }
+  if($req->rowCount()>0)
+  {
+
+  $sql = "DELETE FROM reclamation WHERE ID_CLIENT ='". $var. "'";  
+
+        $db = config::getConnexion();
+        try{
+        $req=$db->prepare($sql);
+       
+          $req->execute();
+          
+      $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
+        $db = config::getConnexion();
+        try{
+        $req=$db->prepare($sql);
+       
+          $req->execute();
+           return ("ok");
+        }
+        catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+             return ("no");
+        }
+
+
+
+           return ("ok");
+        }
+        catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+             return ("no");
+        }
+
+      
+        
+    }
+    else 
+      {       $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
+        $db = config::getConnexion();
+        try{
+        $req=$db->prepare($sql);
+       
+          $req->execute();
+           return ("ok");
+        }
+        catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+             return ("no");
+        }}
+		}
+
+
+
+
+
 	
 	function ajouterClient2($a,$b,$c,$e,$r){
 		$sql="insert into client (Firstname,Lastname,EMAIL,mobile,adresse) values (:Firstname,:Lastname,:EMAIL,:mobile,:adresse)";

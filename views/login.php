@@ -99,12 +99,7 @@
           </div>
              <span class="check_ok1" style="color:#149541; font-size:1em;"></span>
       <span class="check_false1"  style="color:#F55 ; font-size:1em;"></span>
-          <div class="contact100-form-checkbox m-l-4">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Remember me
-            </label>
-          </div>
+        
           
           <div class="container-login100-form-btn p-t-25">
             <button class="login100-form-btn" id="login">
@@ -112,28 +107,16 @@
             </button>
           </div>
 
-          <div class="text-center w-full p-t-42 p-b-22">
-            <span class="txt1">
-              Or login with
-            </span>
-          </div>
+   
 
-          <a href="#" class="btn-face m-b-10"   onclick="document.getElementById('myImage').src='https://scontent.ftun9-1.fna.fbcdn.net/v/t1.0-9/40814677_2030802393638565_2055325284894244864_n.jpg?_nc_cat=104&_nc_ht=scontent.ftun9-1.fna&oh=4eae2b665c46b91d4e72bb9011c0b12d&oe=5CE3CD64'">
-            <i class="fa fa-facebook-official"></i>
-            Facebook
-          </a>
 
-          <a href="#" class="btn-google m-b-10">
-            <img src="images/icons/icon-google.png" alt="GOOGLE">
-            Google
-          </a>
 
           <div class="text-center w-full p-t-115">
             <span class="txt1">
               Not a member?
             </span>
 
-            <a class="txt1 bo1 hov1" href="form.html">
+            <a class="txt1 bo1 hov1" href="Inscription.php">
               Sign up now             
             </a>
           </div>
