@@ -58,6 +58,45 @@ $C1 = $result[0];
 		
 	}
 
+  
+  function ajouteADMIN($Client){
+    $sql="insert into client (USERNAME,EMAIL,PASSWORD,Firstname,Lastname,mobile,sexe,IMAGE,BIRTHDAY,adresse,token,role) values (:USERNAME,:EMAIL,:PASSWORD ,:Firstname,:Lastname,:mobile,:sexe,:IMAGE,:BIRTHDAY,:adresse,:token,:role)";
+    $db = config::getConnexion();
+    try{
+        $req=$db->prepare($sql);
+        $USERNAME=$Client->getUsername();
+        $EMAIL=$Client->getEmail();
+        $PASSWORD=$Client->getPWD();
+        $Firstname=$Client->getFIRSTNAME();
+        $Lastname=$Client->getLASTNAME();
+        $BIRTHDAY=$Client->getBirthday();
+        $IMAGE=$Client->getImage();
+        $mobile=$Client->getMobile();
+        $sexe=$Client->getSexe();
+        $adresse=$Client->getAdresse();
+        $role="admin";
+    $token=$Client->getToken();
+
+    $req->bindValue(':USERNAME',$USERNAME);
+    $req->bindValue(':EMAIL',$EMAIL);
+    $req->bindValue(':PASSWORD',$PASSWORD);
+    $req->bindValue(':Firstname',$Firstname);
+    $req->bindValue(':Lastname',$Lastname);
+    $req->bindValue(':BIRTHDAY',$BIRTHDAY);
+    $req->bindValue(':IMAGE',$IMAGE);
+    $req->bindValue(':mobile',$mobile);
+    $req->bindValue(':sexe',$sexe);
+    $req->bindValue(':adresse',$adresse);
+  $req->bindValue(':token',$token);
+    $req->bindValue(':role',$role);
+          $req->execute();
+           
+        }
+        catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+        }
+    
+  }
 
 	
 	function modifierClient($Client,$ID){
@@ -163,7 +202,7 @@ function modifierImage($Client,$login,$pwd){
 function afficherClients(){
 
 
-	$sql="SElECT * From client";
+	$sql="SElECT * From client ";
 		$db = config::getConnexion();
 		try{
 		$info=$db->query($sql);
@@ -308,7 +347,7 @@ catch (Exception $err){
   function AFFClient(){
          
         $query = "
-  SELECT * FROM client ORDER BY ID_CLIENT DESC ";
+  SELECT * FROM client WHERE role='user' ORDER BY ID_CLIENT DESC ";
 
      $db = config::getConnexion();
         try{

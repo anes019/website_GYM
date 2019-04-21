@@ -17,6 +17,16 @@
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
+                           <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="../Inscription1.php">
+                                <i class="fas fa-tachometer-alt"></i>ADD ADMIN</a>
+                       
+                     
+                        </li>
+                       
+                       
+                    </ul>
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
@@ -38,6 +48,7 @@
                        
                       
                     </ul>
+
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
@@ -192,15 +203,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                           <?PHP
-        
-            $client=new Clients();
-         session_start();
-$info=$client->afficheradmin($_SESSION['l'],$_SESSION['p']);
-
-foreach($info as $row){
-
-  ?> 
+ 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
@@ -225,9 +228,9 @@ foreach($info as $row){
 
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?PHP echo $row['USERNAME']; ?></a>
+                                                        <a href="#"></a>
                                                     </h5>
-                                                    <span class="email"><?PHP echo $row['EMAIL']; ?></span>
+                                                    <span class="email"></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -248,21 +251,5 @@ foreach($info as $row){
                     </div>
                 </div>
             </header>
- <script type="text/javascript">
-  
-         function previewFile(){
-       var preview = document.getElementById('output');
-     
 
-           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
-       }
-
- previewFile(); 
-</script>
-
- <script>
-  function validation() {
-window.open('image.php?mavar=change photo','Change photo','width=300, height=300');
-}
-</script>
 </body>

@@ -5,10 +5,11 @@ include "Clients.php";
      $token = 'qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM0123456789!$/()*';
         $token = str_shuffle($token);
         $token = substr($token, 0, 10);
+        if( isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_name'])  && isset($_POST['last_name'])  && isset($_POST['mobile_no'])  && isset($_POST['gender']) && isset($_POST['address']) ){
         $email =$_POST['email'];
 $client=new Client($_POST['username'],$_POST['email'],$_POST['password'],$_POST['first_name'],$_POST['last_name'],$_POST['dateofbirth'],'' ,$_POST['mobile_no'], 
 	$_POST['gender'], $_POST['address'],$token);
-if( isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_name'])  && isset($_POST['last_name'])  && isset($_POST['mobile_no'])  && isset($_POST['gender']) && isset($_POST['address']) ){
+
 $mail=$_POST['email'];
 	$client1=new Clients();
 $client1->ajouterClient($client);
@@ -47,13 +48,13 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 
 
-$mail->Username = 'anes.temani@esprit.tn';
+$mail->Username = 'anestemani00@gmail.com';
 
 
-$mail->Password = 'anes1996';
+$mail->Password = 'foued@samia_1996';
 
 
-$mail->SetFrom('anes.temani@esprit.tn', 'anes');
+$mail->SetFrom('anestemani00@gmail.com', 'anes');
 
 
 $mail->AddAddress($_POST['email']);

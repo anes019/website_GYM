@@ -23,7 +23,7 @@ if(!empty($_POST['email']) && !empty($_POST['pass']))
   catch(Exeption $e){
   die('Erreur:'.$e->getMessage());
   }
-$req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE (USERNAME=:pseudo  || EMAIL=:pseudo )');
+$req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || EMAIL=:pseudo )&& role="user")');
   $req->execute(array(':pseudo'=>$pseudo));
   if($req->rowCount()>0)
   {
@@ -58,7 +58,7 @@ foreach($info as $row){
 }
 else {echo '<script language="javascript"> alert("'.$pseudo.' account blocked"); ;</script>';
   ?>
-    <script type=""> location.replace("../views/index.html");</script>
+    <script type=""> location.replace("../views/login.php");</script>
     <?php
 }
 
@@ -66,7 +66,7 @@ else {echo '<script language="javascript"> alert("'.$pseudo.' account blocked");
 
 else {echo '<script language="javascript"> alert("'.$pseudo.' Email not Confirmed"); ;</script>';
   ?>
-    <script type=""> location.replace("../views/index.html");</script>
+    <script type=""> location.replace("../views/index.php");</script>
     <?php
 }
 }

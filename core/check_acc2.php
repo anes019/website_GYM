@@ -23,15 +23,15 @@ if(!empty($_POST['email']) && !empty($_POST['pass']))
   catch(Exeption $e){
   die('Erreur:'.$e->getMessage());
   }
-$req = $db->prepare('SELECT ID_admin  FROM admins WHERE (USERNAME=:pseudo  || EMAIL=:pseudo )');
+$req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || EMAIL=:pseudo ) && role="admin")');
   $req->execute(array(':pseudo'=>$pseudo));
   if($req->rowCount()>0)
   {
-      $req = $db->prepare('SELECT ID_admin  FROM admins WHERE ((USERNAME=:pseudo && PASSWORD=:pass)) || (EMAIL=:pseudo && PASSWORD=:pass)');
+      $req = $db->prepare('SELECT ID_CLIENT   FROM client WHERE ((USERNAME=:pseudo && PASSWORD=:pass)) || (EMAIL=:pseudo && PASSWORD=:pass)');
   $req->execute(array(':pseudo'=>$pseudo ,':pass'=>$pass));
  
 if($req->rowCount()>0){
-  	echo '<script language="javascript"> alert("welcome to Our site '.$pseudo.'"); ;</script>';
+  	echo '<script language="javascript"> alert("welcome to your dashboard '.$pseudo.'"); ;</script>';
       session_start();
     $_SESSION['l']= $pseudo;
     $_SESSION['p']=$pass;
@@ -39,7 +39,7 @@ if($req->rowCount()>0){
 $info=$client->afficheradmin($_SESSION['l'],$_SESSION['p']);
 
 foreach($info as $row){
-   $_SESSION['ID']=$row['ID_admin'];
+   $_SESSION['ID']=$row['ID_CLIENT '];
 }
   	 ?>
 
