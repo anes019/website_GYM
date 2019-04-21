@@ -149,7 +149,17 @@ function modifierImage($Client,$login,$pwd){
         }	
 	}
 
-
+  function afficheradmin($login,$pwd){
+    $sql="SElECT * From admins WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
+    $db = config::getConnexion();
+    try{
+    $info=$db->query($sql);
+    return $info;
+    }
+        catch (Exception $err){
+            die('Erreur: '.$err->getMessage());
+        } 
+  }
 function afficherClients(){
 
 
@@ -199,6 +209,24 @@ catch (Exception $err){
         }
 
 	}
+    function NombreReclamation_tt(){
+ 
+      $sql=" SELECT COUNT(*)   FROM reclamation WHERE  ETAT='not treated '" ;
+    $db = config::getConnexion();
+    try{
+      $req=$db->prepare($sql);
+     $req->execute(); 
+
+$result = $req->fetch();
+echo $result[0];
+ }
+
+catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+        }
+
+  }
+
 
 	function NombreReclamation($ID){
          

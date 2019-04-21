@@ -1,3 +1,8 @@
+<html lang="en">
+
+<head>
+</head>
+<body >
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
        
@@ -78,7 +83,10 @@
                                         <span class="quantity">1</span>
                                         <div class="mess-dropdown js-dropdown">
                                             <div class="mess__title">
-                                                <p>You have 2 news message</p>
+                                          
+
+                                                <p>You have 
+                                                reclamations </p>
                                             </div>
                                             <div class="mess__item">
                                                 <div class="image img-cir img-40">
@@ -184,11 +192,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                           <?PHP
+        
+            $client=new Clients();
+         session_start();
+$info=$client->afficheradmin($_SESSION['l'],$_SESSION['p']);
+
+foreach($info as $row){
+
+  ?> 
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                          <img  id="output" style="  height:150px  ;width:150px ;  border-radius:80px;  " src=""/>
+                                           <br>
+         <br>
+         <label id="#bb" style="  padding: 10px; background: #212529b8;  display: table; color: #fff;  "> Change photo
+    <input style=" display: none;" type="button" ;  id="File"  onclick="validation()" name="myImage" size="60" >
+    </label> 
                                         </div>
+
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">john doe</a>
                                         </div>
@@ -199,25 +222,18 @@
                                                         <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
+
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?PHP echo $row['USERNAME']; ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?PHP echo $row['EMAIL']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="page profil.php">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
@@ -232,3 +248,21 @@
                     </div>
                 </div>
             </header>
+ <script type="text/javascript">
+  
+         function previewFile(){
+       var preview = document.getElementById('output');
+     
+
+           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
+       }
+
+ previewFile(); 
+</script>
+
+ <script>
+  function validation() {
+window.open('image.php?mavar=change photo','Change photo','width=300, height=300');
+}
+</script>
+</body>
