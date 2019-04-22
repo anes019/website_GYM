@@ -253,19 +253,16 @@ load_data();
 
 
 
-
+        
 
  
     $(document).on('click', '#btn_add', function(){  
 
 
 
-
-
-
         var first_name = $('#first_name').text();  
         var last_name = $('#last_name').text();  
-   
+        var Birthday = $('#Birthday').text();  
         var adresse = $('#Adresse').text();
         var mobile = $('#Mobile').text();
         var Email = $('#Email').text();
@@ -305,7 +302,11 @@ load_data();
             alert("Invalid Email");  
             return false;  
         } 
-      
+         if(Birthday == '')  
+        {  
+            alert("Enter Birthday");  
+            return false;  
+        }  
             if(adresse == '')  
         {  
             alert("Enter adresse");  
@@ -326,7 +327,7 @@ load_data();
         $.ajax({  
             url:"../../core/insert.php",  
             method:"POST",  
-            data:{first_name:first_name, last_name:last_name, Email:Email, adresse:adresse,mobile:mobile},  
+            data:{first_name:first_name, last_name:last_name, Email:Email, Birthday:Birthday,adresse:adresse,mobile:mobile},  
             dataType:"text",  
             success:function(data)  
             {  
@@ -336,7 +337,7 @@ load_data();
     $('#result').hide();
      location.reload();
 
-}, 1000);   
+}, 100000);   
              
             }  
 

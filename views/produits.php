@@ -1,3 +1,9 @@
+<?php 
+ include'header.php' 
+ ?>
+<?php  
+require '_header.php';
+?>
 <?PHP
 include "../core/crudsC.php";
 $catC=new categorieC();
@@ -6,6 +12,49 @@ $prC=new ProduitC();
 $listeproduit=$prC->afficher_produit();
 $idc=0;
 ?>
+ 	<style type="text/css">
+  		.sale {
+	position: relative;
+	display: inline-block;
+	background: orange;
+	color: white;
+	height: 40px ;
+	width: 40px ;
+	border-radius: 8px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 2.5rem;
+
+	left: 80%;
+	transform: rotate(-20deg);
+	animation: beat 1s ease infinite alternate;
+	&:before,
+	&:after {
+		content:"";
+		position: absolute;
+		background: inherit;
+		height: inherit;
+		width: inherit;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transform: rotate(30deg);
+	}
+	&:after {
+		transform: rotate(60deg);
+	}
+}
+
+@keyframes beat {
+	from {	transform: rotate(-20deg) scale(1); }
+	to {	transform: rotate(-20deg) scale(1.1); }
+}
+
+
+  
+  	</style>
+
+
   <head>
     <title>Academie</title>
     <meta charset="utf-8">
@@ -27,37 +76,7 @@ $idc=0;
     <link rel="stylesheet" href="css/themify-icons2.css">
   </head>
   <body  id="produits">
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	     <a  href="index.html"><img style="position: absolute;  right: 85% ; top:0px" src="images\logo.png" > </a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav" style="background-image: url('');position:  right: 12%"><br><br><br>
-	        <ul class="navbar-nav ml-auto">
-	        	<br><br><br>
-	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="program.html" class="nav-link">Program</a></li>
-	          <li class="nav-item"><a href="coaches.html" class="nav-link">Coaches</a></li>
-	          <li class="nav-item "><a href="abonements.php" class="nav-link">Abonements</a></li>
-	          <li class="nav-item active"><a href="produits.php" class="nav-link">Produits</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	           <br><br><br>
-          </ul>
-            <li style="list-style-type:none;" class="main-nav-list"><a href="panier.html" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px"></li>
-            <li style="list-style-type:none;" class="main-nav-list"> <a data-toggle="collapse" href="#Cat2"  > <img style="position: absolute; top: 5px; right: 7%" id="myImage" src="images\acc.png" style="width:30px"></a>
-              <ul class="collapse" id="Cat2" data-toggle="collapse" > 
-                <li ><a href="#"  > <span FONT face="Times New Roman">ACCOUNT </span></a></li>
-                 <li ><a href="affichage_wishlist.php"  > <span FONT face="Times New Roman">WISHLIST </span></a></li>
-                <li ><a  href="login.html"><span FONT face="Times New Roman">LOGIN </span></a> <span> / </span> <a href='index.html'  onclick="document.getElementById('myImage').src='images\acc.png'"> <span FONT face="Times New Roman">LOGOUT </span> </a> </li>
-               
-              </ul>
-            </li>
-	      </div>
-		  </div>
-	  </nav>
+ 
     <!-- END nav -->
       <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
       <div class="overlay"></div>
@@ -110,6 +129,7 @@ $idc=0;
 					<div class="sorting">
 						<select id="sor">
 							<option value="1">Default sorting</option>
+							
 							<option  value="front_sorting.php?sort=1&cat=0 ">Par nom</option>
 							<option value="front_sorting.php?sort=2&cat=0 ">Par Type</option>
 							<option value="front_sorting.php?sort=3&cat=0 ">Prix croissant</option>
@@ -132,6 +152,8 @@ $idc=0;
 			<section class="ftco-section">
 	  	<div class="container-fluid">
 					<div class="row">
+
+
 						<?php
                                             foreach($listeproduit as $row){ 
                                             ?>
@@ -140,6 +162,10 @@ $idc=0;
 
 							<div class="single-product">
 								
+				<?php 
+				if($row['etat']=="false"){
+				?>
+<br><br>
 								<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
 									<img  src='<?php echo $row['image']; ?>' width="200" height="250" >
 									</a>
@@ -147,8 +173,36 @@ $idc=0;
 								<div class="product-details">
 									<div class="product-details">
 									<h6><?PHP echo $row['nom']; ?></h6>
-									<div class="price"><h6>prix: <?PHP echo $row['prix']; ?> dt</h6></div>	
+									<div class="price"><h6>PRIX: <?PHP echo $row['prix']; ?> dt</h6></div>	
 								</div>
+
+
+				<?php 	}
+				else{
+					$pour= (($row['prix']-$row['prix_promo'])/$row['prix'])*100;
+				?>
+
+										<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
+							<span class="sale">-<?PHP echo $pour ?>%</span><img  src='<?php echo $row['image']; ?>' width="200" height="250" >
+									</a>
+								
+								<div class="product-details">
+									<div class="product-details">
+									<h6><?PHP echo $row['nom']; ?></h6>
+									<div class="price" >
+										<h6> PRIX Promo: <?PHP echo $row['prix_promo']; ?> <?PHP echo "$";?></h6>
+									<br>
+									<h6>PRIX: </h6><h6 class="l-through"><?PHP echo $row['prix']; ?> <?PHP echo "$";?></h6>
+									
+					
+										</div>
+										
+								</div>
+				<?php	}
+				?>
+
+
+
 									<div class="prd-bottom">
 												<a href="whichlist_ajout.php?id=<?php echo $row['id']?>"  class="social-info">
 													<img class="img-fluid" src="images/wish.png"  title="wishlist">	
@@ -157,6 +211,13 @@ $idc=0;
 												<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
 													<img class="img-fluid" src="images/det.png" title="details" >											
 												</a>
+
+											  <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
+											class="addPanier"
+										 class="social-info" >
+											<span class="ti-bag"></span>
+											<p class="hover-text" >ajouter au panier</p>
+										</a>
 									</div>
 
 								</div>
@@ -172,7 +233,7 @@ $idc=0;
 	
 
 
-
+				
    <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -190,7 +251,7 @@ $idc=0;
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  
+  <script type="text/javascript" src="app.js"> </script>
 
 
 <script type="text/javascript">

@@ -1,14 +1,47 @@
-<?PHP
+<style type="text/css">
+      .sale {
+  position: relative;
+  display: inline-block;
+  background: orange;
+  color: white;
+  height: 40px ;
+  width: 40px ;
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 2.5rem;
 
-include "../core/wishlistC.php";
-//cette page prendra une session de l'id de l'abonne
-// et le passera a une fonction qui affichera les produit de ce client
-$wC=new WishlistC();
-$listew=$wC->afficher_wishlist();
+  left: 80%;
+  transform: rotate(-20deg);
+  animation: beat 1s ease infinite alternate;
+  &:before,
+  &:after {
+    content:"";
+    position: absolute;
+    background: inherit;
+    height: inherit;
+    width: inherit;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotate(30deg);
+  }
+  &:after {
+    transform: rotate(60deg);
+  }
+}
 
-?>
+@keyframes beat {
+  from {  transform: rotate(-20deg) scale(1); }
+  to {  transform: rotate(-20deg) scale(1.1); }
+}
 
-  <head>
+
+  
+    </style>
+
+
+<head>
     <title>Academie</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,37 +63,16 @@ $listew=$wC->afficher_wishlist();
 
   </head>
   <body  id="produits">
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	     <a  href="index.html"><img style="position: absolute;  right: 85% ; top:0px" src="images\logo.png" > </a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav" style="background-image: url('');position:  right: 12%">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="program.html" class="nav-link">Program</a></li>
-	          <li class="nav-item"><a href="coaches.html" class="nav-link">Coaches</a></li>
-	          <li class="nav-item"><a href="schedule.html" class="nav-link">Schedule</a></li>
-	          <li class="nav-item active"><a href="produits.php" class="nav-link">Produits</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	           <br><br><br>
-          </ul>
-            <li style="list-style-type:none;" class="main-nav-list"><a href="panier.html" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px"></li>
-            <li style="list-style-type:none;" class="main-nav-list"> <a data-toggle="collapse" href="#Cat2"  > <img style="position: absolute; top: 5px; right: 7%" id="myImage" src="images\acc.png" style="width:30px"></a>
-              <ul class="collapse" id="Cat2" data-toggle="collapse" > 
-                <li ><a href="#"  > <span FONT face="Times New Roman">ACCOUNT </span></a></li>
-                <li ><a href="affichage_wishlist.php"  > <span FONT face="Times New Roman">WISHLIST </span></a></li>
-                <li ><a  href="login.html"><span FONT face="Times New Roman">LOGIN </span></a> <span> / </span> <a href='index.html'  onclick="document.getElementById('myImage').src='images\acc.png'"> <span FONT face="Times New Roman">LOGOUT </span> </a> </li>
-               
-              </ul>
-            </li>
-	      </div>
-		  </div>
-	  </nav>
-    <!-- END nav -->
+  
+	       <?PHP
+include'header.php' ;
+
+include "../core/wishlistC.php";
+$wC=new WishlistC();
+$listew=$wC->afficher_wishlist($_SESSION['ID']);
+
+?>
+
       <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -84,7 +96,10 @@ $listew=$wC->afficher_wishlist();
 											<?php
                                             foreach($listew as $row){ 
                                             ?>
-                                            <br><br>		
+                                            <br><br>	
+                                            <?php 
+        if($row['etat']=="false"){
+        ?>	
 						<tr>
 							<td><img src='<?php echo $row['image']; ?>' width="200" height="250" >
                 <br><br></td>
@@ -114,6 +129,52 @@ $listew=$wC->afficher_wishlist();
 							</td>
 									
 					</tr>
+          <?php   }
+        else{
+          $pour= (($row['prix']-$row['prix_promo'])/$row['prix'])*100;
+        ?>
+  <tr>
+              <td><span class="sale">-<?PHP echo $pour ?>%</span><img src='<?php echo $row['image']; ?>' width="200" height="250" >
+                <br><br></td>
+
+              <td>
+              <div class="single-product">  
+                <div class="product-details">
+                  <h6><?PHP echo $row['nom']; ?></h6>
+                  <div class="price" >
+                    <h6> PRIX Promo: <?PHP echo $row['prix_promo']; ?> <?PHP echo "$";?></h6>
+                  <br>
+                  <h6>PRIX: </h6><h6 class="l-through"><?PHP echo $row['prix']; ?> <?PHP echo "$";?></h6>
+                  
+          
+                    </div>
+                </div>
+              </div>                  
+              </td>
+              <td width="20%"></td>
+              <td width="9%">               
+                      <a href="" class="social-info">
+                      <img class="img-fluid" src="images/pan.png" >                     
+                      </a>
+                    <td width="9%">
+                    <a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
+                      <img class="img-fluid" src="images/det.png" >                     
+                    </a>
+                    <td width="9%">
+                    <a href="supp_wishlist.php?delete=<?php echo $row['id'];?>">
+                                            <img class="img-fluid" src="images/del.png" > </a>
+                                   </td> 
+                                   </td>                  
+              </td>
+                  
+          </tr>
+
+
+
+          <?php
+          }
+          ?>
+
 
 						<?php
 					}

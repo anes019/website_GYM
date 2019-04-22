@@ -5,7 +5,7 @@ include "C:/wamp64/www/website_GYM/entites/wishlist.php";
 class WishlistC {
 
 function ajouter_wishlist($id,$c){
-		$sql="insert into wishlist (id_produit,id_client) values (:id_produit,:id_client)";
+		$sql="INSERT into wishlist (id_produit,id_client) values (:id_produit,:id_client)";
 		$db = config::getConnexion();
 		try{
 		        	$req=$db->prepare($sql);
@@ -18,22 +18,8 @@ function ajouter_wishlist($id,$c){
         }
 		}
 
-
-	function afficher_wishlist_products_client($iddd){
-		$sql="SElECT * FROM produits as p INNER JOIN wishlist as w ON w.id_produit=p.id where w.id_client=:iddd";
-		$db = config::getConnexion();
-
-		try{
-			$req->bindValue(':iddd',$iddd);	
-		$liste=$db->query($sql);
-		return $liste;
-		}
-        catch (Exception $e){
-            die('Erreur: '.$e->getMessage());
-        }	
-	}
-	function afficher_wishlist(){
-		$sql="SElECT * FROM produits as p INNER JOIN wishlist as w ON w.id_produit=p.id";
+	function afficher_wishlist($idc){
+	$sql="SELECT * FROM produits as p INNER JOIN wishlist as w ON w.id_produit=p.id where w.id_client='$idc' ";
 		$db = config::getConnexion();
 		try{	
 		$liste=$db->query($sql);
@@ -44,11 +30,12 @@ function ajouter_wishlist($id,$c){
         }	
 	}
 	
-function supprimer_wishlist($idd){
-		$sql="DELETE FROM wishlist where id_produit= :idd";
+function supprimer_wishlist($idd,$id_c){
+		$sql="DELETE FROM wishlist where id_produit=:idd and id_client=:id_c";
 		$db = config::getConnexion();
         $req=$db->prepare($sql);
 		$req->bindValue(':idd',$idd);
+		$req->bindValue(':id_c',$id_c);
 		try{
             $req->execute();
         }
@@ -56,35 +43,5 @@ function supprimer_wishlist($idd){
             die('Erreur: '.$e->getMessage());
         }
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 	?>

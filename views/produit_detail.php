@@ -73,37 +73,9 @@ font-size: 160%;
 
   </head>
   <body  id="produits">
-  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container">
-	     <a  href="index.html"><img style="position: absolute;  right: 85% ; top:0px" src="images\logo.png" > </a>
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <div class="collapse navbar-collapse" id="ftco-nav" style="background-image: url('');position:  right: 12%">
-	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="program.html" class="nav-link">Program</a></li>
-	          <li class="nav-item"><a href="coaches.html" class="nav-link">Coaches</a></li>
-	   		  <li class="nav-item "><a href="abonements.php" class="nav-link">Abonements</a></li>
-	          <li class="nav-item active"><a href="produits.php" class="nav-link">Produits</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Journal</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	           
-          </ul>
-            <li style="list-style-type:none;" class="main-nav-list"><a href="panier.html" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px"></li>
-            <li style="list-style-type:none;" class="main-nav-list"> <a data-toggle="collapse" href="#Cat2"  > <img style="position: absolute; top: 5px; right: 7%" id="myImage" src="images\acc.png" style="width:30px"></a>
-              <ul class="collapse" id="Cat2" data-toggle="collapse" > 
-                <li ><a href="#"  > <span FONT face="Times New Roman">ACCOUNT </span></a></li>
-                 <li ><a href="affichage_wishlist.php"  > <span FONT face="Times New Roman">WISHLIST </span></a></li>
-                <li ><a  href="login.html"><span FONT face="Times New Roman">LOGIN </span></a> <span> / </span> <a href='index.html'  onclick="document.getElementById('myImage').src='images\acc.png'"> <span FONT face="Times New Roman">LOGOUT </span> </a> </li>
-               
-              </ul>
-            </li>
-	      </div>
-		  </div>
-	  </nav>
-    <!-- END nav -->
+  <?PHP
+	include'header.php' ;
+?>
       <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -145,10 +117,22 @@ font-size: 160%;
 									<div class="name"><?PHP echo $row['nom']; ?></div>
 									<br>
 									<div class="price">
+		<?php if($row['etat']=="false"){ ?>
 										<h6>prix: <?PHP echo $row['prix']."dt"; ?></h6>
 										<br>
 
-									
+			<?php }else{ ?>		
+									<div class="price" >
+										<?PHP echo "PRIX_PROMO:";?>
+									<br>
+										<h6><?PHP echo $row['prix_promo']; ?> <?PHP echo "$";?></h6>
+										<br>
+											<?PHP echo "PRIX:";?>
+									<br>
+										<h6 class="l-through"><?PHP echo $row['prix']; ?> <?PHP echo "$";?></h6>
+										</div>
+
+			<?php }  ?>											
 										<h5><?PHP echo $row['description']; ?></h5>
 										<br>
 										<h5><?PHP if ($row['gout']!=""){ echo "Gout :  ".$row['gout'];} ?></h5>

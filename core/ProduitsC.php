@@ -4,7 +4,7 @@ include "C:/wamp64/www/website_GYM/entites/produit.php";
 class ProduitC {
 	
 	function ajouter_produit($produit){
-		$sql="insert into produits (type,nom,quantite,cat_id,prix,description,ingredient,gout,poids,image) values (:type,:nom,:quantite,:cat_id,:prix,:description,:ingredient,:gout,:poids,:image)";
+		$sql="INSERT into produits (type,nom,quantite,cat_id,prix,description,ingredient,gout,poids,image) values (:type,:nom,:quantite,:cat_id,:prix,:description,:ingredient,:gout,:poids,:image)";
 		$db = config::getConnexion();
 		try{
 		        	$req=$db->prepare($sql);
@@ -186,13 +186,16 @@ public static function afficherProd($id_categorie)
    { $db =config::getConnexion();
    	if($id_categorie!=0)
    {$sql="SELECT * FROM produits where cat_id=:id_categorie order by id";
+
       if($num==1) {$sql="SELECT * FROM produits where cat_id=:id_categorie order by nom";}
       if($num==2) {$sql="SELECT * FROM produits where cat_id=:id_categorie order by type";}
       if($num==3) {$sql="SELECT * FROM produits where cat_id=:id_categorie order by prix";}
       if($num==4) {$sql="SELECT * FROM produits where cat_id=:id_categorie order by prix desc";}
+       if($num==5) {$sql="SELECT * FROM produits where cat_id=:id_categorie and etat='true'";}
     $p=$db->prepare($sql);
     $p->bindParam(':id_categorie',$id_categorie);
-       
+  
+
           $p->execute();
               
                  return $p->fetchAll();
@@ -204,18 +207,21 @@ public static function afficherProd($id_categorie)
       if($num==2) {$sql="SELECT * FROM produits order by type";}
       if($num==3) {$sql="SELECT * FROM produits order by prix";}
       if($num==4) {$sql="SELECT * FROM produits order by prix desc";}
-    $p=$db->prepare($sql);       
+      if($num==5) {$sql="SELECT * FROM produits where etat='true'";}
+    $p=$db->prepare($sql);
+        
           $p->execute();              
                  return $p->fetchAll();
       }
    }
 
- function ajouternote($id,$note)
+ function ajouternote($id,$note,$idc)
  {
-  $sql="UPDATE produits SET note=:note where id=:idd";
+  $sql="INSERT into note (note,id_produit,id_client) values (:note,:idd,:idc)";
     $db = config::getConnexion();
         $req=$db->prepare($sql);
     $req->bindValue(':idd',$id);
+     $req->bindValue(':idc',$idc);
     $req->bindValue(':note',$note);
     try{
             $req->execute();
@@ -225,18 +231,6 @@ public static function afficherProd($id_categorie)
         }
   } 
 
-
-/*
-    public function getstats()
-    {
-        $sql="
-select count(produits.nom_p) as val,categorie.nom as nom_pp from produits inner join categorie on categorie.id=produits.id_categorie group by nom_pp";
-        $db =config::getConnexion();
-        $pst=$db->prepare($sql);
-        $pst->execute();
-        return $pst->fetchAll();
-    }
-*/
 
 
 }

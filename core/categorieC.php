@@ -39,12 +39,16 @@ class categorieC {
 
 
 	function supprimer_categorie($idd){
-		$sql="DELETE FROM categorie where id= :idd";
 		$db = config::getConnexion();
-        $req=$db->prepare($sql);
-		$req->bindValue(':idd',$idd);
+		$sql="DELETE FROM produits where  cat_id=:id_categorie";			
+        $req=$db->prepare($sql);	
+		$req->bindValue(':id_categorie',$idd);
 		try{
             $req->execute();
+	$sql="DELETE FROM categorie where id= :idd";
+	$req=$db->prepare($sql);	
+            $req->bindValue(':idd',$idd);
+             $req->execute();
         }
         catch (Exception $e){
             die('Erreur: '.$e->getMessage());
