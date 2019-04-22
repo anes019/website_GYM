@@ -134,7 +134,8 @@ if (isset($_POST['modifier']))
 	$a=new Abonement($_POST['nom_md'],$_POST['duree_md'],$_POST['cour_md'],$target_dir.$name,$_POST['prix_md']);
 	$abC->modifier_abonement($a,$id);
 	
-	header('Location: affichage_produits.php');
+
+    echo "<script type='text/javascript'>window.location.href = 'affichage_abonement.php';</script>";
 }
 ?>
 

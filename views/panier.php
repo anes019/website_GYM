@@ -52,7 +52,7 @@ require '_header.php';
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
             <h1 class="mb-3 bread">Gym Trainer</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Products</span></p>
+            <p class="breadcrumbs"><span class="mr-2"><a href="produits.php">Home</a></span> <span>Products</span></p>
           </div>
         </div>
       </div>
@@ -150,7 +150,9 @@ require '_header.php';
 						<button>Submit</button>
 					</form>
 					<a href="produits.php" class="site-btn">poursuivre vos achats</a>
-					<a href="login.html" class="site-btn sb-dark">finaliser votre commande </a>
+					<a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
+
+
 				</div>
 			</div>
 		</div>

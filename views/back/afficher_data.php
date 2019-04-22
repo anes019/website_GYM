@@ -49,7 +49,7 @@
 <body >
 <?php 
 include 'head.php'
-?>>
+?>
 
 
 <div class="main-content">

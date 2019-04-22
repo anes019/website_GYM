@@ -14,10 +14,6 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-table"></i>Dashboard</a>                                      
                         </li>
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="../Inscription1.php">
-                                <i class="fas fa-tachometer-alt"></i>ADD ADMIN</a>            
-                        </li>
                         <li >
                             <a href="affichage_categorie.php">
                                 <i class="fas fa-table"></i>Gestion des Categories</a>
@@ -42,6 +38,14 @@
                                 <a href="table_Reclamtion.php">
                                 <i class="fas fa-table"></i>Gestion des Reclamations</a>
                         </li>  
+                        <li>     
+                                <a href="afficherFacture.php">
+                                <i class="fas fa-table"></i>Gestion des Factures</a>
+                        </li> 
+                        <li>     
+                                <a href="afficherCommande.php">
+                                <i class="fas fa-table"></i>Gestion des Commandes</a>
+                        </li> 
                    </ul>
                    
                 </nav>

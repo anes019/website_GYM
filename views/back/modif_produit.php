@@ -151,5 +151,6 @@ if (isset($_POST['modifier'])){
 	$prC->modifier_produit($prod,$id);
 	
 	//header('Location: affichage_produits.php');
+     echo "<script type='text/javascript'>window.location.href = 'affichage_produits.php';</script>";
 }
 ?>

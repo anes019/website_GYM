@@ -149,8 +149,12 @@ include 'head.php'
     <div class="container">  
             <br>
             <br>
-
-            <button type="button" name="btn_enable"  id="btn_mail" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-envelope"></span>  SEND EMAIL</a></button>
+                    <a href="../inscription1.php">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                           <i class="zmdi zmdi-plus"></i>New Admin</button></a> 
+                                           <br>
+                                           <br> 
+                    <button type="button" name="btn_enable"  id="btn_mail" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-envelope"></span>  SEND EMAIL</a></button>
       <button type="button" class="btn btn-lg btn-primary" data-toggle="collapse" data-target="#demo"> <span class="glyphicon glyphicon-info-sign"></span> Update</a></button>
   <div id="demo" class="collapse">
    <h2> to update user data juste modify table value</h2>
@@ -161,7 +165,7 @@ include 'head.php'
             <br />
             <br>
 
-               
+                                      
                     
                 <div class="input-group">
                     

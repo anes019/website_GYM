@@ -1,19 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 <?PHP
 include "C:/wamp64/www/website_GYM/core/ProduitsC.php";
 $produitC=new ProduitC();
 $listeproduits=$produitC->afficher_produit();
 
 ?>
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <style type="text/css">
+        #wiou{
+            right: 5%;
+            position: absolute;
+        }
 
+    </style>
+   
     <!-- Title Page-->
-    <title>Academie</title>
+       <meta charset="utf-8">
+    <title>Data Table</title>
+    <script type="text/javascript" src="datatabel/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="datatabel/datatabel/media/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="datatabel/datatabel/media/css/jquery.dataTables.min.css">
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -37,91 +45,86 @@ $listeproduits=$produitC->afficher_produit();
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
-<body class="animsition">
-    <div class="page-wrapper">
-      
+<body >
 <?php 
 include 'head.php'
 ?>
-       
-            <div class="main-content">
+
+
+<div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid">                
-                        <div >
-                            <div >
-                                <h3 class="title-5 m-b-35">Liste des Produits</h3>
-                                <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <button class="au-btn-filter">
-                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
-                                    </div>
-                                    <div class="table-data__tool-right">
+                    <h3 class="title-5 m-b-35">Liste des Produits</h3>
+                    <div class="container-fluid">
+<div class="table-data__tool-right">
                                         <a href="formulaire_produit.php">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="zmdi zmdi-plus"></i>ajouter</button></a>                                       
-                                    </div>
+                                            <i class="zmdi zmdi-plus"></i>ajouter</button></a>  
                                 </div>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>id</th>
-                                                <th>nom</th>
-                                                <th>Quantite au stock</th>
-                                                <th>description</th>
-                                                <th>poids</th>
-                                                <th>gout</th>
-                                                <th>prix</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>                                            
-                                            <tr class="spacer"></tr>
+<br><br>
+
+
+ <table id="datatables" class="table table-borderless table-striped table-earning">
+ <thead>
+ <tr class="bg-dark text-white text-center">
+ 
+ <th>id</th>
+<th>nom</th>
+<th>Quantite au stock</th>
+<th>description</th>
+ <th>poids</th>       
+  <th>gout</th>
+    <th>prix</th>                                          
+ <th>Supression</th>
+ <th>Modifier
+</th>
+  </tr >
+</thead>
+<tbody>
+
                                             <?php
                                             foreach($listeproduits as $row){ 
                                             ?>
-                                            <tr class="tr-shadow">
-                                                
-                                            <td><?PHP echo $row['id']; ?></td>
+    <tr class="text-center">
+                                                <td><?PHP echo $row['id']; ?></td>
                                                 <td><?PHP echo $row['nom']; ?></td>
                                                 <td><?PHP echo $row['quantite']; ?></td>
                                                 <td><?PHP echo $row['description']; ?></td>
                                                 <td><?PHP echo $row['poids']; ?></td>
                                                 <td><?PHP echo $row['gout']; ?></td>
                                                 <td><?PHP echo $row['prix']; ?></td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                     <a href="modif_produit.php?modif=<?php echo $row['id'];?>">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Modifier">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button></a>
-                                                 
-                                                    <a href="supp_produit.php?delete=<?php echo $row['id'];?>">
-                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Supprimer">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button></a>
-                                                      </div>  
-                                                </td>
-                                            </tr>
-                                                <?PHP
-                                                    }
-                                                    ?>
-                                        </tbody>
-                                    </table>
-                                </div>                               
-                            </div>
-                        </div>
                                             
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+    
+        <td>
+                            <a href="supp_produit.php?delete=<?php echo $row['id'];?>">
+                                <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer">
+                             <i class="zmdi zmdi-delete"></i>Supprimer
+                             </button></a>
+           
+   
+        </td>
+        <td>                              
+             <a href="modif_produit.php?modif=<?php echo $row['id'];?>">
+             <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Modifier">
+                             <i class="zmdi zmdi-edit"></i> Modifier
+                            </button></a>
 
-    </div>
+    </td>
+    </tr>
+    <?PHP
+}
+?>
+</tbody>
+</table>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+
+
+</div>
+</div>
+</div>
+
+
+
     <!-- Bootstrap JS-->
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -140,11 +143,15 @@ include 'head.php'
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
-
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
-
+    <script type="text/javascript">
+        $(document).ready( function () {
+    $('#datatables').DataTable({
+        "lengthMenu": [[3, 10, 20, -1], [3, 10, 20, "All"]]
+    });
+} );
+    </script>
+<script src="js/main.js"></script>
 </body>
 
-
+</html>
 <!-- end document-->

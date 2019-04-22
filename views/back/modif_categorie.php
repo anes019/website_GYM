@@ -104,5 +104,6 @@ if (isset($_POST['modifier'])){
 	$catC->modifier_categorie($caa,$id);
 	
 	//header('Location: affichage_categorie.php');
+       echo "<script type='text/javascript'>window.location.href = 'affichage_categorie.php';</script>";
 }
 ?>
