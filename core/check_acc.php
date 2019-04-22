@@ -6,7 +6,7 @@ include "../Core/Clients.php";
 
   $pseudo =$_POST['email'];
 
-  $pass = $_POST['pass'];
+
 
 
 
