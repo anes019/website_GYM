@@ -127,24 +127,27 @@ foreach($listePubs as $row){
                                             <i class="zmdi zmdi-plus"></i>add Promo </button>
                                         </form>
 
-<h3 class="title-5 m-b-35">Table Promotions</h3>
+<h3 class="title-5 m-b-35">Table Produits En Promo</h3>
 
  <table id="datatables1" class=" table table-borderless table-striped table-earning">
  <thead>
  <tr class="bg-dark text-white text-center">
  
  <th> Id </th>
- <th> Nom </th>
- <th> IDP </th>
- <th>Pour</th>
-    <th> Delete </th>
- <th> Update </th>
+ <th> Id_produit </th>
+ <th> nom_promo </th>
+ <th> pourcentage </th>
+ <th> prix</th>
+ <th> prix_promo</th>
+ <th> delete </th>
+ <th> update </th>
 
   </tr >
 </thead>
 <?php
 $connect = mysqli_connect("localhost", "root", "", "site_web");
-$query = "SELECT * FROM promo ";
+$query = "SELECT promo.id,produits.id,promo.nom,promo.pour,produits.prix,produits.prix_promo FROM promo  
+ inner join produits on promo.idp=produits.id";
  $result = mysqli_query($connect, $query);
 ?>
 
@@ -154,21 +157,23 @@ $query = "SELECT * FROM promo ";
  while($row = mysqli_fetch_array($result))
  {  ?>
     <tr class="text-center">
-    <td><?PHP echo $row['id']; ?></td>
-    <td><?PHP echo $row['nom']; ?></td>
-    <td><?PHP echo $row['idp']; ?></td>
-    <td><?PHP echo $row['pour']; ?>%</td>
+    <td><?PHP echo $row[0]; ?></td>
+    <td><?PHP echo $row[1]; ?></td>
+    <td><?PHP echo $row[2]; ?></td>
+    <td><?PHP echo $row[3]; ?>%</td>
+    <td><?PHP echo $row[4]; ?></td>
+    <td><?PHP echo $row[5]; ?></td>
     <td><form method="POST" action="crud_promo/supprimerPromo.php">
             <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
 
-    <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-    <input type="hidden" value="<?PHP echo $row['idp']; ?>" name="idp">
+    <input type="hidden" value="<?PHP echo $row[0]; ?>" name="id">
+    <input type="hidden" value="<?PHP echo $row[1]; ?>" name="idp">
     </form>
 </td>
         <td><form action="crud_promo/modifierPromo.php">
             <button class="btn btn-success"" type="submit" name="supprimer" value="supprimer"><i class="fa fa-dot-circle-o"></i> Update </button>
 
-    <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+    <input type="hidden" value="<?PHP echo $row[0]; ?>" name="id">
     </form>
     </td>    
     </tr>
@@ -183,50 +188,7 @@ $query = "SELECT * FROM promo ";
 </table>
 
 
-<br>
-<h3 class="title-5 m-b-35">Table Produits En Promo</h3>
 
-
- <table id="datatables3" class="table table-borderless table-striped table-earning">
-
- <thead>
- <tr class="bg-dark text-white text-center">
- 
- <th> Id </th>
-
- <th> prix </th>
- <th> prix_promo </th>
-
- 
-
-  </tr >
-</thead>
-<?php
-$connect1 = mysqli_connect("localhost", "root", "", "site_web");
-$query1 = "SELECT * FROM produits where etat ='true'";
- $result1 = mysqli_query($connect1, $query1);
-?>
-
-
-
-<?PHP
- while($row1 = mysqli_fetch_array($result1))
- {  ?>
-    <tr class="text-center">
-    <td><?PHP echo $row1['id']; ?></td>
-    <td><?PHP echo $row1['prix']; ?></td>
-    <td><?PHP echo $row1['prix_promo']; ?></td>  
- 
-    </tr>
-
-
-    <?PHP
-}
-?>
-
-
-
-</table>
 
 </div>
 </div>
