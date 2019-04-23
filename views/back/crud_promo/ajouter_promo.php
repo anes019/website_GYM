@@ -48,7 +48,28 @@
 
 
         <!-- MENU SIDEBAR-->
-        
+         <div class="page-wrapper">
+
+        <aside class="menu-sidebar d-none d-lg-block">
+            
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+                        <li >
+                            <a class="js-arrow" href="../crud_pub/ajouter_pub.php">
+                                <i class="fas fa-table"></i>formulaire pub</a>                                      
+                        </li>
+                        <li >
+                            <a href="ajouter_promo.php">
+                                <i class="fas fa-table"></i>formulaire promo</a>
+                        </li>
+                       
+                   </ul>
+                   
+                </nav>
+            </div>
+        </aside>
         <!-- END MENU SIDEBAR-->
 
 
@@ -58,18 +79,15 @@
             <!-- HEADER DESKTOP-->
             
             <!-- HEADER DESKTOP-->
-            <br>
-            <br>
-            <br>
-            <br>
+           <br>
      
             <div class="col-lg-2 m-auto">
-    <form action="../afficher_data.php">
+    <form action="../afficher_data1.php">
  <button class="btn btn-success" type="submit" name="done"> View Data </button>
  </form>
  </div> 
               <div class="section__content section__content--p30">
-             <div class="container-fluid">
+             
 
 <form method="post" action="ajout_promo_php.php" enctype='multipart/form-data'>
   <br>
@@ -164,7 +182,7 @@ else
 </div>
 </div>
 </form>
-</div>
+
 </div>
  
 <br><br><br><br>
