@@ -85,7 +85,7 @@ require '_header.php';
                                                 <th>ville</th>
                                                 <th>mode livraison</th>
                                                 <th>mode paiement</th>
-                                                <th></th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <?PHP
@@ -124,12 +124,16 @@ foreach($listecommandes as $row){
                                                     
                                                         <?PHP echo $row['mode_paiement']; ?>
                                                     
-                                                </td>
-                                                
+                                                </td></form>
                                                 <td>
+                                                  <form action="PDF/html2pdf/examples/index.php" method="POST">
+                                                    <button ><image src="images/icons/download.png" style="width:40px">
+                                                            <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+                                                       </button>
+                                                        </form>
                                                     
     
-                                                    </form>
+                                                    
                                                 </td>
                                             </tr>
 
