@@ -13,7 +13,6 @@ echo '<script language="javascript"> alert("Votre reclamation est envoyé '.$_SE
     <?php
 }
 
-//header('Location: index.html');
-	
+
 
 ?>

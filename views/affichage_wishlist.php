@@ -65,8 +65,9 @@
   <body  id="produits">
   
 	       <?PHP
+         session_start();
 include'header.php' ;
-session_start();
+
 include "../core/wishlistC.php";
 $wC=new WishlistC();
 $listew=$wC->afficher_wishlist($_SESSION['ID']);

@@ -1,8 +1,8 @@
 <?PHP
-
+session_start();
 include "../core/wishlistC.php";
 $wC=new WishlistC();
-session_start();
+
 $id=$_GET['id'];
 if(isset($_SESSION['ID']))     
 	          {

@@ -54,7 +54,7 @@ $mail->Username = '';
 $mail->Password = '';
 
 
-$mail->SetFrom('', 'anes');
+$mail->SetFrom('', 'BFACADEMY');
 
 
 $mail->AddAddress($_POST['email']);

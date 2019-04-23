@@ -1,6 +1,6 @@
 <?PHP
 include "../core/abonementC.php";
-
+session_start ();
 $aC=new abonementC();
 $liste_abo=$aC->afficher_abonement_front();
 

@@ -1,4 +1,12 @@
 
+<!DOCTYPE html >
+<html>
+<head>
+	
+</head>
+<body>
+	
+
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
 	     <a  href="index.html"><img style="position: absolute;  right: 85% ; top:0px" src="images\logo.png" > </a>
@@ -42,4 +50,4 @@
 		  </div>
 	  </nav>
 <?php
-?>
+?></body>

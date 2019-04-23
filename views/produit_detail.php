@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 include "../core/crudsC.php";
 $id=$_GET['id'];
 
