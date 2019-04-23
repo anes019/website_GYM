@@ -323,12 +323,12 @@ catch (Exception $err){
 
         $query = "
   SELECT * FROM client 
-  WHERE ID_CLIENT LIKE '%".$var."%'
+  WHERE ((ID_CLIENT LIKE '%".$var."%'
   OR USERNAME LIKE '%".$var."%' 
   OR Firstname LIKE'%".$var."%' 
   OR Lastname LIKE '%".$var."%' 
   OR EMAIL LIKE '%".$var."%'
-    OR mobile LIKE '%".$var."%'
+    OR mobile LIKE '%".$var."%') && role='user')
     ORDER BY ID_CLIENT DESC
   ";
 
