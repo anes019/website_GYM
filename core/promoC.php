@@ -35,7 +35,8 @@ class promoC {
 
     function afficherPromo(){
 
-    $sql="SElECT * From promo";
+    $sql="SELECT promo.id,produits.id,promo.nom,promo.pour,produits.prix,produits.prix_promo FROM promo  
+ inner join produits on promo.idp=produits.id";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
