@@ -49,7 +49,28 @@
 
 
         <!-- MENU SIDEBAR-->
+ <div class="page-wrapper">
 
+        <aside class="menu-sidebar d-none d-lg-block">
+            
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+
+                        <li >
+                            <a class="js-arrow" href="../crud_promo/ajouter_promo.php">
+                                <i class="fas fa-table"></i>formulaire pub</a>                                      
+                        </li>
+                        <li >
+                            <a href="ajouter_promo.php">
+                                <i class="fas fa-table"></i>formulaire promo</a>
+                        </li>
+                       
+                   </ul>
+                   
+                </nav>
+            </div>
+        </aside>
         <!-- END MENU SIDEBAR-->
 
 
@@ -58,9 +79,7 @@
 
            
             <!-- HEADER DESKTOP-->
-            <br>
-            <br>
-<br>
+
 <br>
             <div class="col-lg-2 m-auto">
     <form action="../afficher_data.php">
