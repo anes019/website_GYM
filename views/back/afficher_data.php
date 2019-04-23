@@ -122,72 +122,7 @@ foreach($listePubs as $row){
 
 
 <br>
-    <form action="crud_promo/ajouter_promo.php">
-                                        <button  id="wiou" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="crud_promo/ajouter_pub.php"></a>
-                                            <i class="zmdi zmdi-plus"></i>add Promo </button>
-                                        </form>
-
-<h3 class="title-5 m-b-35">Table Produits En Promo</h3>
-
- <table id="datatables1" class=" table table-borderless table-striped table-earning">
- <thead>
- <tr class="bg-dark text-white text-center">
- 
- <th> Id </th>
- <th> Id_produit </th>
- <th> nom_promo </th>
- <th> pourcentage </th>
- <th> prix</th>
- <th> prix_promo</th>
- <th> delete </th>
- <th> update </th>
-
-  </tr >
-</thead>
-<?php
-$connect = mysqli_connect("localhost", "root", "", "site_web");
-$query = "SELECT promo.id,produits.id,promo.nom,promo.pour,produits.prix,produits.prix_promo FROM promo  
- inner join produits on promo.idp=produits.id";
- $result = mysqli_query($connect, $query);
-?>
-
-
-
-<?PHP
- while($row = mysqli_fetch_array($result))
- {  ?>
-    <tr class="text-center">
-    <td><?PHP echo $row[0]; ?></td>
-    <td><?PHP echo $row[1]; ?></td>
-    <td><?PHP echo $row[2]; ?></td>
-    <td><?PHP echo $row[3]; ?>%</td>
-    <td><?PHP echo $row[4]; ?></td>
-    <td><?PHP echo $row[5]; ?></td>
-    <td><form method="POST" action="crud_promo/supprimerPromo.php">
-            <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
-
-    <input type="hidden" value="<?PHP echo $row[0]; ?>" name="id">
-    <input type="hidden" value="<?PHP echo $row[1]; ?>" name="idp">
-    </form>
-</td>
-        <td><form action="crud_promo/modifierPromo.php">
-            <button class="btn btn-success"" type="submit" name="supprimer" value="supprimer"><i class="fa fa-dot-circle-o"></i> Update </button>
-
-    <input type="hidden" value="<?PHP echo $row[0]; ?>" name="id">
-    </form>
-    </td>    
-    </tr>
-
-
-    <?PHP
-}
-?>
-
-
-
-</table>
-
-
+   
 
 
 </div>
