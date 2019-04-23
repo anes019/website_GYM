@@ -21,14 +21,17 @@
 	          <li class="nav-item"><a href="schedule.php" class="nav-link">Schedule</a></li>
 	          <li class="nav-item"><a href="produits.php" class="nav-link">Produits</a></li>
 	            <li class="nav-item"><a href="abonements.php" class="nav-link">Abonements</a></li>
+	           
 	         
 	          <?php
 
 	          if(!isset( $_SESSION['l']))     
 	          {
 	          		?>
-	          	         <li class="nav-item"><a href="Inscription.php" class="nav-link">Inscription</a></li>	
+	          	         <li class="nav-item"><a href="Inscription.php" class="nav-link">Inscription</a></li>
+
 	          	         <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+
 	         <?php 
 	     }else {
 
@@ -36,11 +39,12 @@
 				<li class="nav-item"><a href="affichage_wishlist.php" class="nav-link">Whishlist</a></li>
  					<li class="nav-item"><a href="reclamation.php" class="nav-link">Reclamation</a></li>
  					<li class="nav-item"><a href="page profil.php" class="nav-link">Profil</a></li>
+
 	      <?php   } 
 	           ?>
 	 			
 	          
-	          
+	           <li style="list-style-type:none;" class="main-nav-list"><a href="panier.php" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px"></a></li>
 	         </ul>
        
 
