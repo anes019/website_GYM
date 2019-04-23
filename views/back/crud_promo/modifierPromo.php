@@ -72,7 +72,7 @@ if (isset($_GET['id'])){
 if (isset($_POST['modifier'])){
          if(empty($_POST['nom']) || empty($_POST['pour']))
        {
-          header('Location: ../afficher_data.php');
+          header('Location: ../afficher_data1.php');
        }
        else
 	{
@@ -80,7 +80,7 @@ if (isset($_POST['modifier'])){
    $promoC->updatePromo_Produit($idp,$_POST['pour']);
 	$promoC->modifierPromo($promo,$_POST['cin_ini']);
 	echo $_POST['cin_ini'];
-	header('Location: ../afficher_data.php');
+	header('Location: ../afficher_data1.php');
 }
 }
 ?>
