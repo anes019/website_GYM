@@ -28,7 +28,11 @@
                         </li>   
                         <li >
                             <a href="afficher_data.php">
-                                <i class="fas fa-table"></i>Gestion des Pubs et Promos</a>
+                                <i class="fas fa-table"></i>Gestion des Pubs </a>
+                        </li>
+                        <li >
+                            <a href="afficher_data1.php">
+                                <i class="fas fa-table"></i>Gestion des Promos</a>
                         </li> 
                         <li >
                             <a href="table_Client.php">
