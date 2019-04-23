@@ -157,6 +157,20 @@ $req->bindValue(':id',$id);
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+
+
+	function recupererFactureC($id){
+		$sql="SELECT * from facture where id_cmd=$id";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+	}
 }
 
 ?>
