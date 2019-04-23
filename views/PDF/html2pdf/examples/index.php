@@ -1,16 +1,18 @@
 <?php
 
-require 'C:/wamp/www/crud/views/pi-web-svn/PDF/vendor/autoload.php';
+require 'C:/wamp64/www/website_GYM/views/PDF/vendor/autoload.php';
 
 use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
-       include "C:/wamp/www/crud/config.php";
-include "C:/wamp/www/crud/core/factureC.php";
+       include "C:/wamp64/www/website_GYM/config.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
+include "C:/wamp64/www/website_GYM/entites/facture.php";
 
-$facture1C=new factureC();
-$listefactures=$facture1C->afficherFacture();
+
+$factureC=new factureC();
+$listefactures=$factureC->recupererFactureC($_POST['id']);
 		/*$rowcount=mysqli_num_rows($result1);*/
 
 try {
@@ -64,9 +66,8 @@ try {
     <table class="border">
         <thead>
             <tr>
-                <th style="width: 52%">Description</th>
+                <th style="width: 64%">Description</th>
                 <th style="width: 12%">Quantité</th>
-                <th style="width: 12%">Taille</th>
                 <th style="width: 12%">Prix</th>
                 <th style="width: 12%">Montant</th>
             </tr>
@@ -75,7 +76,6 @@ try {
             <tr>
                 <td><?= $row['nom_prod']; ?></td>
                 <td><?= $row['quantite']; ?></td>
-                <td><?= $row['taille']; ?></td>
                 <td><?= number_format($row['prix'],2); ?> DT</td>
                 <td><?= number_format($row['total'],2); ?> DT</td>
             </tr>
