@@ -1,5 +1,6 @@
 <?php 
- include'header.php' 
+ include'header.php' ;
+ session_start();
  ?>
 <?php  
 require '_header.php';

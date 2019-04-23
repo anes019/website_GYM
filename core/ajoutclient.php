@@ -48,13 +48,13 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 
 
-$mail->Username = 'loka01478@gmail.com';
+$mail->Username = '';
 
 
-$mail->Password = 'anes1996';
+$mail->Password = '';
 
 
-$mail->SetFrom('BFACADEMY@gmail.com', 'anes');
+$mail->SetFrom('', 'anes');
 
 
 $mail->AddAddress($_POST['email']);

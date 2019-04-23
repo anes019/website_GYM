@@ -15,7 +15,7 @@
 	            <li class="nav-item"><a href="abonements.php" class="nav-link">Abonements</a></li>
 	         
 	          <?php
-session_start();
+
 	          if(!isset( $_SESSION['l']))     
 	          {
 	          		?>

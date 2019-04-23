@@ -1,6 +1,6 @@
 <?PHP
 include "../core/Clients.php";
-
+session_start();
 	include'header.php' ;
 
 
