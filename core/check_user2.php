@@ -12,7 +12,7 @@ if (preg_match($regex, $_POST['pseudo']))
   
 
   try{
- $db = config::getConnexion();
+ $db = configa::getConnexion();
   $db->exec('SET NAMES utf8');
   }
   

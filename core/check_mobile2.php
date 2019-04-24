@@ -13,7 +13,7 @@ if (preg_match($regex, $_POST['mobile']))
   
 
   try{
- $db = config::getConnexion();
+ $db = configa::getConnexion();
   $db->exec('SET NAMES utf8');
   }
   

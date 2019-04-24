@@ -7,7 +7,9 @@
 require '_header.php';
 ?>
 <?PHP
+
 include "../core/crudsC.php";
+
 $catC=new categorieC();
 $listecategorie=$catC->afficher_categorie();
 $prC=new ProduitC();

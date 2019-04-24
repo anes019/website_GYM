@@ -1,5 +1,17 @@
 <?php 
- include'header.php' 
+ include'header.php';
+session_start();
+  if(isset( $_SESSION['l']))  
+  {
+       ?>
+      <script language="javascript">
+  
+window.location.href="../views/page profil.php";
+
+
+</script>
+<?PHP 
+  } 
  ?>
 <html lang="en">
   <head>

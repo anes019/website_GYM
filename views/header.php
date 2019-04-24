@@ -1,8 +1,13 @@
-
+<?PHP
+require  "../core/Clients.php";
+?>
 <!DOCTYPE html >
+
 <html>
 <head>
-	
+	   <script src="scrip.js"></script>
+ <link rel="stylesheet" href="styl.css">
+
 </head>
 <body>
 	
@@ -32,19 +37,52 @@
 
 	          	         <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
 
+
 	         <?php 
 	     }else {
 
 ?>					
 				<li class="nav-item"><a href="affichage_wishlist.php" class="nav-link">Whishlist</a></li>
  					<li class="nav-item"><a href="reclamation.php" class="nav-link">Reclamation</a></li>
- 					<li class="nav-item"><a href="page profil.php" class="nav-link">Profil</a></li>
+ 					
+ 					      <?PHP
+        
+            $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
 
-	      <?php   } 
+foreach($info as $row){
+  ?> 
+<div id='cssmenu' style="top: -12px;">
+
+<ul >
+
+   <li class='active '><a href='#'>
+
+   	<img class="pad" id="output" style="  height:50px  ;width:50px ;   border-radius:80px;   " alt="" /></a>
+   	  
+      <ul>
+      		  <p><?PHP  echo  $row['USERNAME']; ?></p>
+
+
+	  
+         <li ><a href='page profil.php'><span>Profil</span></a>
+         </li>
+            <li ><a href="../core/logout.php"><span>Logout</span></a>
+         </li>
+       
+      </ul>
+   </li>
+
+</ul>
+    <?php   } }
 	           ?>
-	 			
+</div>
+	 
+
+
+    	
 	          
-	           <li style="list-style-type:none;" class="main-nav-list"><a href="panier.php" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px"></a></li>
+	           <li style="list-style-type:none;" class="main-nav-list"><a href="panier.php" class="nav-link"><img  src="images\icons\panier1.png" style="width:40px "></a></li>
 	         </ul>
        
 
@@ -54,4 +92,28 @@
 		  </div>
 	  </nav>
 <?php
-?></body>
+
+?>
+<script type="text/javascript">
+  
+         function previewFile(){
+       var preview = document.getElementById('output');
+     
+
+           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
+       }
+
+ previewFile(); 
+
+
+
+</script>
+<script >
+	 $('#clickable_div').mouseover( function(){
+    $('#nav_menu').slideDown();
+})
+$('#wrap').mouseleave( function(){
+    $('#nav_menu').slideUp();
+});
+</script>
+</body>

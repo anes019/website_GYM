@@ -1,5 +1,5 @@
 <?PHP
-include "../core/Clients.php";
+
 session_start();
 	include'header.php' ;
 
@@ -104,7 +104,7 @@ session_start();
       <div class="col-sm-3"><!--left col-->
      
        <div class="text-center">
-         <img  id="output" style="  height:150px  ;width:150px ;  border-radius:80px;  " src=""/>
+         <img  id="output2" style="  height:150px  ;width:150px ;  border-radius:80px;  " src=""/>
          <br>
          <br>
          <label id="#bb" style="  padding: 10px; background: #212529b8;  display: table; color: #fff;  "> Change photo
@@ -323,13 +323,13 @@ foreach($info as $row){ }
              <div class="form-group">
                           <div class="col-xs-6">
                              <label for="mobile"><h4>PASSWORD</h4></label>
-                              <input type="text" class="form-control" name="password" id="PASSWORD"   >
+                              <input type="password" class="form-control" name="password" id="PASSWORD"   >
                                <span class="check_ok2" style="color:#149541; font-size:1em;"></span>
       <span class="check_false2"  style="color:#F55 ; font-size:1em;"></span>
                           </div>
                            <div class="col-xs-6">
                              <label for="mobile"><h4>VERIFY PASSWORD</h4></label>
-                              <input type="text" class="form-control" name="pass2" id="pass2"  >
+                              <input type="password" class="form-control" name="pass2" id="pass2"  >
                                <span class="check_ok2" style="color:#149541; font-size:1em;"></span>
       <span class="check_false2"  style="color:#F55 ; font-size:1em;"></span>
                           </div>
@@ -468,14 +468,14 @@ else if(pass.value!=pass2.value)
 
 <script type="text/javascript">
   
-         function previewFile(){
-       var preview = document.getElementById('output');
+         function previewFile2(){
+       var preview = document.getElementById('output2');
      
 
            preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
        }
 
- previewFile(); 
+ previewFile2(); 
 </script>
 
  <script>
