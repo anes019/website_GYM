@@ -58,11 +58,11 @@
                     <ul class="list-unstyled navbar__list">
 
                         <li >
-                            <a class="js-arrow" href="../crud_promo/ajouter_promo.php">
+                            <a class="js-arrow" href="ajouter_pub.php">
                                 <i class="fas fa-table"></i>formulaire pub</a>                                      
                         </li>
                         <li >
-                            <a href="ajouter_promo.php">
+                            <a href="../crud_promo/ajouter_promo.php">
                                 <i class="fas fa-table"></i>formulaire promo</a>
                         </li>
                        
