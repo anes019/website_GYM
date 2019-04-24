@@ -51,6 +51,24 @@ function ajouterPub_liked($client,$id){
     
   }
 
+
+    function selectPub_liked($client,$id){
+$connect = mysqli_connect("localhost", "root", "", "site_web");
+$query1 = "SELECT * FROM pub_liked where (client='$client' && pub='$id')";
+$result1 = mysqli_query($connect, $query1);
+$rowcount=mysqli_num_rows($result1);
+return $rowcount;
+}
+   
+
+   function update_like($id)
+{ $connect = mysqli_connect("localhost", "root", "", "site_web");
+  $query = "UPDATE pub SET nb=nb+1 WHERE id='$id'";
+ $result = mysqli_query($connect, $query);
+
+
+}
+
     function afficherPub(){
 
     $sql="SElECT * From pub";
