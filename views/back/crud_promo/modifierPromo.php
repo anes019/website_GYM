@@ -42,6 +42,7 @@ if (isset($_GET['id'])){
  <div class="col-12 col-md-9">
       <label> Pourcentage: </label>
        <select name="pour" id="im" value="<?PHP echo $pour ?>" class="form-control">
+        <option value="<?PHP echo $pour ?>"><?PHP echo $pour ?>%</option>
        <option value="0">choix</option>
        <option value="10">10%</option>
        <option value="20">20%</option>
