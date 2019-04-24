@@ -25,6 +25,7 @@ $liste_abo=$aC->afficher_abonement_front();
     <link rel="stylesheet" href="css/linearicons2.css">
     <link rel="stylesheet" href="css/themify-icons2.css">
   </head>
+  
   <body  id="produits">
 
 	        <?php 
