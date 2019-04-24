@@ -11,7 +11,7 @@
                     <ul class="list-unstyled navbar__list">
 
                         <li >
-                            <a class="js-arrow" href="#">
+                            <a href="dash.php">
                                 <i class="fas fa-table"></i>Dashboard</a>                                      
                         </li>
                         <li >
