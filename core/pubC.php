@@ -31,10 +31,54 @@ class pubC {
 		
 	}
 
-
+function ajouterPub_liked($client,$id){
+    $sql="insert into pub_liked (client,pub) values (:client, :pub)";
+    $db = config::getConnexion();
+    try{
+        $req=$db->prepare($sql);
+    
+       
+       
+    $req->bindValue(':client',$client);
+    $req->bindValue(':pub',$id);
+       
+            $req->execute();
+          
+        }
+        catch (Exception $e){
+            echo 'Erreur: '.$e->getMessage();
+        }
+    
+  }
 
     function afficherPub(){
-
+function ajouterPub($pub){
+    $sql="insert into pub (nom,pos,im,nb,nb_dis) values (:nom, :pos,:im,0,0)";
+    $db = config::getConnexion();
+    try{
+        $req=$db->prepare($sql);
+    
+        $nom=$pub->getNom();
+        $pos=$pub->getPos();
+        $im=$pub->getIm();
+       if(empty($nom) || empty($pos) || empty($im) )
+       {
+          echo "Erreur";
+       }
+       else
+       {
+    $req->bindValue(':nom',$nom);
+    $req->bindValue(':pos',$pos);
+    $req->bindValue(':im',$im);
+    
+            $req->execute();
+        }   
+        }
+        catch (Exception $e){
+            echo 'Erreur: '.$e->getMessage();
+        }
+    
+  }
     $sql="SElECT * From pub";
     $db = config::getConnexion();
     try{
