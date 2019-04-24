@@ -2,7 +2,7 @@
 
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="dash.php">
                     <img src="images/icon/logo.png" alt="BF Academie" />
                 </a>
             </div>
