@@ -71,7 +71,6 @@ include 'head.php'
  <th> Nom </th>
  <th> Position </th>
   <th> NB_Like </th>
-  <th> NB_Dislike </th>
  <th> image </th>
     <th> Delete </th>
  <th> Update </th>
@@ -93,7 +92,6 @@ foreach($listePubs as $row){
     <td><?PHP echo $row['nom']; ?></td>
     <td><?PHP echo $row['pos']; ?></td>
     <td><?PHP echo $row['nb']; ?></td>
-    <td><?PHP echo $row['nb_dis']; ?></td>
     <td>
         <div class="image">
     	<img hight="400px" width="200px" src='crud_pub/<?php echo $row['im']; ?>' >
