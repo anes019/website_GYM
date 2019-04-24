@@ -1,12 +1,26 @@
 <?PHP
 session_start();
-include "../core/crudsC.php";
+include "../core/ProduitsC.php";
 $id=$_GET['id'];
 
-$catC=new categorieC();
-$listecategorie=$catC->afficher_categorie();
 $prC=new ProduitC();
 $listeproduit=$prC->recuperer_produit($id);
+
+if(isset($_SESSION['ID']))     
+	          {
+	          	$idc=$_SESSION['ID'];
+	//afficher note          	
+$sql=" SELECT * from note where id_client='$idc' and id_produit='$id'";
+    $db = config::getConnexion();   
+$listnot=$db->query($sql);
+
+                                            
+                                          
+
+       
+
+}
+
 ?>
 
 <head>
@@ -113,10 +127,11 @@ font-size: 160%;
 							<td width="60 %"></td>
 						<td>
 
-							<div class="single-product">																		
+							<div class="single-product">																	
 								<div class="product-details">
 									<div class="name"><?PHP echo $row['nom']; ?></div>
-									<br>
+									
+									
 									<div class="price">
 		<?php if($row['etat']=="false"){ ?>
 										<h6>prix: <?PHP echo $row['prix']."dt"; ?></h6>
@@ -145,9 +160,21 @@ font-size: 160%;
 										else{echo "out of stock";}
 										?>																	
 										<br> 
-
 										</h5>
-							 <td width="40%"> <?php  if ($row['note']==0){echo "veuillez noter ce produit ";?></td>
+										<div class="note"> Evaluation : <br><?PHP echo $row['note']; ?> stars</div>
+
+							 <td width="40%"> 								
+									</div>
+								</div>
+							</div>
+							</td>
+							<td width="40%"></td>
+
+
+<?php	foreach($listnot as $row){ 
+                                            	
+                                            if($row['note']==0){echo "veuillez noter ce produit ";?></td>
+
 						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=1" class="social-info">
 												<img  src="images/star_w.png" width="30" height="30">
 												</a></td>
@@ -163,27 +190,43 @@ font-size: 160%;
 						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=5" class="social-info">
 												<img width="30" height="30" src="images/star_w.png">
 												</a></td>
-												<?php 
-													}
-													else{
-														for($i=0;$i<$row['note'];$i++){
-													?><td>
-													<img src="images/star.png" width="30" height="30"></td>
+					<?php 
+						}
+							else{
+							for($i=0;$i<$row['note'];$i++){
+					?>	<td><a href="<?php echo "ajouter_note.php?id=".$row['id']."&note=".$i."" ?> " class="social-info">
+												<img width="30" height="30" src="images/star.png">
+
 													<?php
 													}
-												}
+													for($i=$row['note'];$i<5;$i++){
+?>
+										<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=$i" class="social-info">
+												<img width="30" height="30" src="images/starw.png">
+	<?php											}}} 
 
-												?>																
-									</div>
-								</div>
-							</div>
-							</td>
-							<td width="40%"></td>
+												?>		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<td>
 							<td width="9%">								
-											<a href="" class="social-info">
-											<img  src="images/pan.png" >											
-											</a>
+											<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
+											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>											
+											
 								<td width="9%">			
 										<a href="whichlist_ajout.php?id=<?php echo"$id"?>" class="social-info">
 													<img  src="images/wish.png" >	
@@ -206,8 +249,7 @@ font-size: 160%;
 		</div>
 	</div>
 </div>
-
-
+								
 
 
 
@@ -228,7 +270,7 @@ font-size: 160%;
   
   
   <script src="js/main.js"></script>
-  
+    <script type="text/javascript" src="app.js"> </script>
 
 
   </body>

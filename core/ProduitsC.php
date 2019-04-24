@@ -55,8 +55,18 @@ class ProduitC {
 
 
 	function supprimer_produit($idd){
-		$sql="DELETE FROM produits where id= :idd";
-		$db = config::getConnexion();
+   $db = config::getConnexion(); 
+   $sql="DELETE FROM wishlist where id_produit= :idd";    
+        $req=$db->prepare($sql);
+    $req->bindValue(':idd',$idd);
+$req->execute();
+
+    $sql="DELETE FROM promo where idp= :idd";   
+        $req=$db->prepare($sql);
+    $req->bindValue(':idd',$idd);
+$req->execute();
+
+		$sql="DELETE FROM produits where id= :idd";		
         $req=$db->prepare($sql);
 		$req->bindValue(':idd',$idd);
 		try{

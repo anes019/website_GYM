@@ -82,14 +82,7 @@ $liste_abo=$aC->recuperer_abonement($id);
 								</div>
 							</div>
 							</td>
-							<td width="20%"></td>
-					<td>
-							<td width="9%">								
-											<a href="" class="social-info">
-											<img class="img-fluid" src="images/pan.png" >						</a>
-                            </td>                  
-					</td>
-																												
+															
 					</tr>						
 					
 														<?php

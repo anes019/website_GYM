@@ -39,7 +39,15 @@ class categorieC {
 
 
 	function supprimer_categorie($idd){
+
+
 		$db = config::getConnexion();
+
+
+		$sql="DELETE from wishlist where id_produit in (SElECT id from produits where cat_id=:id_categorie)";
+		  $req=$db->prepare($sql);	
+		$req->bindValue(':id_categorie',$idd);	
+		$req->execute();
 		$sql="DELETE from promo where idp in (SElECT id from produits where cat_id=:id_categorie)";
 		  $req=$db->prepare($sql);	
 		$req->bindValue(':id_categorie',$idd);

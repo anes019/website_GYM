@@ -207,20 +207,15 @@ $idc=0;
 
 									<div class="prd-bottom">
 												<a href="whichlist_ajout.php?id=<?php echo $row['id']?>"  class="social-info">
-													<img class="img-fluid" src="images/wish.png"  title="wishlist">	
-												</a>
+											<img class="img-fluid" src="images/wish.png"  title="wishlist">	</a>
 								
 												<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
-													<img class="img-fluid" src="images/det.png" title="details" >											
-												</a>
+											<img class="img-fluid" src="images/det.png" title="details" alt="details" title="Details"></a>
 
-											  <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
-											class="addPanier"
-										 class="social-info" >
-											<span class="ti-bag"></span>
-											<p class="hover-text" >ajouter au panier</p>
-										</a>
+											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
+											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" ></a>
 									</div>
+
 
 								</div>
 								

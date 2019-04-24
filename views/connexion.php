@@ -5,26 +5,12 @@
 <body>
 <?php 
 include 'User.php';
-//$log="admin";
-//$pwd="admin";
-/*$servername="localhost";
-	$username="root";
-	$password="";
-	$dbname="dblogin";
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", 
-	$username, $password);
-	$req="select * from users where user_name='$login' && user_pass='$pwd'";
-	$rep=$conn->query($req);
-	$res=$rep->fetchAll();
-	*/
+
 $c=new Database();
 $conn=$c->connexion();
 $user=new User($_POST['login'],$_POST['pwd'],$conn);
 $u=$user->Logedin($conn,$_POST['login'],$_POST['pwd']);
 
-	//var_dump($u);
-//$logR=$_POST['login'];
-//$pwdR=$_POST['pwd'];
 $vide=false;
 if (!empty($_POST['login']) && !empty($_POST['pwd'])){
 	

@@ -197,13 +197,15 @@ $listeproduit=$prC->afficherProd_triee($idc,$num);
 
 									<div class="prd-bottom">
 												<a href="whichlist_ajout.php?id=<?php echo $row['id']?>"  class="social-info">
-													<img class="img-fluid" src="images/wish.png"  title="wishlist">	
-												</a>
+											<img class="img-fluid" src="images/wish.png"  title="wishlist">	</a>
 								
 												<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
-													<img class="img-fluid" src="images/det.png" title="details" >											
-												</a>
+											<img class="img-fluid" src="images/det.png" title="details" alt="details" title="Details"></a>
+
+											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
+											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" ></a>
 									</div>
+
 
 								</div>
 								
@@ -235,7 +237,7 @@ $listeproduit=$prC->afficherProd_triee($idc,$num);
   <script src="js/google-map.js"></script>
  
   <script src="js/main.js"></script>
-
+  <script type="text/javascript" src="app.js"> </script>
 <script type="text/javascript">
 	document.getElementById("sor").addEventListener('change', function () {
     window.location = this.value;

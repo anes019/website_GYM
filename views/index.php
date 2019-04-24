@@ -1,7 +1,150 @@
 
 <?php
-include 'pub_front.php';
+session_start();
+//index.php
+$connect = mysqli_connect("localhost", "root", "", "site_web");
+function make_query($connect)
+{
+ $query = "SELECT * FROM pub where pos =1";
+ $result = mysqli_query($connect, $query);
+ return $result;
+}
 
+function make_query2($connect)
+{
+ $query = "SELECT * FROM pub where pos =2";
+ $result = mysqli_query($connect, $query);
+ return $result;
+}
+function make_query3($connect)
+{
+ $query = "SELECT * FROM pub where pos =3";
+ $result = mysqli_query($connect, $query);
+ return $result;
+}
+function make_slide_indicators($connect)
+{
+ $output = ''; 
+ $count = 0;
+ $result = make_query($connect);
+ while($row = mysqli_fetch_array($result))
+ {
+  if($count == 0)
+  {
+   $output .= '         
+   <li data-target="#dynamic_slide_show" data-slide-to="'.$count.'" class="active"></li>
+ 
+
+   ';
+  }
+  else
+  {
+   $output .= '
+   <li data-target="#dynamic_slide_show" data-slide-to="'.$count.'"></li>
+   ';
+  }
+  $count = $count + 1;
+ }
+ return $output;
+}
+
+function make_slides($connect)
+{
+ $output = '';
+ $count = 0;
+ $result = make_query($connect);
+ while($row = mysqli_fetch_array($result))
+ {
+  if($count == 0)
+  {
+   $output .= '<div class="item active">';
+  }
+  else
+  {
+   $output .= '<div class="item">';
+  }
+  $output .= '
+   <img id ="skip253" src="back/crud_pub/'.$row["im"].'" alt="'.$row["pos"].'" />
+
+   <div class="carousel-caption">
+
+   </div>
+<form method="POST" action="nblike.php">
+  <button class="btn btn-primary btn-sm" id="butt" type="submit" name="done"> Like </button>
+  <button class="btn btn-primary btn-sm" id="butt1" type="submit" name="idone"> Dislike </button>
+      <input type="hidden" value="'.$row["id"].'" name ="id" >
+</form>
+  </div>
+  ';
+  $count = $count + 1;
+ }
+ return $output;
+}
+function make_slides2($connect)
+{
+ $output = '';
+ $count = 0;
+ $result = make_query2($connect);
+ while($row = mysqli_fetch_array($result))
+ {
+  if($count == 0)
+  {
+   $output .= '<div class="item active">';
+  }
+  else
+  {
+   $output .= '<div class="item">';
+  }
+  $output .= '
+   <img id ="skip253" src="back/crud_pub/'.$row["im"].'" alt="'.$row["pos"].'" />
+
+   <div class="carousel-caption">
+
+   </div>
+<form method="POST" action="nblike.php">
+  <button class="btn btn-primary btn-sm" id="butt" type="submit" name="done"> Like </button>
+  <button class="btn btn-primary btn-sm" id="butt1" type="submit" name="idone"> Dislike </button>
+      <input type="hidden" value="'.$row["id"].'" name ="id" >
+</form>
+  </div>
+  ';
+  $count = $count + 1;
+ }
+ return $output;
+}
+
+function make_slides3($connect)
+{
+ $output = '';
+ $count = 0;
+ $result = make_query3($connect);
+ while($row = mysqli_fetch_array($result))
+ {
+  if($count == 0)
+  {
+   $output .= '<div class="item active">';
+  }
+  else
+  {
+   $output .= '<div class="item">';
+  }
+  $output .= '
+   <img id ="skip253" src="back/crud_pub/'.$row["im"].'" alt="'.$row["pos"].'" />
+
+   <div class="carousel-caption">
+
+   </div>
+<form method="POST" action="nblike.php">
+  <button class="btn btn-primary btn-sm" id="butt" type="submit" name="done"> Like </button>
+  <button class="btn btn-primary btn-sm" id="butt1" type="submit" name="idone"> Dislike </button>
+      <input type="hidden" value="'.$row["id"].'" name ="id" >
+</form>
+  </div>
+  ';
+  $count = $count + 1;
+ }
+ return $output;
+}
 ?>
 
 
@@ -31,7 +174,7 @@ position: absolute;
   #pop2{
           height: 200px;
      width: 900px;
-        bottom: -260%;
+        bottom: -275%;
      right: 18%;
      position: absolute;
   }
@@ -114,7 +257,6 @@ right: 18%;
    <?PHP
   include'header.php' ;
 ?>
-
     <!-- END nav -->
   
   
@@ -913,7 +1055,7 @@ right: 18%;
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="js/jquery.min.js"></script>
+
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>

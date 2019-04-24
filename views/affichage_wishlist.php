@@ -115,7 +115,8 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
 							</td>
 							<td width="20%"></td>
 							<td width="9%">								
-											<a href="" class="social-info">
+											<a href="ajouterPanier.php?id=<?php echo $row['id']?>"
+										 class="social-info" >
 											<img class="img-fluid" src="images/pan.png" >											
 											</a>
 										<td width="9%">
@@ -154,9 +155,9 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
               </td>
               <td width="20%"></td>
               <td width="9%">               
-                      <a href="" class="social-info">
-                      <img class="img-fluid" src="images/pan.png" >                     
-                      </a>
+                       <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
+										 class="social-info" >
+											<img class="img-fluid" src="images/pan.png" ></a>
                     <td width="9%">
                     <a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
                       <img class="img-fluid" src="images/det.png" >                     
@@ -186,7 +187,7 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
 	</div>
 </div>
 
-   <script src="js/jquery.min.js"></script>
+      <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -203,5 +204,6 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script type="text/javascript" src="app.js"> </script>
 
   </body>
