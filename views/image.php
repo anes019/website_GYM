@@ -60,7 +60,7 @@ $('#image_upload_form').ajaxForm({
 <div id="imgContainer">
   <form enctype="multipart/form-data" action="image_demo.php" method="post" name="image_upload_form" id="image_upload_form">
    
-    <div id="imgArea"> <img src="./uploades/medium/''">
+    <div id="imgArea"> <img src="./uploades/medium/'time.jpg'">
 
       <div class="progressBar">
         <div class="bar"></div>
