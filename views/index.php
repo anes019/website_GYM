@@ -2,6 +2,7 @@
 <?php
 
 include 'pub_front.php'
+
 ?>
 
 
@@ -31,31 +32,32 @@ position: absolute;
   #pop2{
           height: 200px;
      width: 900px;
-        bottom: -275%;
+        bottom: -265%;
      right: 18%;
      position: absolute;
   }
 
   #butt{
         height: 30px;
-     width: 80px;
+     width: 120px;
         bottom: 83%;
-     right: 53.2%;
+     right: 46%;
      position: absolute;
   }
     #butt1{
         height: 30px;
      width: 80px;
         bottom: 83%;
-     right: 45%;
+     right: 35%;
      position: absolute;
   }
     #pop3{
           height: 200px;
      width: 900px;
         
-     right: 18%;
-     position: absolute;
+     margin-left: 250px;
+     margin-bottom: 20px;
+    
   }
   #toR{
 right: 18%;
@@ -149,41 +151,10 @@ right: 18%;
     </section> 
     <br>
     <br>
-
-
-
-<div id="pop">
-
-<button id="close "  class="btn-danger btn" onclick="document.getElementById('pop').style.display='none'">x</button>
-  PUB
-   <br>
-
-   <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-    <?php echo make_slide_indicators($connect); ?>
-    </ol>
-
-    <div class="carousel-inner">
-     <?php echo make_slides($connect); ?>
-    </div>
-    <a class="left carousel-control" href="#dynamic_slide_show" data-slide="prev">
-     <span class="glyphicon glyphicon-chevron-left"></span>
-     <span class="sr-only">Previous</span>
-    </a>
-
-    <a class="right carousel-control" href="#dynamic_slide_show" data-slide="next">
-     <span class="glyphicon glyphicon-chevron-right"></span>
-     <span class="sr-only">Next</span>
-    </a>
-
- 
-  </div>
-
-</div>
-     
- 
-
-
+<!---pub1-->
+<?php
+pub_pos1();
+?>
 
 
     <section class="ftco-section-services ftco-degree">
@@ -286,24 +257,10 @@ right: 18%;
       </div>
     </section>
 <!--pub2-->
-  <div id="pop2">
-
-<button id="close "  class="btn-danger btn" onclick="document.getElementById('pop2').style.display='none'">x</button>
-  PUB
-   <br>
-
-   <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
+<?php
+pub_pos2();
+?>
   
-
-    <div class="carousel-inner">
-     <?php echo make_slides2($connect); ?>
-    </div>
-    
-
- 
-  </div>
-
-</div>
 
   
 
@@ -804,7 +761,9 @@ right: 18%;
       </div>
     </section>
 
-
+<?php
+pub_pos3();
+?>
     <footer class="ftco-footer ftco-section img">
       <div class="overlay"></div>
       <div class="container">
@@ -881,26 +840,8 @@ right: 18%;
           </div>
         </div>
       </div>
- <div id="pop3">
+ <!---pub3--->
 
-<button id="close "  class="btn-danger btn" onclick="document.getElementById('pop3').style.display='none'">x</button>
-  PUB
-   <br>
-
-   <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
-    
-
-    <div class="carousel-inner">
-     <?php echo make_slides3($connect); ?>
-    </div>
-     <br>
-
-    
-
- 
-  </div>
-
-</div>
 
     </footer>
     
