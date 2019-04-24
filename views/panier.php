@@ -4,6 +4,7 @@ session_start();
  ?>
 <?php  
 require '_header.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,6 +97,7 @@ require '_header.php';
               $ids = array_keys($_SESSION['panier']);
               if(empty($ids)){
                 $produits = array();
+
               }else{
                 $produits = $DB->query('SELECT * FROM produits WHERE id IN ('.implode(',', $ids).')');
               }
@@ -150,8 +152,23 @@ require '_header.php';
 						<input type="text" placeholder="Enter promo code">
 						<button>Submit</button>
 					</form>
+
+
+
+
+              <?php
+              $ids = array_keys($_SESSION['panier']);
+              if(empty($ids)){
+                ?>
+                <a href="panier.php" class="site-btn sb-dark" onclick="panier_vide()">finaliser votre commande </a>
+             
+
+        <?php      }else{?>
+               <a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
+          <?php    }    ?>
+              ?>
 					<a href="produits.php" class="site-btn">poursuivre vos achats</a>
-					<a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
+					
 
 
 				</div>
@@ -232,6 +249,7 @@ require '_header.php';
       </div>
     </footer>
 		
+  <script type="text/javascript" src="panier_vide.js"> </script>
 
 </body>
 </html>
