@@ -276,7 +276,12 @@
                    <img src="<?php echo $produit->image; ?>" alt="">
                     <div class="pc-title">
                       <h4><?= $produit->nom; ?></h4>
-                      <p><?= number_format($produit->prix,3,',',' '); ?>DT</p>
+                      <p><?php
+                         if($produit->etat=='false'){
+                         echo number_format($produit->prix,3,',',' ').' DT';
+                        }else{
+                  
+                 echo number_format($produit->prix_promo,3,',',' ').' DT'; } ?></p>
                       <p><?= $_SESSION['panier'][$produit->id]; ?></p>
                     </div>
                 </tr>
