@@ -1,5 +1,5 @@
 (function($){
- $('#addPanier').click(function(event){
+ $('.addPanier').click(function(event){
  	$.get($(this).attr('href'),{},function(data){
  		if(data.error){
  			alert(data.message);
