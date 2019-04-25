@@ -86,15 +86,15 @@ session_start();
   
   <ul>
     <li>
-      <input type="radio"  id="one" name="choix" value="Option1"   />
-      <label for="one" >Option 1</label>
+      <input type="radio"  id="one" name="choix" value="probleme d'achat en ligne"   />
+      <label for="one" >problème d'achat en ligne</label>
       
       <div class="check"></div>
     </li>
     
     <li>
-      <input type="radio"  id="two" name="choix" value="Option2" />
-      <label for="two" >Option 2</label>
+      <input type="radio"  id="two" name="choix" value="service dans la salle" />
+      <label for="two" >service dans la salle </label>
       
       <div class="check"></div>
     </li>
@@ -121,7 +121,6 @@ session_start();
 
                         
           </div>
-
 
 
           <div class="flex-m w-full p-b-33">
@@ -190,8 +189,6 @@ session_start();
     
       <script>
             var formValid = document.getElementById('login');
-           
-
             var prenom1= document.getElementById('mail');
             var missPrenom1 = document.getElementById('email');
             var termuse= document.getElementById('ter');
@@ -208,9 +205,6 @@ session_start();
 
             function validation(event){
       
-             
-
-
                  if ((prenom1.validity.valueMissing==false && usernameValid.test(prenom1.value) == false) &&(prenom1.validity.valueMissing==false && emailValid.test(prenom1.value))  == false){
                     event.preventDefault();
                     missPrenom1.textContent = 'user name or mail invalid';
@@ -238,30 +232,8 @@ if (checkBox.checked == false) {
                 else { con.textContent = '';  } 
 }
 
- function previewFile(){
-       var preview = document.getElementById('output');
-       var file    = document.querySelector('input[type=file]').files[0]; 
-       var reader  = new FileReader();
-
-       reader.onloadend = function () {
-           preview.src = reader.result;
-       }
-
-       if (file) {
-           reader.readAsDataURL(file); 
-       } else {
-           preview.src = "https://vignette.wikia.nocookie.net/desencyclopedie/images/4/4d/Image_blanche.png/revision/latest?cb=20101103154301";
-       }
-  }
-
-  previewFile(); 
-
-        </script>
-        <script>
-  function validation() {
-window.open('image.php?mavar=change photo','Change photo','width=300, height=300');
-}
 </script>
+
 
   </body>
 </html>
