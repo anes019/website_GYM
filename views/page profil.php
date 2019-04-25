@@ -131,11 +131,16 @@ session_start();
     
           </ul> 
           <br>
+
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-               <li >useful links <i class="fa fa-dashboard fa-1x"></i></li>
-                                
+               <li >useful links 
+
+
+                <i class="fa fa-dashboard fa-1x"></i></li>
+                          
 
                             </ul>
+   
  <li  style="position: absolute; top: 660px;"><a  href="../core/logout.php">Log out</a> <br></li>
     
           
@@ -158,6 +163,8 @@ session_start();
       <li><a href="#2" data-toggle="tab" style="position: relative;  left: 70%; " >SETTINGS</a>
       </li>
       <li><a href="#3" data-toggle="tab" style="position: relative;  left: -980%; top: 540px;">Claims</a>
+      </li>
+      <li><a href="affichage_wishlist.php"  style="position: relative;  left: 70%; " >Wishlist</a>
       </li>
         <li><a href="#4" data-toggle="tab" style="position: relative;  left: -350%; top: 585px; ">CHANGE PASSWORD  <br>
           <br>

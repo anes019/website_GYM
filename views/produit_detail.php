@@ -6,20 +6,7 @@ $id=$_GET['id'];
 $prC=new ProduitC();
 $listeproduit=$prC->recuperer_produit($id);
 
-if(isset($_SESSION['ID']))     
-	          {
-	          	$idc=$_SESSION['ID'];
-	//afficher note          	
-$sql=" SELECT * from note where id_client='$idc' and id_produit='$id'";
-    $db = config::getConnexion();   
-$listnot=$db->query($sql);
 
-                                            
-                                          
-
-       
-
-}
 
 ?>
 
@@ -115,6 +102,7 @@ font-size: 160%;
 										<tbody>
 											<?php
                                             foreach($listeproduit as $row){ 
+                                            	$idp=$row['id'];
                                             ?>		
 						<tr>
 							<?php 
@@ -169,61 +157,63 @@ font-size: 160%;
 							</div>
 							</td>
 							<td width="40%"></td>
+							                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 
-<?php	foreach($listnot as $row){ 
-                                            	
-                                            if($row['note']==0){echo "veuillez noter ce produit ";?></td>
+<?php	
+if(isset($_SESSION['ID']))     
+	          {
+	          	$idc=$_SESSION['ID'];
+	//afficher note          	
+$sql=" SELECT * from note where id_client='$idc' and id_produit='$id'";
+    $db = config::getConnexion(); 
 
-						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=1" class="social-info">
-												<img  src="images/star_w.png" width="30" height="30">
-												</a></td>
-						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=2" class="social-info">
-												<img width="30" height="30" src="images/star_w.png">
-												</a></td>
-						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=3" class="social-info">
-												<img width="30" height="30" src="images/star_w.png">
-												</a></td>
-						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=4" class="social-info">
-												<img width="30" height="30" src="images/star_w.png">
-												</a></td>									
-						<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=5" class="social-info">
-												<img width="30" height="30" src="images/star_w.png">
-												</a></td>
-					<?php 
-						}
-							else{
-							for($i=0;$i<$row['note'];$i++){
-					?>	<td><a href="<?php echo "ajouter_note.php?id=".$row['id']."&note=".$i."" ?> " class="social-info">
+$listnot=$db->query($sql);
+
+if($listnot->rowCount()) {
+ 
+                                           foreach($listnot as $row){
+                                          					
+													for($i=0;$i<5;$i++){
+														if($row['notee']>$i)
+														{
+					?>	<td><a href="<?php echo "ajouter_note.php?id=".$idp."&note=".($i+1)."" ?> " class="social-info">
 												<img width="30" height="30" src="images/star.png">
 
-													<?php
-													}
-													for($i=$row['note'];$i<5;$i++){
-?>
-										<td><a href="ajouter_note.php?id=<?php echo $row['id'];?>&note=$i" class="social-info">
-												<img width="30" height="30" src="images/starw.png">
-	<?php											}}} 
 
-												?>		
+											<?php }else{ ?>
 
 
+												<td><a href="<?php echo "ajouter_note.php?id=".$idp."&note=".($i+1)."" ?> " class="social-info">
+												<img width="30" height="30" src="images/star_w.png">
+											<?php }
 
+													
+													}}}
 
+												else{
 
-
-
-
-
-
-
+													for($i=0;$i<5;$i++){
+														?>
+						<td><a href="<?php echo "ajouter_note.php?id=".$idp."&note=".($i+1)."" ?> " class="social-info">
+												<img width="30" height="30" src="images/star_w.png">
+												
 
 
 
 
 
-					<td>
-							<td width="9%">								
+
+
+
+<?php
+
+												}}}  ?>
+
+									
+
+					<td width="80%">
+							<td width="80%">								
 											<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
 											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>											
 											
@@ -270,7 +260,7 @@ font-size: 160%;
   
   
   <script src="js/main.js"></script>
-    <script type="text/javascript" src="app.js"> </script>
+  
 
 
   </body>

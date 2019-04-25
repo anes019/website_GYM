@@ -218,6 +218,7 @@ public static function afficherProd($id_categorie)
       if($num==3) {$sql="SELECT * FROM produits order by prix";}
       if($num==4) {$sql="SELECT * FROM produits order by prix desc";}
       if($num==5) {$sql="SELECT * FROM produits where etat='true'";}
+       if($num==6) {$sql="SELECT * FROM produits order by note";}
     $p=$db->prepare($sql);
         
           $p->execute();              
@@ -227,8 +228,15 @@ public static function afficherProd($id_categorie)
 
  function ajouternote($id,$note,$idc)
  {
-  $sql="INSERT into note (note,id_produit,id_client) values (:note,:idd,:idc)";
+
     $db = config::getConnexion();
+  
+   $sql="DELETE from note where id_produit='$id' and id_client='$idc' ";
+    $req=$db->prepare($sql);  
+    $req->execute();
+
+  $sql="INSERT into note (notee,id_produit,id_client) values (:note,:idd,:idc)";
+  
         $req=$db->prepare($sql);
     $req->bindValue(':idd',$id);
      $req->bindValue(':idc',$idc);
