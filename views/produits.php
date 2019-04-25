@@ -250,7 +250,26 @@ $idc=0;
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-  <script type="text/javascript" src="app.js"></script>
+  <script>
+(function($){
+ $('.addPanier').click(function(event){
+ 	$.get($(this).attr('href'),{},function(data){
+ 		if(data.error){
+ 			alert(data.message);
+ 		}else{
+ 			if(confirm(data.message +'. Voulez vous consulter votre panier ?')){
+ 				location.href = 'panier.php' ;
+ 			}else{
+ 				$('#total').empty.append(data.total);
+ 				$('#count').empty.append(data.count);
+ 			}
+ 		}
+ 	},'json');
+ 	return false;
+ });
+})(jQuery);
+
+  </script>
 
 
 <script type="text/javascript">
