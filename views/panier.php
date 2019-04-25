@@ -87,7 +87,6 @@ require '_header.php';
 								<tr>
 									<th class="product-th">Produit</th>
 									<th class="quy-th">Quantité</th>
-						
 									<th class="total-th">Prix</th>
                   <th class="total-th">Actions</th>
 								</tr>
@@ -163,9 +162,13 @@ require '_header.php';
                 <a href="panier.php" class="site-btn sb-dark" onclick="panier_vide()">finaliser votre commande </a>
              
 
-        <?php      }else{?>
+        <?php      }else{
+                          if($panier->count() == 0){  ?>
+                            <a href="panier.php" class="site-btn sb-dark" onclick="qte_nulle()">finaliser votre commande </a>
+                        <?php  }else{
+                        ?>
                <a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
-          <?php    }    ?>
+          <?php    } }   ?>
               ?>
 					<a href="produits.php" class="site-btn">poursuivre vos achats</a>
 					
@@ -249,7 +252,7 @@ require '_header.php';
       </div>
     </footer>
 		
-  <script type="text/javascript" src="panier_vide.js"> </script>
+  <script type="text/javascript" src="controle_panier.js"> </script>
 
 </body>
 </html>
