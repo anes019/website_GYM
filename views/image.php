@@ -1,6 +1,8 @@
 <?PHP
-include "Clients.php";
+
 session_start ();  
+
+require  "../core/Clients.php";
 
 
 
@@ -59,9 +61,16 @@ $('#image_upload_form').ajaxForm({
 
 <div id="imgContainer">
   <form enctype="multipart/form-data" action="image_demo.php" method="post" name="image_upload_form" id="image_upload_form">
-   
-    <div id="imgArea"> <img src="./uploades/medium/'time.jpg'">
+              <?PHP
+        
+            $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
 
+foreach($info as $row){
+
+  ?> 
+    <div id="imgArea"> <img src="uploades/medium/<?PHP echo $row['IMAGE']; ?>" alt="Smiley face">
+<?php } ?>
       <div class="progressBar">
         <div class="bar"></div>
         <div class="percent">0%</div>
