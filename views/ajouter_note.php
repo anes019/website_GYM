@@ -10,12 +10,9 @@ if(isset($_SESSION['ID']))
 $idc=$_SESSION['ID'];
 	$pC->ajouternote($id,$note,$idc);
 	
-    $sql="SELECT AVG(note) from note where id_produit='$id' ";
-      $db = config::getConnexion();        
-$rate=$db->query($sql);
-        $sql="UPDATE produits set note=:note where id='$id'";
-         $req=$db->prepare($sql);
-    $req->bindValue(':note',$rate);
+      $db = config::getConnexion();
+        $sql="UPDATE produits set note=(SELECT AVG(notee) from note where id_produit='$id') where id='$id'";
+         $req=$db->prepare($sql);  
 $req->execute();
 
 
