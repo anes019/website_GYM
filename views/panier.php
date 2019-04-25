@@ -121,8 +121,14 @@ require '_header.php';
 											</div>
                     </div>
 									</td>
-									
-									<td class="total-col"><h4><?= number_format($produit->prix,3,',',' '); ?> DT</h4></td>
+									<?php
+                         if($produit->etat=='false'){?>
+                          <td class="total-col"><h4><?= number_format($produit->prix,3,',',' '); ?> DT</h4></td>
+                  <?php       }else{
+                  ?>
+									<td class="total-col"><h4><?= number_format($produit->prix_promo,3,',',' '); ?> DT</h4></td>
+
+                  <?php } ?>
                   <td class="size-col"><a class="zmdi zmdi-delete" href="panier.php?delPanier=<?= $produit->id; ?> ">supprimer 
                 </a>
                     
