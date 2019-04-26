@@ -170,7 +170,8 @@ require '_header.php';
 
         <?php      }else{
                           if($panier->count() == 0){  ?>
-                            <a href="panier.php" class="site-btn sb-dark" onclick="qte_nulle()">finaliser votre commande </a>
+
+                            <a href="panier.php" class="site-btn sb-dark" onclick="qte_nulle()">finaliser votre commande</a>
                         <?php  }else{
                         ?>
                <a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
