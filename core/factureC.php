@@ -83,7 +83,7 @@ class factureC {
 
 
 	function modifierFacture($facture,$id){
-		$sql="UPDATE facture SET  id_cmd=:id_cmd,nom_prenom=:nom_prenom, adresse=:adresse,region=:region,ville=:ville,mode_livraison=:mode_livraison,quantite=:quantite, WHERE id=:id";
+		$sql="UPDATE facture SET  id_cmd=:id_cmd , nom_prenom=:nom_prenom, adresse=:adresse , region=:region , ville=:ville , mode_livraison=:mode_livraison , nom_prod=:nom_prod , quantite=:quantite , prix=:prix , total=:total WHERE id=:id";
 		
 		$db = config::getConnexion();
 		//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
@@ -113,11 +113,11 @@ $req->bindValue(':id',$id);
 		$req->bindValue(':region',$region);
 		$req->bindValue(':ville',$ville);
 		$req->bindValue(':mode_livraison',$mode_livraison);
-		//$req->bindValue(':nom_prod',$nom_prod);
+		$req->bindValue(':nom_prod',$nom_prod);
 		$req->bindValue(':quantite',$quantite);
 	
-		//$req->bindValue(':prix',$prix);
-	
+		$req->bindValue(':prix',$prix);
+	$req->bindValue(':total',$prix);
 		
 		
 		
