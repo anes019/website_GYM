@@ -187,7 +187,18 @@ function modifierImage($Client,$login,$pwd){
             die('Erreur: '.$err->getMessage());
         }	
 	}
-
+  
+  function afficherClient2($login){
+    $sql="SElECT * From client WHERE token='$login' ";
+    $db = configa::getConnexion();
+    try{
+    $info=$db->query($sql);
+    return $info;
+    }
+        catch (Exception $err){
+            die('Erreur: '.$err->getMessage());
+        } 
+  }
   function afficheradmin($login,$pwd){
     $sql="SElECT * From admins WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
     $db = configa::getConnexion();

@@ -4,13 +4,36 @@ include "Clients.php";
 if(isset($_GET['activation_code']))
 {
 	 $client=new Clients();
+	 $info=$client->afficherClient2($_GET['activation_code']);
+
+foreach($info as $row){
+if($row['EmailConfirmed']==1)
+{
+	session_start();
+	    $_SESSION['l']= $row['USERNAME'];
+    $_SESSION['p']=$row['PASSWORD'];
+			      ?>
+      <script language="javascript">
+      	 alert('Mail already confirmed  ');
+
+location.replace("../views/page profil.php");
+
+</script>
+<?PHP 
+} 
+else {
+
+ 
 $msg=$client->activer($_GET['activation_code']);
 	if($msg='ok')  
 	{  
+		session_start();
+	    $_SESSION['l']= $row['USERNAME'];
+    $_SESSION['p']=$row['PASSWORD'];
 		      ?>
       <script language="javascript">
-      	 alert('Mail confirmed  ');
-location.replace("../views/login.php");
+      	 alert('Mail confirmed ');
+location.replace("../views/page profil.php");
 
 </script>
 <?PHP 
@@ -20,7 +43,8 @@ location.replace("../views/login.php");
 		echo 'error';
 	}
 }
-else{echo 'error2' ; }
+} }
+else{echo 'error2' ; } 
  ?>
 
 

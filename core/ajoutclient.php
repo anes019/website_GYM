@@ -48,13 +48,13 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 
 
-$mail->Username = '';
+$mail->Username = 'anes.temani@esprit.tn';
 
 
-$mail->Password = '';
+$mail->Password = 'anes1996';
 
 
-$mail->SetFrom('', 'BFACADEMY');
+$mail->SetFrom('BFACADEMY@gmail.com', 'BFACADEMY');
 
 
 $mail->AddAddress($_POST['email']);
@@ -79,7 +79,7 @@ try {
       ?>
       <script language="javascript">
       	 alert('thank you for your registration please verify your email ');
-window.location.href="../views/login.php";
+window.location.href="../views/login2.php";
 
 
 </script>

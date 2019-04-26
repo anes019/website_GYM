@@ -79,11 +79,12 @@ require '_header.php';
                                         <thead>
                                             <tr>
                                                 
-                                                <th>nom et prenom</th>
-                                                <th>numero téléphone mobile</th>
+                                                <th>nom et prenom</th>                                                
+                                                <th>produit commandé</th>
+                                                <th>quantite</th>
+                                                <th>prix</th>
+                                               
                                                 <th>adresse</th>
-                                                <th>région</th>
-                                                <th>ville</th>
                                                 <th>mode livraison</th>
                                                 <th>mode paiement</th>
                                                 <th>Actions</th>
@@ -91,10 +92,16 @@ require '_header.php';
                                         </thead>
                                         <?PHP
 include "C:/wamp64/www/website_GYM/core/commandeC.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
+            $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
+
+foreach($info as $row1){
+  $nom_prenom=$row1['Firstname'].' '.$row1['Lastname'];
+
 $commande1C=new commandeC();
-$listecommandes=$commande1C->afficherCommande();
-?>                          
-<?PHP
+$listecommandes=$commande1C->recupererCommandenom($nom_prenom);
+
 foreach($listecommandes as $row){
     ?>                 
                                         <tbody> 
@@ -105,18 +112,17 @@ foreach($listecommandes as $row){
                                                 <td>
                                                    <?PHP echo $row['nom_prenom']; ?> 
                                                 </td>
-                                                <td><?PHP echo $row['tel']; ?></td>
+                                                <td><?PHP echo $row['nom_prod']; ?></td>
                                                    
                                                 <td>
-                                                    <?PHP echo $row['adresse']; ?>
+                                                    <?PHP echo $row['quantite']; ?>
                                                 </td>
-                                                <td><?PHP echo $row['region']; ?></td>
+                                                <td><?PHP echo $row['prix']; ?></td>
                                                     
-                                                <td>
-                                                   <?PHP echo $row['ville']; ?>
+                                                
+                                               <td>
+                                                   <?PHP echo $row['adresse']; ?>
                                                 </td>
-
-                                               
                                              
                                                 <td>
                                                     <?PHP echo $row['mode_livraison']; ?>
@@ -140,7 +146,7 @@ foreach($listecommandes as $row){
 
 
                                                                                         <?PHP
-}
+}}
 ?>
                                         </tbody>
 
