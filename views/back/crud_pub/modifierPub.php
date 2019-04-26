@@ -87,14 +87,14 @@ if (isset($_GET['id'])){
 if (isset($_POST['modifier'])){
          if(empty($_POST['nom']) || empty($_POST['pos'])|| empty($name))
        {
-          header('Location: ../afficher_data.php?page=1&sort=2');
+          header('Location: ../afficher_data.php?page=1&sort=2&trie=0');
        }
        else
 	{$target_dir = "upload/";
    $pub=new pub($_POST['nom'],$_POST['pos'],$target_dir.$name);
 	$pubC->modifierPub($pub,$_POST['cin_ini']);
 	echo $_POST['cin_ini'];
-	header('Location: ../afficher_data.php?page=1&sort=2');
+	header('Location: ../afficher_data.php?page=1&sort=2&trie=0');
 }
 }
 ?>
