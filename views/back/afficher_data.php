@@ -59,11 +59,50 @@ include 'head.php'
                                         <button  id="wiou" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="crud_pub/ajouter_pub.php"></a>
                                             <i class="zmdi zmdi-plus"></i>add PUB </button>
                                         </form>
+          
 <h3 class="title-5 m-b-35">table Pubs</h3>
-  
+  <select id="sor" class="">
+      <?PHP 
+      $x=$_GET['sort'];
+      switch ($x) {
+          case '2':
+                   ?>       <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>">3</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>"">5</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>"">10</option>
+             <?PHP  break;
+          case '3':         
+                   ?>       
+
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>">3</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>">default(2)</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>"">5</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>"">10</option>
+             <?PHP  break;
+             case '5':
+                   ?>      <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>"">5</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>">3</option>
+                             <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>"">10</option>
+             <?PHP  break;
+             case '10':     
+                   ?>       <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>"">10</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>">3</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>"">5</option>
+                            
+             <?PHP  break;
+          default:
+              # code...
+              break;
+      }
 
 
- <table id="datatables" class="table table-borderless table-striped table-earning">
+      ?>
+                            
+                        </select>    
+<br>
+ <table  class="table table-borderless table-striped table-earning">
  <thead>
  <tr class="bg-dark text-white text-center">
  
@@ -80,8 +119,20 @@ include 'head.php'
 <tbody>
 <?PHP
 include "C:/wamp64/www/website_GYM/core/pubC.php";
+$pa=$_GET['sort'];
+$page=$_GET['page'];
+
+
+if ($page== "" ||$page=="1") {
+   $page1=0;
+}
+else
+{
+  $page1=($page*$pa)-$pa;
+
+}
 $pub1C=new pubC();
-$listePubs=$pub1C->afficherPub();
+$listePubs=$pub1C->afficherPub($page1,$pa);
 ?>
 
 <?PHP
@@ -93,9 +144,9 @@ foreach($listePubs as $row){
     <td><?PHP echo $row['pos']; ?></td>
     <td><?PHP echo $row['nb']; ?></td>
     <td>
-        <div class="image">
-    	<img hight="400px" width="200px" src='crud_pub/<?php echo $row['im']; ?>' >
-</div>
+       
+    	<img hight="800px" width="400px" src='crud_pub/<?php echo $row['im']; ?>' >
+
     </td>
         <td><form method="POST" action="crud_pub/supprimer_pub.php">
             <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
@@ -115,10 +166,23 @@ foreach($listePubs as $row){
 ?>
 </tbody>
 </table>
+<?PHP
+$count=$pub1C->row_count_Pub();
+$count =ceil($count/$pa);
+echo "<br>";
+?>
+<a class="btn btn-success" href="afficher_data.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>"><?PHP echo"Debut";?></a>
+<?PHP
+for ($i=1; $i <=$count ; $i++) { 
+    ?><a id="page" class="btn btn-success"href="afficher_data.php?page=<?PHP echo $i; ?>&sort=<?PHP echo $_GET['sort'] ?>"><?PHP echo $i;?></a>
+      
 
+   
 
-
-
+    <?PHP
+}
+?>
+<a class="btn btn-success" href="afficher_data.php?page=<?PHP echo $count; ?>&sort=<?PHP echo $_GET['sort'] ?>"><?PHP echo" fin";?></a>
 <br>
    
 
@@ -169,6 +233,16 @@ foreach($listePubs as $row){
     });
 } );
     </script>
+    <script type="text/javascript">
+    document.getElementById("sor").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
+   <script type="text/javascript">
+    document.getElementById("page").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
     <!-- Main JS-->
 <script src="js/main.js"></script>
 </body>
