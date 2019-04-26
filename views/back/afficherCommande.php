@@ -85,7 +85,6 @@ include 'head.php'
                                                 <th class="text-right">numero</th>
                                                 <th class="text-right">produit</th>
                                                 <th class="text-right">quantite</th>
-                                                <th class="text-right">taille</th>
                                                 <th class="text-right">prix</th>
                                                 <th class="text-right">adresse</th>
                                                 <th class="text-right">région</th>
@@ -97,7 +96,7 @@ include 'head.php'
                                         </thead>
                                         <tbody>
                                              <?PHP
-include "../../../core/commandeC.php";
+include "C:/wamp64/www/website_GYM/core/commandeC.php";
 $commande1C=new commandeC();
 $listecommandes=$commande1C->afficherCommande();
 ?>                          
@@ -134,7 +133,6 @@ foreach($listecommandes as $row){
                                                 <td><?PHP echo $row['tel']; ?></td>
                                                 <td><?PHP echo $row['nom_prod']; ?></td>
                                                 <td><?PHP echo $row['quantite']; ?></td>
-                                                <td><?PHP echo $row['taille']; ?></td>
                                                 <td><?PHP echo $row['prix']; ?></td>
                                                 <td>
                                                     <?PHP echo $row['adresse']; ?>
