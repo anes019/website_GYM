@@ -85,7 +85,6 @@ include 'head.php'
                                                 <th class="text-right">Id commande</th>
                                                 <th class="text-right">Produit</th>
                                                 <th class="text-right">Quantite</th>
-                                                <th class="text-right">Taille</th>
                                                 <th class="text-right">Prix</th>
                                                 <th class="text-right">Total</th>
                                                 <th class="text-right">Adresse</th>
@@ -96,8 +95,8 @@ include 'head.php'
                                         </thead>
                                         <tbody>
                                             <?PHP
-include "C:/wamp/www/crud/config.php";
-include "../../../core/factureC.php";
+include "C:/wamp64/www/website_GYM/config.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
 
 $facture1C=new factureC();
 $listefactures=$facture1C->afficherFacture();
@@ -134,7 +133,6 @@ foreach($listefactures as $row){
                                                 <td><?PHP echo $row['id_cmd']; ?></td>
                                                 <td><?PHP echo $row['nom_prod']; ?></td>
                                                 <td><?PHP echo $row['quantite']; ?></td>
-                                                <td><?PHP echo $row['taille']; ?></td>
                                                 <td><?PHP echo $row['prix']; ?></td>
                                                  <td><?PHP echo $row['total']; ?></td>
                                                 <td><?PHP echo $row['adresse']; ?></td>
