@@ -69,9 +69,9 @@ return $rowcount;
 
 }
 
-    function afficherPub(){
+    function afficherPub($page,$pa){
 
-    $sql="SElECT * From pub";
+    $sql="SElECT * From pub limit $page,$pa";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
@@ -81,6 +81,24 @@ return $rowcount;
             die('Erreur: '.$e->getMessage());
         } 
   }
+
+
+function row_count_Pub(){
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "site_web";
+
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+$query = "SELECT id FROM produits where etat ='false'";
+
+$result1 = mysqli_query($connect, $query);
+$rowcount=mysqli_num_rows($result1);
+return $rowcount;
+
+}
 
 
     function supprimerPub($id){
