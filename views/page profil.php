@@ -36,8 +36,49 @@ session_start();
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style type="text/css">
 
+  <style type="text/css">
+     
+      .sale {
+  position: relative;
+  display: inline-block;
+  background: orange;
+  color: white;
+  height: 40px ;
+  width: 40px ;
+  border-radius: 8px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 2.5rem;
+
+  left: 80%;
+  transform: rotate(-20deg);
+  animation: beat 1s ease infinite alternate;
+  &:before,
+  &:after {
+    content:"";
+    position: absolute;
+    background: inherit;
+    height: inherit;
+    width: inherit;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotate(30deg);
+  }
+  &:after {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes beat {
+  from {  transform: rotate(-20deg) scale(1); }
+  to {  transform: rotate(-20deg) scale(1.1); }
+}
+
+
+  
+    
            body{
    
 }
@@ -164,9 +205,9 @@ session_start();
       </li>
       <li><a href="#3" data-toggle="tab" style="position: relative;  left: -980%; top: 540px;">Claims</a>
       </li>
-      <li><a href="affichage_wishlist.php"  style="position: relative;  left: 70%; " >Wishlist</a>
+      <li><a href="#5" data-toggle="tab" style="position: relative;  left: 70%; " >Wishlist</a>
       </li>
-        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -350%; top: 585px; ">CHANGE PASSWORD  <br>
+        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -390%; top: 585px; ">CHANGE PASSWORD  <br>
           <br>
           <br></a>
       </li>
@@ -185,7 +226,17 @@ $info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
 foreach($info as $row){
 
   ?> 
+<script type="text/javascript">
+  
+         function previewFile2(){
+       var preview = document.getElementById('output2');
+     
 
+           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
+       }
+
+ previewFile2(); 
+</script>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Username</label>
@@ -300,11 +351,129 @@ foreach($info as $row){ }
                                 <button name="btn_contact_details" id="btn_contact_details" class="btn btn-lg btn-success" id="save">
                 Save
               </button>
-                         
+
                             </div>
                       </div>
                 </form> 
         </div>
+
+    <div class="tab-pane" id="5">
+       
+   
+
+         <?PHP
+
+
+include "../core/wishlistC.php";
+$wC=new WishlistC();
+$listew=$wC->afficher_wishlist($_SESSION['ID']);
+
+?>
+
+  <div class="container">
+    <div class="row">
+    
+
+    <div class="col-xl-9 col-lg-8 col-md-7">
+
+        <table class="lattest-product-area pb-40 category-list" id="example" width="">
+        <tbody>
+                      <?php
+                                            foreach($listew as $row){ 
+                                            ?>
+                                            <br><br>  
+                                            <?php 
+        if($row['etat']=="false"){
+        ?>  
+            <tr>
+              <td><img src='<?php echo $row['image']; ?>' width="200" height="250" >
+                <br><br></td>
+
+              <td>
+              <div class="single-product">  
+                <div class="product-details">
+                  <h6><?PHP echo $row['nom']; ?></h6>
+                  <div class="price"><h6>prix: <?PHP echo $row['prix']; ?> dt</h6></div>  
+                </div>
+              </div>                  
+              </td>
+              <td width="20%"></td>
+              <td width="9%">               
+                      <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
+                     class="social-info" >
+                      <img class="img-fluid" src="images/pan.png" >                     
+                      </a>
+                    <td width="9%">
+                    <a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
+                      <img class="img-fluid" src="images/det.png" >                     
+                    </a>
+                    <td width="9%">
+                    <a href="supp_wishlist.php?delete=<?php echo $row['id'];?>">
+                                            <img class="img-fluid" src="images/del.png" > </a>
+                                   </td> 
+                                   </td>                  
+              </td>
+                  
+          </tr>
+          <?php   }
+        else{
+          $pour= (($row['prix']-$row['prix_promo'])/$row['prix'])*100;
+        ?>
+  <tr>
+              <td><span class="sale">-<?PHP echo $pour ?>%</span><img src='<?php echo $row['image']; ?>' width="200" height="250" >
+                <br><br></td>
+
+              <td>
+              <div class="single-product">  
+                <div class="product-details">
+                  <h6><?PHP echo $row['nom']; ?></h6>
+                  <div class="price" >
+                    <h6> PRIX Promo: <?PHP echo $row['prix_promo']; ?> <?PHP echo "$";?></h6>
+                  <br>
+                  <h6>PRIX: </h6><h6 class="l-through"><?PHP echo $row['prix']; ?> <?PHP echo "$";?></h6>
+                  
+          
+                    </div>
+                </div>
+              </div>                  
+              </td>
+              <td width="20%"></td>
+              <td width="9%">               
+                       <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
+                     class="social-info" >
+                      <img class="img-fluid" src="images/pan.png" ></a>
+                    <td width="9%">
+                    <a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
+                      <img class="img-fluid" src="images/det.png" >                     
+                    </a>
+                    <td width="9%">
+                    <a href="supp_wishlist.php?delete=<?php echo $row['id'];?>">
+                                            <img class="img-fluid" src="images/del.png" > </a>
+                                   </td> 
+                                   </td>                  
+              </td>
+                  
+          </tr>
+
+
+
+          <?php
+          } }
+          ?>
+
+
+        </tbody>
+        </table>      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        </div>
+
         <div class="tab-pane" id="3">
            <div class="row">
                <div class="col-md-6">
@@ -439,6 +608,7 @@ foreach($info as $row){ }
 
 
 
+  <script type="text/javascript" src="app.js"> </script>
 
 
 <script src="js/profil.js"></script>
@@ -473,17 +643,7 @@ else if(pass.value!=pass2.value)
 }
 </script>
 
-<script type="text/javascript">
-  
-         function previewFile2(){
-       var preview = document.getElementById('output2');
-     
 
-           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
-       }
-
- previewFile2(); 
-</script>
 
  <script>
   function validation() {
