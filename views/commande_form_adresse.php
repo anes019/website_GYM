@@ -157,10 +157,11 @@
 
         <div class="wrap-input100 validate-input" data-validate="Cochez une option ">
          <span class="label-input100">Comment voulez-vous que votre commande soit livrée ?</span><br>
-            <input class="input-checkbox100" type="radio" name="r1" id="id3" value="livraison standard" checked >
-            <label class="label-checkbox100" for="id3">livraison standard</label><br>
-            <input class="input-checkbox100" type="radio" name="r1" id="id3" value="retrait à la salle" checked >
-            <label class="label-checkbox100" for="id3">retrait à la salle</label><br>
+            <input class="input-checkbox100" type="radio" name="r1" id="id1" value="livraison standard">
+            <label class="label-checkbox100" for="id1">livraison standard</label><br>
+            <input class="input-checkbox100" type="radio" name="r1" id="id2" value="retrait à la salle">
+            <label class="label-checkbox100" for="id2">retrait à la salle</label><br>
+
          
           </div>
 
@@ -206,7 +207,14 @@
           </td>
 
            <td >
-                   <h4><?= number_format($panier->total(),2,',',' ');?>DT</h4>
+                   <h4><?php
+                         if($produit->etat=='false'){?>
+                          <?= number_format($produit->prix,3,',',' '); ?> DT
+                  <?php       }else{
+                  ?>
+                  <?= number_format($produit->prix_promo,3,',',' '); ?> DT
+
+                  <?php } ?></h4>
            </td>
             </tr>
             <tr>
@@ -222,7 +230,14 @@
             </table>
             </div>
             <div class="total-cost">
-              <h6>Total <span><?= number_format($panier->total()+6,2,',',' ');?>DT</span></h6>
+              <h6>Total <span><?php
+                         if($produit->etat=='false'){?>
+                          <?= number_format($produit->prix+6,3,',',' '); ?> DT
+                  <?php       }else{
+                  ?>
+                  <?= number_format($produit->prix_promo+6,3,',',' '); ?> DT
+
+                  <?php } ?></span></h6>
             </div>
 
 </div>
@@ -293,7 +308,14 @@
             </div>
             <div class="total-cost">
                <h6>produits<span id="count"><?= $panier->count(); ?></span></h6>
-              <h6>Total <span><?= number_format($panier->total(),2,',',' ');?>DT</span></h6>
+              <h6>Total <span><?php
+                         if($produit->etat=='false'){?>
+                          <?= number_format($produit->prix,3,',',' '); ?> DT
+                  <?php       }else{
+                  ?>
+                  <?= number_format($produit->prix_promo,3,',',' '); ?> DT
+
+                  <?php } ?></span></h6>
             </div>
           </div>
         </div>
