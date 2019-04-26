@@ -92,7 +92,14 @@
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30"  style=" right: 10% ;width: 700px">
 
 				<form id="form" class="login100-form validate-form" method="POST" enctype="multipart/form-data" action="ajouterCommande.php" >
-				  
+				  <?PHP
+        
+            $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
+
+foreach($info as $row){
+
+  ?> 
         	<span class="login100-form-title p-b-55">
             Adresse
 					</span>
@@ -100,13 +107,17 @@
 <input type="number" name="id" value="<?= $id ?>" hidden >
 				<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Nom et prénom</span>
-						<input id="nom" class="input100" type="text" name="nom_prenom" placeholder="foulen benfoulen" >
+						<input  class="input100" type="text"  placeholder="foulen benfoulen" value="<?PHP echo $row['Firstname']." ".$row['Lastname']; ?>" disabled>
+             <input type="hidden" name="nom_prenom" value="<?PHP echo $row['Firstname']." ".$row['Lastname']; ?>">
 						<span class="focus-input100"></span>
 					</div>
+ <?PHP
+ }
 
+  ?>   
 					<div class="wrap-input100 validate-input" data-validate = "Valid number">
 						<span class="label-input100">Numéro de téléphone mobile</span>
-						<input id="tel" class="input100" type="number" name="numero" placeholder="00 000 000">
+						<input id="tel" class="input100" type="number" name="numero" placeholder="00 000 000" value="<?PHP echo $row['mobile']; ?>">
 						<span class="focus-input100"></span>
 					</div>
          
@@ -123,12 +134,21 @@
               ?>
 <input type="hidden" name="nom_prod" value="<?= $produit->nom; ?>">
 <input type="hidden" name="qte" value="<?= $_SESSION['panier'][$produit->id]; ?>" >
-<input type="hidden" name="prix"  value="<?= $produit->prix; ?>">
-<input type="hidden" name="total"  value="<?= $produit->prix + 6; ?>">
+<?php
+                         if($produit->etat=='false'){ ?>
+                        <input type="hidden" name="prix"  value="<?= $produit->prix; ?>">
+                        <input type="hidden" name="total"  value="<?= $produit->prix + 6; ?>">
+ <?php
+                        }else{?>
+                   <input type="hidden" name="prix"  value="<?= $produit->prix_promo; ?>">
+                   <input type="hidden" name="total"  value="<?= $produit->prix_promo + 6; ?>">
+               <?php } ?>
+
+
  <?php endforeach; ?>
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Adresse</span>
-						<input id="add" class="input100" type="text" name="adresse" placeholder="Rue/Appartement/Suite/Bloc/Bâtiment">
+						<input id="add" class="input100" type="text" name="adresse" placeholder="Rue/Appartement/Suite/Bloc/Bâtiment" >
 						<span class="focus-input100"></span>
 					</div>
 
@@ -254,10 +274,15 @@
              
             </div>
 						</div>
+ <form action="mes_cmd.php"  enctype="multipart/form-data">
 
-						<button class="login100-form-btn" onClick="controle()">
+                                                      
+                                                           
+                                                       
+                                                        
+						<button class="login100-form-btn" onClick="controle()"> <input type="hidden" value="<?PHP echo $row['Firstname']; ?>" name="Firstname">
                 confirmer
-              </button>
+              </button></form>
 						</div>
 					</div>
 				</form>
