@@ -33,7 +33,7 @@
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
 
-</head><!--
+</head>
 <body class="animsition">
     <div class="page-wrapper">
         HEADER MOBILE
@@ -261,15 +261,15 @@
                 </div>
             </header>
             
--->
+
 
 
 
 
 <?PHP
-include "C:/wamp/www/crud/config.php";
-include "C:/wamp/www/crud/entities/facture.php";
-include "C:/wamp/www/crud/core/factureC.php";
+include "C:/wamp64/www/website_GYM/config.php";
+include "C:/wamp64/www/website_GYM/entites/facture.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
 if (isset($_GET['id'])){
     $factureC=new factureC();
     $result=$factureC->recupererFacture($_GET['id']);
