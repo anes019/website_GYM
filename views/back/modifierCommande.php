@@ -268,8 +268,8 @@
 
 
 <?PHP
-include "C:/wamp/www/crud/entities/commande.php";
-include "C:/wamp/www/crud/core/commandeC.php";
+include "C:/wamp64/www/website_GYM/entites/commande.php";
+include "C:/wamp64/www/website_GYM/core/commandeC.php";
 if (isset($_GET['id'])){
     $commandeC=new commandeC();
     $result=$commandeC->recupererCommande($_GET['id']);
@@ -278,7 +278,7 @@ if (isset($_GET['id'])){
         $tel=$row['tel'];
         $nom_prod=$row['nom_prod'];
         $quantite=$row['quantite'];
-        $taille=$row['taille'];
+
         $prix=$row['prix'];
         $adresse=$row['adresse'];
         $region=$row['region'];
@@ -344,16 +344,7 @@ if (isset($_GET['id'])){
                                                     <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="prix-input" class=" form-control-label">Taille</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    
-                                                    <input id="taille" type="number" name="taille" placeholder="ville" class="form-control" value="<?PHP echo $taille ?>">
-                                                    <small class="help-block form-text">veuillez remplir ce chalmp</small>
-                                                </div>
-                                            </div> 
+                                            
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="prix-input" class=" form-control-label">Prix</label>
@@ -457,11 +448,11 @@ if (isset($_GET['id'])){
 
 <?PHP
     }
-}
+} echo 'test';
 if (isset($_POST['modifier'])){
 if (strlen($_POST['tel']) == 8)
 {
-    $commande=new commande($_POST['nom_prenom'],$_POST['tel'],$_POST['nom_prod'],$_POST['quantite'],$_POST['taille'],$_POST['prix'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$_POST['mode_paiement']);
+    $commande=new commande($_POST['nom_prenom'],$_POST['tel'],$_POST['nom_prod'],$_POST['quantite'],$_POST['prix'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$_POST['mode_paiement']);
     $commandeC->modifierCommande($commande,$_POST['id_ini']);
     // $_POST['id_ini'];
   //header('Location: afficherCommande.php');
