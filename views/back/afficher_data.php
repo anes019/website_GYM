@@ -148,10 +148,11 @@ foreach($listePubs as $row){
     	<img hight="800px" width="400px" src='crud_pub/<?php echo $row['im']; ?>' >
 
     </td>
-        <td><form method="POST" action="crud_pub/supprimer_pub.php">
+        <td><form  action="crud_pub/supprimer_pub.php">
             <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
 
     <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+   
     </form>
 </td>
         <td><form action="crud_pub/modifierPub.php">
@@ -168,7 +169,9 @@ foreach($listePubs as $row){
 </table>
 <?PHP
 $count=$pub1C->row_count_Pub();
+
 $count =ceil($count/$pa);
+
 echo "<br>";
 ?>
 <a class="btn btn-success" href="afficher_data.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>"><?PHP echo"Debut";?></a>
