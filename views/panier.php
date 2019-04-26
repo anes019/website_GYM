@@ -87,7 +87,6 @@ require '_header.php';
 								<tr>
 									<th class="product-th">Produit</th>
 									<th class="quy-th">Quantité</th>
-						
 									<th class="total-th">Prix</th>
                   <th class="total-th">Actions</th>
 								</tr>
@@ -122,8 +121,14 @@ require '_header.php';
 											</div>
                     </div>
 									</td>
-									
-									<td class="total-col"><h4><?= number_format($produit->prix,3,',',' '); ?> DT</h4></td>
+									<?php
+                         if($produit->etat=='false'){?>
+                          <td class="total-col"><h4><?= number_format($produit->prix,3,',',' '); ?> DT</h4></td>
+                  <?php       }else{
+                  ?>
+									<td class="total-col"><h4><?= number_format($produit->prix_promo,3,',',' '); ?> DT</h4></td>
+
+                  <?php } ?>
                   <td class="size-col"><a class="zmdi zmdi-delete" href="panier.php?delPanier=<?= $produit->id; ?> ">supprimer 
                 </a>
                     
@@ -163,9 +168,13 @@ require '_header.php';
                 <a href="panier.php" class="site-btn sb-dark" onclick="panier_vide()">finaliser votre commande </a>
              
 
-        <?php      }else{?>
+        <?php      }else{
+                          if($panier->count() == 0){  ?>
+                            <a href="panier.php" class="site-btn sb-dark" onclick="qte_nulle()">finaliser votre commande </a>
+                        <?php  }else{
+                        ?>
                <a href="login1.php" class="site-btn sb-dark">finaliser votre commande </a>
-          <?php    }    ?>
+          <?php    } }   ?>
               ?>
 					<a href="produits.php" class="site-btn">poursuivre vos achats</a>
 					
@@ -249,7 +258,7 @@ require '_header.php';
       </div>
     </footer>
 		
-  <script type="text/javascript" src="panier_vide.js"> </script>
+  <script type="text/javascript" src="controle_panier.js"> </script>
 
 </body>
 </html>

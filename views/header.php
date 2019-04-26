@@ -42,7 +42,7 @@ require  "../core/Clients.php";
 	     }else {
 
 ?>					
-				<li class="nav-item"><a href="affichage_wishlist.php" class="nav-link">Whishlist</a></li>
+				<!--li class="nav-item"><a href="affichage_wishlist.php" class="nav-link">Whishlist</a></li-->
  					<li class="nav-item"><a href="reclamation.php" class="nav-link">Reclamation</a></li>
  					
  					      <?PHP
