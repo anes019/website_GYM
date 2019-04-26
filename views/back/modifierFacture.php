@@ -283,7 +283,7 @@ if (isset($_GET['id'])){
         $mode_paiement=$row['mode_paiement'];
         $nom_prod=$row['nom_prod'];
         $quantite=$row['quantite'];
-        $taille=$row['total'];
+        $nom_prod=$row['nom_prod'];
         $prix=$row['prix'];
         $total=$row['total'];
 
@@ -367,7 +367,16 @@ if (isset($_GET['id'])){
                                             </div> 
 
                                             
-                                             
+                                              <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="nature-input" class=" form-control-label">Nom du produit</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    
+                                                    <input type="number" placeholder="Rue/Appartement/Suite/Bloc/Bâtiment" class="form-control" name="nom_prod" value="<?PHP echo $nom_prod ?>">
+                                                    <small class="help-block form-text">veuillez remplir ce chalmp</small>
+                                                </div>
+                                            </div>
 
                                            
                                             <div class="row form-group">
@@ -380,18 +389,28 @@ if (isset($_GET['id'])){
                                                     <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
                                             </div>
+                                           
+                                           
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="prix-input" class=" form-control-label">Taille</label>
+                                                    <label for="nature-input" class=" form-control-label">Prix</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                     
-                                                    <input type="number" name="taille" placeholder="ville" class="form-control" value="<?PHP echo $taille ?>">
+                                                    <input type="number" placeholder="Rue/Appartement/Suite/Bloc/Bâtiment" class="form-control" name="prix" value="<?PHP echo $prix ?>">
                                                     <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
-                                            </div> 
-                                           
-                                            
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="nature-input" class=" form-control-label">Total</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    
+                                                    <input type="number" placeholder="Rue/Appartement/Suite/Bloc/Bâtiment" class="form-control" name="total" value="<?PHP echo $total ?>">
+                                                    <small class="help-block form-text">veuillez remplir ce chalmp</small>
+                                                </div>
+                                            </div>
                                             
          
          
@@ -434,10 +453,12 @@ if (isset($_GET['id'])){
     }
 }
 if (isset($_POST['modifier'])){
-    $facture=new facture($_POST['id_cmd'],$_POST['nom_prenom'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$mode_paiement,$nom_prod,$_POST['quantite'],$_POST['taille'],$prix,$total);
+    $facture=new facture($_POST['id_cmd'],$_POST['nom_prenom'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$mode_paiement,$_POST['nom_prod'],$_POST['quantite'],$_POST['prix'],$_POST['total']);
     $factureC->modifierFacture($facture,$_POST['id_ini']);
-    // $_POST['id_ini'];
-  //header('Location: afficherCommande.php');
+
+
+echo $_POST['id_ini'];
+header('Location: afficherFacture.php');
 //echo "valider";
 }
 ?>
