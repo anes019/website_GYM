@@ -92,7 +92,7 @@ $databaseName = "site_web";
 
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
-$query = "SELECT id FROM produits where etat ='false'";
+$query = "SELECT * FROM pub";
 
 $result1 = mysqli_query($connect, $query);
 $rowcount=mysqli_num_rows($result1);
