@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+
  include'header.php' 
  ?>
 <html lang="en">
@@ -125,16 +127,15 @@ session_start();
 
           <div class="flex-m w-full p-b-33">
             <div class="contact100-form-checkbox">
-              <input class="input-checkbox100" id="ckb" type="checkbox" name="term">
-              <label class="label-checkbox100" for="ckb">
-                <span class="txt1">
-                  I agree to the
-                  <a href="term.txt"  target="_blank"  class="txt2 hov1">
-                    Terms of User
-                  </a>
-                </span>
-                 <span id='ter'></span><br>
-              </label>
+              
+    <span class="label-input100">Captcha <br> <br> </span> 
+    <input type="text" id="cap" name="captcha" style=" border: 1px solid black;
+  border-radius: 4px;" />
+
+    <img src="imageC.php" onclick="this.src='imageC.php?' + Math.random();" alt="captcha" style="cursor:pointer; height: 45px">
+
+<br>
+ <span id='caa'></span><br>
           </div>
         </div>
           
@@ -189,11 +190,12 @@ session_start();
     
       <script>
             var formValid = document.getElementById('login');
-            var prenom1= document.getElementById('mail');
-            var missPrenom1 = document.getElementById('email');
-            var termuse= document.getElementById('ter');
+     
+ 
+            var termuse= document.getElementById('caa');
             var radd= document.getElementById('r');
-            var checkBox = document.getElementById("ckb");
+            var captcha = document.getElementById("cap");
+            var code = document.getElementById("code");
             var rad = document.getElementById("one");
             var rad1 = document.getElementById("two");
             var msg = document.getElementById("test");
@@ -205,29 +207,32 @@ session_start();
 
             function validation(event){
       
-                 if ((prenom1.validity.valueMissing==false && usernameValid.test(prenom1.value) == false) &&(prenom1.validity.valueMissing==false && emailValid.test(prenom1.value))  == false){
-                    event.preventDefault();
-                    missPrenom1.textContent = 'user name or mail invalid';
-                    missPrenom1.style.color = 'orange';
-                }
-                else { missPrenom1.textContent = '';  }
                 if (rad.checked == false && rad1.checked==false) {
                     event.preventDefault();
                     radd.textContent = 'veuillez choisir un type';
-                    radd.style.color = 'orange';
+                    radd.style.color = 'red';
                 }
                 else { radd.textContent = '';  }
             
-if (checkBox.checked == false) {
+if (captcha.value=='') {
                     event.preventDefault();
-                    termuse.textContent = 'vous devez accepter les conditions d"utilisation pour continuer  ';
-                    termuse.style.color = 'orange';
+                    termuse.textContent = 'captcha invalid';
+                    termuse.style.color = 'red';
                 }
-                else { termuse.textContent = '';  }
+                else { termuse.textContent = 'captcha valid';  
+ termuse.style.color = 'green';
+              }
+        if (captcha.value != code.value) {
+                    event.preventDefault();
+                    termuse.textContent = 'captcha invalid';
+                    termuse.style.color = 'red';
+                }
+                else { termuse.textContent = 'captcha valid';  
+              termuse.style.color = 'green';}
            if (msg.value=='') {
                     event.preventDefault();
                     con.textContent = 'vous devez remplir ce champ   ';
-                    con.style.color = 'orange';
+                    con.style.color = 'red';
                 }
                 else { con.textContent = '';  } 
 }
