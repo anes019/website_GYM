@@ -34,6 +34,25 @@
                             <a href="afficher_data1.php">
                                 <i class="fas fa-table"></i>Gestion des Promos</a>
                         </li> 
+                               <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Gestion des Coaches</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="affichercoach.php">afficher les Coaches</a>
+                                </li>
+                                <li>
+                                    <a href="ajoutCoach.php">ajouter Coache</a>
+                                </li>
+                                
+                            </ul>
+                        </li> 
+                   </ul>
+                   <li >
+                            <a href="affichercour.php">
+                                <i class="fas fa-table"></i>Gestion des seances</a>
+                         </li>
                         <li >
                             <a href="table_Client.php">
                                 <i class="fas fa-table"></i>Gestion des Clients</a>
@@ -50,7 +69,8 @@
                                 <a href="afficherCommande.php">
                                 <i class="fas fa-table"></i>Gestion des Commandes</a>
                         </li> 
-                   </ul>
+                            
+                        
                    
                 </nav>
             </div>
