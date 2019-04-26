@@ -1,6 +1,6 @@
 <?PHP
-include "../../../core/commandeC.php";
-include "../../../core/factureC.php";
+include "C:/wamp64/www/website_GYM/core/commandeC.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
 
 $factureC=new factureC();
 if (isset($_POST["id"])){
