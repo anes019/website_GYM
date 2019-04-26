@@ -267,13 +267,14 @@
 
 
 
-<?PHP
+<?php 
 include "C:/wamp64/www/website_GYM/entites/commande.php";
 include "C:/wamp64/www/website_GYM/core/commandeC.php";
 if (isset($_GET['id'])){
     $commandeC=new commandeC();
     $result=$commandeC->recupererCommande($_GET['id']);
     foreach($result as $row){
+
         $nom_prenom=$row['nom_prenom'];
         $tel=$row['tel'];
         $nom_prod=$row['nom_prod'];
@@ -421,7 +422,7 @@ if (isset($_GET['id'])){
                                         
                                          <button type="submit" onclick="valid()" name="modifier" value="modifier" class="btn btn-primary btn-sm">
                                             <input type="hidden" name="id_ini" value="<?PHP echo $_GET['id'];?>">  
-                                            <i class="fa fa-dot-circle-o"></i> modifier
+                                            <i class="fa fa-dot-circle-o"></i>modifier
                                         </button>
                                         <button type="reset" class="btn btn-danger btn-sm">
                                           <a href="afficherCommande.php"><i class="fa fa-ban"></i> retour</a> 
@@ -448,14 +449,15 @@ if (isset($_GET['id'])){
 
 <?PHP
     }
-} echo 'test';
+} 
 if (isset($_POST['modifier'])){
 if (strlen($_POST['tel']) == 8)
 {
-    $commande=new commande($_POST['nom_prenom'],$_POST['tel'],$_POST['nom_prod'],$_POST['quantite'],$_POST['prix'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$_POST['mode_paiement']);
+    $commande=new commande($_POST['id_ini'],$_POST['nom_prenom'],$_POST['tel'],$_POST['nom_prod'],$_POST['quantite'],$_POST['prix'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$_POST['mode_paiement']);
     $commandeC->modifierCommande($commande,$_POST['id_ini']);
-    // $_POST['id_ini'];
-  //header('Location: afficherCommande.php');
+echo $_POST['id_ini'];
+
+header('Location: afficherCommande.php');
 //echo "valider";
     }
 }
