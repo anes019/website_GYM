@@ -81,9 +81,12 @@
             <!-- HEADER DESKTOP-->
 
 <br>
+<br>
             <div class="col-lg-2 m-auto">
     <form action="../afficher_data.php">
  <button class="btn btn-success" type="submit" name="done"> View Data </button>
+ <input type="hidden" value="<?PHP echo 1; ?>" name="page">
+  <input type="hidden" value="<?PHP echo 2; ?>" name="sort">
  </form>
  </div> 
               <div class="section__content section__content--p30">
