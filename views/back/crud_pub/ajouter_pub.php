@@ -87,6 +87,7 @@
  <button class="btn btn-success" type="submit" name="done"> View Data </button>
  <input type="hidden" value="<?PHP echo 1; ?>" name="page">
   <input type="hidden" value="<?PHP echo 2; ?>" name="sort">
+  <input type="hidden" value="<?PHP echo 0; ?>" name="trie">
  </form>
  </div> 
               <div class="section__content section__content--p30">
