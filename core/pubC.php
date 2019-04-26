@@ -81,8 +81,153 @@ return $rowcount;
             die('Erreur: '.$e->getMessage());
         } 
   }
+  function afficherPub_search($search,$page,$pa){
 
+    $sql="SELECT * FROM `pub` WHERE CONCAT(`id`, `nom`, `pos`, `nb`) LIKE '%".$search."%' limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_id_D($page,$pa){
 
+    $sql="SElECT * From pub ORDER BY ID DESC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_id_C($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY ID ASC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_nom_D($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nom DESC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_nom_C($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nom ASC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_pos_D($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY pos DESC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_pos_C($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY pos ASC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+  function afficherPub_trie_nb_D($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nb DESC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+function afficherPub_trie_nb_C($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nb ASC limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+ 
+
+    function afficherPub_trie_idnom($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY id,nom limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+
+    function afficherPub_trie_nompos($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nom,pos limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
+      function afficherPub_trie_nbid($page,$pa){
+
+    $sql="SElECT * From pub ORDER BY nb,id limit $page,$pa";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
 function row_count_Pub(){
 $hostname = "localhost";
 $username = "root";
@@ -93,6 +238,22 @@ $databaseName = "site_web";
 $connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
 $query = "SELECT * FROM pub";
+
+$result1 = mysqli_query($connect, $query);
+$rowcount=mysqli_num_rows($result1);
+return $rowcount;
+
+}
+function row_count_Pub_serach($search){
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "site_web";
+
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+$query = "SELECT * FROM `pub` WHERE CONCAT(`id`, `nom`, `pos`, `nb`) LIKE '%".$search."%'";
 
 $result1 = mysqli_query($connect, $query);
 $rowcount=mysqli_num_rows($result1);
