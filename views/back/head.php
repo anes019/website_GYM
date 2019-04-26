@@ -27,7 +27,7 @@
                                 <i class="fas fa-table"></i>Gestion des Abonements</a>
                         </li>   
                         <li >
-                            <a href="afficher_data.php?page=<?PHP echo 1; ?>&sort=2">
+                            <a href="afficher_data.php?page=<?PHP echo 1; ?>&sort=2&trie=<?PHP echo 0 ?>">
                                 <i class="fas fa-table"></i>Gestion des Pubs </a>
                         </li>
                         <li >
