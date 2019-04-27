@@ -3,14 +3,26 @@
 
 <head>
     <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    
 
+    <style type="text/css">
+        #wiou{
+            right: 5%;
+            position: absolute;
+
+
+        }
+
+
+
+    </style>
+   
     <!-- Title Page-->
-    <title>BF Academie</title>
+       <meta charset="utf-8">
+    <title>Data Table</title>
+    <script type="text/javascript" src="datatabel/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="datatabel/datatabel/media/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="datatabel/datatabel/media/css/jquery.dataTables.min.css">
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -34,68 +46,51 @@
     <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
-
-<body class="animsition">
-    <div class="page-wrapper" >
-        <!-- HEADER MOBILE-->
-       <?php 
+<body >
+<?php 
 include 'head.php'
 ?>
 
 
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
+<div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid" >
-                        
-                        <div >
-                            <div >
-                                
-                                <!-- END USER DATA-->
-                            </div>
-                            
-                        </div>
-                        <div >
-                            <div >
-                                <!-- DATA TABLE -->
-                               
-                                <div class="table-data__tool" >
-                            
-                                    <div class="table-data__tool-right">
-                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" style="position: absolute;width: 150px;left: 80%">
-                                            <a href="form_cmd.html">
-                                            <i class="zmdi zmdi-plus"></i>ajouter</a></button>
-                                  
-                                    </div>
-                                </div>
-                                
-                               
+                    <div class="container-fluid">
+    <form action="form_cmd.php">
+       <button  id="wiou" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="form_cmd.php"></a>
+          <i class="zmdi zmdi-plus"></i>ajout cmd </button>
+    </form>
 
 
+<div class="col-lg-24">
+     <h2 class="title-1 m-b-25">Tableau de commandes</h2>
+      <div class="table-responsive table--no-card m-b-40" >
 
-<div class="row">
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Tableau de commandes</h2>
-                                <div class="table-responsive table--no-card m-b-40" >
-                                    <table class="table table-borderless table-striped table-earning" >
-                                        <thead>
-                                            <tr>
+        <form >
+            trier par :
+<select>
+    <option value="1">defaut</option>
+    <option value="2">nom prenom et nom produit</option>
+    <option value="3">region , ville et adresse</option>
+</select>
+</form>
+      <table class="table table-borderless table-striped table-earning" >
+ <thead>
+ <tr class="bg-dark text-white text-center">
+ 
                                                 <th class="text-right">actions</th>
-                                                <th class="text-right">nom et prenom</th>
+                                                <th class="text-right"><a href="trie_nom_desc.php"> ↓</a> nom prenom <a href="trie_nom_asc.php">↑</a></th>
                                                 <th class="text-right">numero</th>
-                                                <th class="text-right">produit</th>
+                                                <th class="text-right"><a href="trie_prod_desc.php"> ↓</a> produit <a href="trie_prod_asc.php">↑</a></th>
                                                 <th class="text-right">quantite</th>
-                                                <th class="text-right">prix</th>
-                                                <th class="text-right">adresse</th>
-                                                <th class="text-right">région</th>
-                                                <th class="text-right">ville</th>
-                                                <th class="text-right">mode livraison</th>
+                                                <th class="text-right"> prix </th>
+                                                <th class="text-right"><a href="trie_adresse_desc.php"> ↓</a> adresse <a href="trie_adresse_asc.php">↑</a></th>
+                                                <th class="text-right"><a href="trie_region_desc.php"> ↓</a> région <a href="trie_region_asc.php">↑</th>
+                                                <th class="text-right"><a href="trie_ville_desc.php"> ↓</a> ville <a href="trie_ville_asc.php">↑</th>
+                                                <th class="text-right"> mode livraison</th>
                                                 <th class="text-right">mode paiement</th>
-                                               
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                             <?PHP
+  </tr >
+</thead>
+<?PHP
 include "C:/wamp64/www/website_GYM/core/commandeC.php";
 $commande1C=new commandeC();
 $listecommandes=$commande1C->afficherCommande();
@@ -103,11 +98,12 @@ $listecommandes=$commande1C->afficherCommande();
 <?PHP
 foreach($listecommandes as $row){
     ?>                 
-                                            <tr>
-                                                 <td>
+
+    <tr class="text-center">
+        <td>
                                                     
     
-                                                    <div class="table-data-feature">
+                                                    <div class="table-data-feature" >
                                                        <form action="modifierCommande.php"  enctype="multipart/form-data">
 
                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -127,7 +123,7 @@ foreach($listecommandes as $row){
                                                     </form>
                                                     </div>
                                                 </td>
-                                                <td>
+     <td>
                                                    <?PHP echo $row['nom_prenom']; ?> 
                                                 </td>
                                                 <td><?PHP echo $row['tel']; ?></td>
@@ -153,38 +149,28 @@ foreach($listecommandes as $row){
                                                         <?PHP echo $row['mode_paiement']; ?>
                                                     
                                                 </td>
-                                                
-                                            </tr>
-                                            
- <?PHP
+
+    
+</tr>
+
+
+    <?PHP
 }
 ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
 
 
- <!-- END DATA TABLE -->
 
-                            </div>
-                        </div>
-                        
-                        <div class="row m-t-30">
-                            <div class="col-md-12">
-                               
-                                <!-- END DATA TABLE-->
-                            </div>
-                        </div>                       
-                    </div>
-                </div>
-            </div>
-        </div>
+</table>
 
-    </div>
+</div>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+
+</div>
+</div>
+</div>
+<br>
+
+
     <!-- Bootstrap JS-->
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -203,10 +189,9 @@ foreach($listecommandes as $row){
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
-
+   
     <!-- Main JS-->
-    <script src="js/main.js"></script>
-
+<script src="js/main.js"></script>
 </body>
 
 </html>
