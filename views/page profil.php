@@ -440,7 +440,7 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
               <td width="20%"></td>
               <td width="9%">               
                        <a href="ajouterPanier.php?id=<?php echo $row['id']?>"
-                     class="social-info" >
+                    class="addPanier" >
                       <img class="img-fluid" src="images/pan.png" ></a>
                     <td width="9%">
                     <a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
