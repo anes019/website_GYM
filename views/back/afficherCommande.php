@@ -65,36 +65,184 @@ include 'head.php'
      <h2 class="title-1 m-b-25">Tableau de commandes</h2>
       <div class="table-responsive table--no-card m-b-40" >
 
-        <form >
-            trier par :
-<select>
-    <option value="1">defaut</option>
-    <option value="2">nom prenom et nom produit</option>
-    <option value="3">region , ville et adresse</option>
-</select>
-</form>
+        <form action="afficherCommande.php?sort=<?PHP  echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP $x=$_GET['trie']; echo 0 ?>" method="post">
+            <input id="wiou" type="text" name="valueToSearch" placeholder="Search(vide=tout)"><br>
+
+            <input id="wiou" style="width: 202px;" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small" name="search" value="Filter"><br>
+            </form>
+            <label>Show:</label>
+  <select id="sor" class="">
+      <?PHP 
+      $x=$_GET['sort'];
+      switch ($x) {
+          case '2':
+                   ?>       <option  value="afficherCommande.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+             <?PHP  break;
+          case '3':         
+                   ?>       
+
+                            <option  value="afficherCommande.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+             <?PHP  break;
+             case '5':
+                   ?>      <option value="afficherCommande.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                             <option value="afficherCommande.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+             <?PHP  break;
+             case '10':     
+                   ?>       <option value="afficherCommande.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            
+             <?PHP  break;
+          default:
+              # code...
+              break;
+      }
+
+
+      ?>
+                            
+                        </select> 
+                   
+                        <label>Sort by:</label>
+  <select id="tr" class="">
+      <?PHP 
+      $x=$_GET['trie'];
+      switch ($x) {
+          case '0':
+                   ?>       <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">nom prenom et nom produit</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">region , ville et adresse</option>
+                            
+             <?PHP  break;
+          case '10':         
+                   ?>       
+
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">nom prenom et nom produit</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">region , ville et adresse</option>
+                          
+             <?PHP  break;
+             case '11':
+                   ?>      <option value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">region , ville et adresse</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10?>">nom prenom et nom produit</option>
+                           
+             <?PHP  break;
+            
+          default:
+             ?>  <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">nom prenom et nom produit</option>
+                            <option value="afficherCommande.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">region , ville et adresse</option>
+                          
+            <?PHP   break;
+      }
+
+
+      ?>
+                            
+                        </select>   
+
       <table class="table table-borderless table-striped table-earning" >
- <thead>
- <tr class="bg-dark text-white text-center">
+  <thead>
+<tr class="bg-dark text-white text-center">
  
                                                 <th class="text-right">actions</th>
-                                                <th class="text-right"><a href="trie_nom_desc.php"> ↓</a> nom prenom <a href="trie_nom_asc.php">↑</a></th>
+                                                 <th><a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 1 ?>
+ "> ↓ </a>nom prenom<a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 2 ?>
+ ">↑</th>
                                                 <th class="text-right">numero</th>
-                                                <th class="text-right"><a href="trie_prod_desc.php"> ↓</a> produit <a href="trie_prod_asc.php">↑</a></th>
+                                                <th><a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 3 ?>
+ "> ↓ </a>produit<a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 4 ?>
+ ">↑</th>
                                                 <th class="text-right">quantite</th>
                                                 <th class="text-right"> prix </th>
-                                                <th class="text-right"><a href="trie_adresse_desc.php"> ↓</a> adresse <a href="trie_adresse_asc.php">↑</a></th>
-                                                <th class="text-right"><a href="trie_region_desc.php"> ↓</a> région <a href="trie_region_asc.php">↑</th>
-                                                <th class="text-right"><a href="trie_ville_desc.php"> ↓</a> ville <a href="trie_ville_asc.php">↑</th>
+                                                <th><a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 5 ?>
+ "> ↓ </a>addresse<a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 6 ?>
+ ">↑</th>
+                                                <th><a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 7 ?>
+ "> ↓ </a>region<a href="afficherCommande.php?page=<?PHP echo $_GET['page']; ?>&sort=<?PHP echo $_GET['sort'] ?>
+&trie=<?PHP echo 8 ?>
+ ">↑</th>
+                                                <th class="text-right"> ville</th>
                                                 <th class="text-right"> mode livraison</th>
                                                 <th class="text-right">mode paiement</th>
   </tr >
+
+
 </thead>
 <?PHP
 include "C:/wamp64/www/website_GYM/core/commandeC.php";
 $commande1C=new commandeC();
-$listecommandes=$commande1C->afficherCommande();
-?>                          
+$pa=$_GET['sort'];
+$page=$_GET['page'];
+$trie=$_GET['trie'];
+
+if ($page== "" ||$page=="1") {
+   $page1=0;
+}
+
+else
+{
+  $page1=($page*$pa)-$pa;
+
+}
+
+if ($trie == 1) {
+   $listecommandes=$commande1C->trie_nom_desc($page1,$pa);
+}
+
+elseif ($trie ==2) {
+   $listecommandes=$commande1C->trie_nom_asc($page1,$pa);
+}
+elseif ($trie ==3) {
+   $listecommandes=$commande1C->trie_produit_desc($page1,$pa);
+}
+elseif ($trie ==4) {
+   $listecommandes=$commande1C->trie_produit_asc($page1,$pa);
+}
+elseif ($trie ==5) {
+   $listecommandes=$commande1C->trie_adresse_desc($page1,$pa);
+}
+elseif ($trie ==6) {
+   $listecommandes=$commande1C->trie_adresse_asc($page1,$pa);
+}
+elseif ($trie ==7) {
+   $listecommandes=$commande1C->trie_region_desc($page1,$pa);
+}
+elseif ($trie ==8) {
+   $listecommandes=$commande1C->trie_region_asc($page1,$pa);
+}
+elseif ($trie ==10) {
+   $listecommandes=$commande1C->trie_nom_prod($page1,$pa);
+}
+elseif ($trie ==11) {
+   $listecommandes=$commande1C->trie_region_ville_adresse($page1,$pa);
+}
+
+elseif (isset($_POST['valueToSearch'])) {
+   $listecommandes=$commande1C->affichercommande_search($_POST['valueToSearch']);
+}
+else
+$listecommandes=$commande1C->afficherCommande($page1,$pa);
+
+?>
+
 <?PHP
 foreach($listecommandes as $row){
     ?>                 
@@ -153,17 +301,67 @@ foreach($listecommandes as $row){
     
 </tr>
 
-
     <?PHP
 }
 ?>
 
-
-
 </table>
 
 </div>
+<?PHP
+if (isset($_POST['search'])) 
+{
+ 
+ 
+ if ($_POST['valueToSearch']=="") 
+ {$count=$commande1C->row_count_commande();
 
+$count =ceil($count/$pa);
+      echo "<br>";
+?>
+<a id="page" class="btn btn-success" href="afficherCommande.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo"Debut";?></a>
+<?PHP
+for ($i=1; $i <=$count ; $i++) { 
+    ?><a id="page" class="btn btn-success"href="afficherCommande.php?page=<?PHP echo $i; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo $i;?></a>
+      
+
+   
+
+    <?PHP
+}
+?>
+<a class="btn btn-success" href="afficherCommande.php?page=<?PHP echo $count; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo" fin";?></a>
+<br>
+
+ <?PHP
+
+    }   
+}
+
+else
+{
+ $count=$commande1C->row_count_commande();
+
+$count =ceil($count/$pa);
+
+echo "<br>";
+?>
+<a id="page" class="btn btn-success" href="afficherCommande.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo"Debut";?></a>
+<?PHP
+for ($i=1; $i <=$count ; $i++) { 
+    ?><a id="page" class="btn btn-success"href="afficherCommande.php?page=<?PHP echo $i; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo $i;?></a>
+      
+
+   
+
+    <?PHP
+}
+?>
+<a class="btn btn-success" href="afficherCommande.php?page=<?PHP echo $count; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo" fin";?></a>
+<br>
+  <?PHP  
+}
+?>
 
 </div>
 </div>
@@ -189,7 +387,26 @@ foreach($listecommandes as $row){
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
-   
+      <script type="text/javascript">
+    document.getElementById("sor").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
+   <script type="text/javascript">
+    document.getElementById("page").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
+   <script type="text/javascript">
+    document.getElementById("tr").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
+   <script type="text/javascript">
+    document.getElementById("search").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
     <!-- Main JS-->
 <script src="js/main.js"></script>
 </body>
