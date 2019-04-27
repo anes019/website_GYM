@@ -425,7 +425,7 @@ if (isset($_GET['id'])){
                                             <i class="fa fa-dot-circle-o"></i>modifier
                                         </button>
                                         <button type="reset" class="btn btn-danger btn-sm">
-                                          <a href="afficherCommande.php"><i class="fa fa-ban"></i> retour</a> 
+                                          <a href="afficherCommande.php?page=<?PHP echo ""; ?>&sort=2&trie=<?PHP echo 0 ?>"><i class="fa fa-ban"></i> retour</a> 
                                         </button>
                                         
                                         </form>
