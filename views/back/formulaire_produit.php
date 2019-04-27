@@ -153,6 +153,11 @@ include 'head.php'
                                                     <input type="file" id="imagess_input" name="imagess_input" class="form-control-file">
                                                 </div>
                                             </div>
+                                            <div class="col-12 col-md-9">
+  <label> Envoyer mail pour les clients : </label>
+<input type="checkbox" id="mail" name="mail">
+ </div>
+
 
                                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-sm" onclick="submit_produit(event)">
@@ -161,6 +166,8 @@ include 'head.php'
                                         <button type="reset" class="btn btn-danger btn-sm" onclick="reset_produits()">
                                             <i class="fa fa-ban"></i> Reset
                                         </button>
+
+
                                     </div>
                                 </form>
                                     </div>
