@@ -41,7 +41,25 @@
 include 'head.php'
 ?>
 
+   <?php 
+              $hostname = "localhost";
+    $username = "root";
+    $password = "";
+    $databaseName = "site_web";
+    $connect = mysqli_connect($hostname, $username, $password, $databaseName);
+    $query = "SELECT * FROM commande ";
+    $result1 = mysqli_query($connect, $query);
+    $rowcount=mysqli_num_rows($result1);
+    
+        if ($rowcount==0){
+          $id=1;
+        }else {
+          $id=$rowcount+1;
+        }
+              
+                      
 
+              ?>
 
 
             <!-- MAIN CONTENT-->
@@ -64,6 +82,7 @@ include 'head.php'
                                                     <label for="text-input" class=" form-control-label">Nom et prenom</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
+                                                    <input type="number" name="id" value="<?= $id ?>" hidden >
                                                     <input type="text" id="text-input" name="nom_prenom" placeholder="foulen benfoulen class" class="form-control"> 
                                                      <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
@@ -97,15 +116,8 @@ include 'head.php'
                                                 </div>
                                             </div>
 
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Taille</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="taille" placeholder="foulen benfoulen class" class="form-control"> 
-                                                     <small class="help-block form-text">veuillez remplir ce chalmp</small>
-                                                </div>
-                                            </div>
+                                           
+                                            
                                              <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Prix</label>
