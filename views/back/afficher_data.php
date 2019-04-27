@@ -72,30 +72,30 @@ include 'head.php'
       $x=$_GET['sort'];
       switch ($x) {
           case '2':
-                   ?>       <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
-                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
-                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+                   ?>       <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
              <?PHP  break;
           case '3':         
                    ?>       
 
-                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
-                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
-                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
              <?PHP  break;
              case '5':
-                   ?>      <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
-                             <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+                   ?>      <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                             <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
              <?PHP  break;
              case '10':     
-                   ?>       <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
-                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
+                   ?>       <option value="afficher_data.php?sort=<?PHP echo 10; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">10</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 2; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">default(2)</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo 3; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>">3</option>
+                            <option value="afficher_data.php?sort=<?PHP echo 5; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo $_GET['trie'] ?>"">5</option>
                             
              <?PHP  break;
           default:
@@ -114,37 +114,37 @@ include 'head.php'
       $x=$_GET['trie'];
       switch ($x) {
           case '0':
-                   ?>       <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
+                   ?>       <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
              <?PHP  break;
           case '10':         
                    ?>       
 
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
              <?PHP  break;
              case '11':
-                   ?>      <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10?>">ID,Nom</option>
-                             <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
+                   ?>      <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 10?>">ID,Nom</option>
+                             <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
              <?PHP  break;
              case '12':     
-                   ?>       <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10?>">ID,Nom</option>
-                             <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
+                   ?>       <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 10?>">ID,Nom</option>
+                             <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
                             
              <?PHP  break;
           default:
-             ?>  <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 0 ?>">default</option>
-                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
-                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo ""; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
+             ?>  <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 0 ?>">default</option>
+                            <option  value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 10 ?>">ID,Nom</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 11 ?>"">Nom,Position</option>
+                            <option value="afficher_data.php?sort=<?PHP echo $_GET['sort']; ?>&page=<?PHP echo 1; ?>&trie=<?PHP echo 12 ?>"">NB_like,ID</option>
             <?PHP   break;
       }
 
@@ -238,7 +238,7 @@ elseif ($trie ==11) {
 elseif ($trie ==12) {
    $listePubs=$pub1C->afficherPub_trie_nbid($page1,$pa);
 }
-elseif ($_POST['valueToSearch']!="") {
+elseif (isset($_POST['valueToSearch'])) {
    $listePubs=$pub1C->afficherPub_search($_POST['valueToSearch']);
 }
 else
