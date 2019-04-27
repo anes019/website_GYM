@@ -81,9 +81,9 @@ return $rowcount;
             die('Erreur: '.$e->getMessage());
         } 
   }
-  function afficherPub_search($search,$page,$pa){
+  function afficherPub_search($search){
 
-    $sql="SELECT * FROM `pub` WHERE CONCAT(`id`, `nom`, `pos`, `nb`) LIKE '%".$search."%' limit $page,$pa";
+    $sql="SELECT * FROM `pub` WHERE CONCAT(`id`, `nom`, `pos`, `nb`) LIKE '%".$search."%'";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
