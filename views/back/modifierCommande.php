@@ -455,9 +455,9 @@ if (strlen($_POST['tel']) == 8)
 {
     $commande=new commande($_POST['id_ini'],$_POST['nom_prenom'],$_POST['tel'],$_POST['nom_prod'],$_POST['quantite'],$_POST['prix'],$_POST['adresse'],$_POST['region'],$_POST['ville'],$_POST['mode_livraison'],$_POST['mode_paiement']);
     $commandeC->modifierCommande($commande,$_POST['id_ini']);
-echo $_POST['id_ini'];
+//echo $_POST['id_ini'];
 
-header('Location: afficherCommande.php');
+//header('Location: afficherCommande.php');
 //echo "valider";
     }
 }
