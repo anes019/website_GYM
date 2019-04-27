@@ -47,9 +47,9 @@ class commandeC {
 		
 	}
 	
-	function afficherCommande(){
+	function afficherCommande($page1,$pa){
 		
-		$sql="SELECT * From commande";
+		$sql="SELECT * From commande limit $page1,$pa";
 		$db = config::getConnexion();
 		try{
 		$liste=$db->query($sql);
@@ -164,11 +164,26 @@ $req->bindValue(':id',$id);
             die('Erreur: '.$e->getMessage());
         }
 	}
+    function row_count_commande(){
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "site_web";
 
 
-	function trie_nom_asc(){
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
 
-	    $sql="SELECT * FROM commande ORDER BY nom_prenom ASC";
+$query = "SELECT * FROM commande";
+
+$result1 = mysqli_query($connect, $query);
+$rowcount=mysqli_num_rows($result1);
+return $rowcount;
+
+}
+
+	function trie_nom_asc($page,$pa){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prenom ASC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -179,9 +194,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_nom_desc(){
+	function trie_nom_desc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY nom_prenom DESC";
+	    $sql="SELECT * FROM commande ORDER BY nom_prenom DESC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -192,9 +207,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_produit_asc(){
+	function trie_produit_asc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY nom_prod ASC";
+	    $sql="SELECT * FROM commande ORDER BY nom_prod ASC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -205,9 +220,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_produit_desc(){
+	function trie_produit_desc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY nom_prod DESC";
+	    $sql="SELECT * FROM commande ORDER BY nom_prod DESC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -218,9 +233,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_adresse_asc(){
+	function trie_adresse_asc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY adresse ASC";
+	    $sql="SELECT * FROM commande ORDER BY adresse ASC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -231,9 +246,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_adresse_desc(){
+	function trie_adresse_desc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY adresse DESC";
+	    $sql="SELECT * FROM commande ORDER BY adresse DESC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -245,9 +260,9 @@ $req->bindValue(':id',$id);
 	}
 
 
-	function trie_region_asc(){
+	function trie_region_asc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY region ASC";
+	    $sql="SELECT * FROM commande ORDER BY region ASC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -258,9 +273,9 @@ $req->bindValue(':id',$id);
         } 
 	}
 
-	function trie_region_desc(){
+	function trie_region_desc($page,$pa){
 
-	    $sql="SELECT * FROM commande ORDER BY region DESC";
+	    $sql="SELECT * FROM commande ORDER BY region DESC LIMIT $page , $pa ";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -273,7 +288,7 @@ $req->bindValue(':id',$id);
 
 	function trie_ville_asc(){
 
-	    $sql="SELECT * FROM commande ORDER BY ville ASC";
+	    $sql="SELECT * FROM commande ORDER BY ville ASC LIMIT $page , $pa";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -286,7 +301,7 @@ $req->bindValue(':id',$id);
 
 	function trie_ville_desc(){
 
-	    $sql="SELECT * FROM commande ORDER BY ville DESC";
+	    $sql="SELECT * FROM commande ORDER BY ville DESC LIMIT $page , $pa";
 	    $db = config::getConnexion();
 	    try{
 	    $liste=$db->query($sql);
@@ -296,6 +311,47 @@ $req->bindValue(':id',$id);
 	            die('Erreur: '.$e->getMessage());
         } 
 	}
+
+
+	function trie_nom_prod($page,$pa){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prenom,nom_prod LIMIT $page , $pa  ";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_region_ville_adresse($page,$pa){
+
+	    $sql="SELECT * FROM commande ORDER BY region,ville LIMIT $page , $pa  ";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+
+	function affichercommande_search($search){
+
+    $sql="SELECT * FROM `commande` WHERE CONCAT(`nom_prenom`,`tel`,`nom_prod`,`quantite`,`prix`,`adresse`,`region`,`ville`,`mode_livraison`,`mode_paiement`) LIKE '%".$search."%'";
+    $db = config::getConnexion();
+    try{
+    $liste=$db->query($sql);
+    return $liste;
+    }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        } 
+  }
 }
 
 ?>
