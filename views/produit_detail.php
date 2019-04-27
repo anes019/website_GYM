@@ -214,7 +214,7 @@ if($listnot->rowCount()) {
 
 					<td width="80%">
 							<td width="80%">								
-											<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
+											<a href="ajouterPanier.php?id=<?php echo $row['id']?>"  class="addPanier"  >
 											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>											
 											
 								<td width="9%">			
@@ -261,6 +261,32 @@ if($listnot->rowCount()) {
   
   <script src="js/main.js"></script>
   
+<script>
+(function($){
+ $('.addPanier').click(function(event){
+ 	$.get($(this).attr('href'),{},function(data){
+ 		if(data.error){
+ 			alert(data.message);
+ 		}else{
+ 			if(confirm(data.message +'. Voulez vous consulter votre panier ?')){
+ 				location.href = 'panier.php' ;
+ 			}else{
+ 				$('#total').empty.append(data.total);
+ 				$('#count').empty.append(data.count);
+ 			}
+ 		}
+ 	},'json');
+ 	return false;
+ });
+})(jQuery);
 
+  </script>
+
+
+<script type="text/javascript">
+	document.getElementById("sor").addEventListener('change', function () {
+    window.location = this.value;
+}, false);
+</script>
 
   </body>
