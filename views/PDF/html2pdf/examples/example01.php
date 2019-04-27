@@ -9,7 +9,7 @@
  * @author    Laurent MINGUET <webmaster@html2pdf.fr>
  * @copyright 2017 Laurent MINGUET
  */
-require 'C:/wamp/www/crud/views/pi-web-svn/PDF/vendor/autoload.php';
+require 'C:/wamp64/www/website_GYM/views/PDF/vendor/autoload.php';
 
 
 use Spipu\Html2Pdf\Html2Pdf;
