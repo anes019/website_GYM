@@ -26,6 +26,7 @@
                             <a href="affichage_abonement.php">
                                 <i class="fas fa-table"></i>Gestion des Abonements</a>
                         </li>   
+                      
                         <li >
                             <a href="afficher_data.php?page=<?PHP echo 1; ?>&sort=2&trie=<?PHP echo 0 ?>">
                                 <i class="fas fa-table"></i>Gestion des Pubs </a>
@@ -66,9 +67,10 @@
                                 <i class="fas fa-table"></i>Gestion des Factures</a>
                         </li> 
                         <li>     
-                                <a href="afficherCommande.php">
-                                <i class="fas fa-table"></i>Gestion des Commandes</a>
-                        </li> 
+                            <a href="afficherCommande.php?page=<?PHP echo ""; ?>&sort=2&trie=<?PHP echo 0 ?>">
+                                <i class="fas fa-table"></i>Gestion des Commandes </a>
+                                
+                                
                             
                         
                    
