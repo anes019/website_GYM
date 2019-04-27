@@ -66,6 +66,7 @@ include 'head.php'
 
             <input id="wiou" style="width: 202px;" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small" name="search" value="Filter"><br>
             </form>
+            <label>Show:</label>
   <select id="sor" class="">
       <?PHP 
       $x=$_GET['sort'];
@@ -106,6 +107,8 @@ include 'head.php'
       ?>
                             
                         </select> 
+                   
+                        <label>Sort by:</label>
   <select id="tr" class="">
       <?PHP 
       $x=$_GET['trie'];
@@ -235,8 +238,8 @@ elseif ($trie ==11) {
 elseif ($trie ==12) {
    $listePubs=$pub1C->afficherPub_trie_nbid($page1,$pa);
 }
-elseif (isset($_POST['search'])) {
-   $listePubs=$pub1C->afficherPub_search($_POST['valueToSearch'],$page1,$pa);
+elseif ($_POST['valueToSearch']!="") {
+   $listePubs=$pub1C->afficherPub_search($_POST['valueToSearch']);
 }
 else
 $listePubs=$pub1C->afficherPub($page1,$pa);
@@ -275,16 +278,17 @@ foreach($listePubs as $row){
 ?>
 </tbody>
 </table>
+
 <?PHP
 if (isset($_POST['search'])) 
 {
- $count=$pub1C->row_count_Pub_serach($_POST['valueToSearch']);
  
- if ($count != 0) 
- {
-      $count =ceil($count/$pa);
+ 
+ if ($_POST['valueToSearch']=="") 
+ {$count=$pub1C->row_count_Pub();
 
-echo "<br>";
+$count =ceil($count/$pa);
+      echo "<br>";
 ?>
 <a id="page" class="btn btn-success" href="afficher_data.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo"Debut";?></a>
 <?PHP
@@ -298,7 +302,10 @@ for ($i=1; $i <=$count ; $i++) {
 }
 ?>
 <a class="btn btn-success" href="afficher_data.php?page=<?PHP echo $count; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo" fin";?></a>
-<?PHP
+<br>
+
+ <?PHP
+
     }   
 }
 
@@ -326,6 +333,7 @@ for ($i=1; $i <=$count ; $i++) {
   <?PHP  
 }
 ?>
+
 </div>
 </div>
 </div>
