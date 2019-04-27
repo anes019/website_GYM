@@ -10,6 +10,6 @@ if (isset($_POST["id"])){
 $commandeC=new commandeC();
 if (isset($_POST["id"])){
 	$commandeC->supprimerCommande($_POST["id"]);
-	header('Location: afficherCommande.php');
+	header('Location: afficherCommande.php?page=1&sort=2&trie=0 ?>');
 }
 ?>
