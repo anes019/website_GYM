@@ -71,8 +71,8 @@ include 'head.php'
                                
 
 
-<div class="row">
-                            <div class="col-lg-9">
+
+                            <div class="col-lg-24">
                                 <h2 class="title-1 m-b-25">Tableau de factures</h2>
                                 <div class="table-responsive table--no-card m-b-40" >
                                     <table class="table table-borderless table-striped table-earning" >
@@ -154,7 +154,7 @@ foreach($listefactures as $row){
 
  <!-- END DATA TABLE -->
 
-                            </div>
+                            
                         </div>                       
                     </div>
                 </div>
