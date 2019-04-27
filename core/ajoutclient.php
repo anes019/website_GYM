@@ -51,7 +51,7 @@ $mail->Port = 587;
 $mail->Username = 'anes.temani@esprit.tn';
 
 
-$mail->Password = 'anes1996';
+$mail->Password = '**********';
 
 
 $mail->SetFrom('BFACADEMY@gmail.com', 'BFACADEMY');
