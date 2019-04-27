@@ -26,7 +26,7 @@ $facture1=new facture($_POST['id_cmd'],$_POST['nom_prenom'],$_POST['adresse'],$_
 $facture1C=new factureC();
 
 $facture1C->ajouterFacture($facture1);
-header('Location: afficherCommande.php');
+header('Location: form_cmd.php');
 
 }else{
   echo "vérifier ";
