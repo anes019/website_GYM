@@ -39,7 +39,7 @@
     <div class="page-wrapper" >
   
        <?php 
-include 'head.php'
+include 'head.php';
 ?>
 
             <!-- MAIN CONTENT-->
@@ -58,15 +58,7 @@ include 'head.php'
                             <div >
                                 <!-- DATA TABLE -->
                                
-                                <div class="table-data__tool" >
-                            
-                                    <div class="table-data__tool-right">
-                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" style="position: absolute;width: 150px;left: 80%">
-                                            <a href="form_cmd.html">
-                                            <i class="zmdi zmdi-plus"></i>ajouter </a></button>
-                                  
-                                    </div>
-                                </div>
+                                
                                 
                                
 
