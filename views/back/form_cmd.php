@@ -41,7 +41,8 @@
 include 'head.php'
 ?>
 
-   <?php 
+  
+              <?php 
               $hostname = "localhost";
     $username = "root";
     $password = "";
@@ -76,7 +77,7 @@ include 'head.php'
                                     </div>
                                     <div class="card-body card-block">
                                         <form action="ajouterCommande.php" method="post"  class="form-horizontal">
-                                           <input type="hidden" name="id_cmd" value="119">
+                                           <input type="hidden" name="id_cmd" value="<?= $id ?>">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Nom et prenom</label>
@@ -210,18 +211,19 @@ include 'head.php'
                                     <div class="card-footer">
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             <i class="fa fa-dot-circle-o"></i> Valider
-                                        </button>
+                                        </button></form>
+
                                         <button type="reset" class="btn btn-danger btn-sm">
                                            <i class="fa fa-ban"></i> réinitialiser
                                         </button>
                                         <button type="reset"  >
-                                           <a href="afficherCommande.php"><i class="fa fa-dot-circle-o"></i> retour</a>
+                                           <a href="afficherCommande.php?page=<?PHP echo ""; ?>&sort=2&trie=<?PHP echo 0 ?>"><i class="fa fa-dot-circle-o"></i> retour</a>
                                         </button>
                                     </div>
                                     <div></div>
                                 </div>
+                                
                                 <!-- fin Form produits-->
-</form>
 
 
                                                   
