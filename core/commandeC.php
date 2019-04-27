@@ -164,6 +164,138 @@ $req->bindValue(':id',$id);
             die('Erreur: '.$e->getMessage());
         }
 	}
+
+
+	function trie_nom_asc(){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prenom ASC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_nom_desc(){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prenom DESC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_produit_asc(){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prod ASC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_produit_desc(){
+
+	    $sql="SELECT * FROM commande ORDER BY nom_prod DESC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_adresse_asc(){
+
+	    $sql="SELECT * FROM commande ORDER BY adresse ASC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_adresse_desc(){
+
+	    $sql="SELECT * FROM commande ORDER BY adresse DESC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+
+	function trie_region_asc(){
+
+	    $sql="SELECT * FROM commande ORDER BY region ASC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_region_desc(){
+
+	    $sql="SELECT * FROM commande ORDER BY region DESC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_ville_asc(){
+
+	    $sql="SELECT * FROM commande ORDER BY ville ASC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
+
+	function trie_ville_desc(){
+
+	    $sql="SELECT * FROM commande ORDER BY ville DESC";
+	    $db = config::getConnexion();
+	    try{
+	    $liste=$db->query($sql);
+	    return $liste;
+	    }
+	    catch (Exception $e){
+	            die('Erreur: '.$e->getMessage());
+        } 
+	}
 }
 
 ?>
