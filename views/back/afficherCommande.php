@@ -235,7 +235,7 @@ elseif ($trie ==11) {
    $listecommandes=$commande1C->trie_region_ville_adresse($page1,$pa);
 }
 
-elseif (isset($_POST['valueToSearch'])) {
+elseif (!empty($_POST['valueToSearch'])) {
    $listecommandes=$commande1C->affichercommande_search($_POST['valueToSearch']);
 }
 else
