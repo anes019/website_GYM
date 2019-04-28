@@ -36,7 +36,16 @@ if (isset($_GET['id'])){
 
   <div class="col-12 col-md-9">
     <label> NOM: </label>
-    <input type="text" id="nome" name="nom" value="<?PHP echo $nom ?>" class="form-control"> 
+    
+          <select name="nom" id="nome" class="form-control">
+      <option value="<?PHP echo $nom ?>"><?PHP echo $nom ?></option>
+       <option value="0">choix</option>
+       <option value="Promo_hiver">Promo_hiver</option>
+       <option value="Black_friday">Black_friday</option>
+       <option value="Promo_mois">Promo_mois</option>
+       <option value="promo_ete">promo_ete</option>
+
+       </select> 
   </div>
 
  <div class="col-12 col-md-9">
