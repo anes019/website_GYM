@@ -46,7 +46,18 @@ class commandeC {
         }
 		
 	}
-	
+	function affichercommandeC(){
+		
+		$sql="SELECT * From commande";
+		$db = config::getConnexion();
+		try{
+		$liste=$db->query($sql);
+		return $liste;
+		}
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }	
+	}
 	function afficherCommande($page1,$pa){
 		
 		$sql="SELECT * From commande limit $page1,$pa";
