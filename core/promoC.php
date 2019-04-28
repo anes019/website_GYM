@@ -62,6 +62,19 @@ class promoC {
         }
   }
 
+    function supprimerPromo_all(){
+    $sql="DELETE FROM promo ";
+    $db = config::getConnexion();
+        $req=$db->prepare($sql);
+    
+    try{
+            $req->execute();
+
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+  }
   function modifierPromo($promo,$id){
     
     $sql="UPDATE promo SET nom=:nom, idp=:idp,pour=:pour WHERE id=:id";
@@ -154,7 +167,34 @@ try{
         }
     
   }
+  function suppPromo_Produit_all(){
+    $sql="UPDATE produits SET etat='false', prix_promo=0 ";
+    
+    $db = config::getConnexion();
+ 
+try{    
+        $req=$db->prepare($sql);
+         
+        
+        
+    
+  
 
+
+
+    
+    
+            $s=$req->execute();
+      
+           // header('Location: index.php');
+        }
+        catch (Exception $e){
+            echo " Erreur ! ".$e->getMessage();
+   echo " Les datas : " ;
+
+        }
+    
+  }
   function modifierPromo_Produit($id,$pour){
     $sql="UPDATE produits SET etat='true', prix_promo=prix-prix*$pour/100 WHERE id=:id";
     
