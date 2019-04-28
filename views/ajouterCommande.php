@@ -1,3 +1,7 @@
+<?php 
+          session_start();
+ include'header.php' 
+ ?>
 <?php require '_header.php' ;
 
 
@@ -43,13 +47,20 @@ $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'belkisbaccar29@gmail.com';                 // SMTP username
-$mail->Password = 'bullshit29';                           // SMTP password
+$mail->Username = 'bf.academy29@gmail.com';                 // SMTP username
+$mail->Password = 'sitewebgym';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-$mail->setFrom('belkisbaccar29@gmail.com', 'Belkis Baccar');
-$mail->addAddress('belkisbaccar29@gmail.com', 'User joe');     // Add a recipient
+$mail->setFrom('bf.academy29@gmail.com', 'Bf Academy');
+ $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
+
+foreach($info as $row){
+$ma=$row['EMAIL'];
+$mail->addAddress($ma, 'User joe');     // Add a recipient
+
+}
 /*$mail->addAddress('ellen@example.com');               // Name is optional
 $mail->addReplyTo('info@example.com', 'Information');
 $mail->addCC('cc@example.com');
@@ -462,7 +473,8 @@ img.img-responsive {
     			<tr>
     			
     				<td class='image'>
-    					<img src='cid:back'>
+    					<img src='cid:back' style='height: 200px;
+                                                        width: 800px;'>
     				</td>
     				 
     			</tr> <!--- End Banner -->
@@ -521,12 +533,14 @@ img.img-responsive {
           <!--- End Main Table -->
             <table class='outer-table-3'>
     			<tr>
+                 <img src=cid:end'>
     				<td class='one-column'>
     					<table width='100%'>
     						<tr>
     							<td class='footer'>
-    								<img src=cid:end'>
+    								
     								<p class='footer'>Bf Academie<br></p>
+
     							</td>
     						</tr>
     					</table>
@@ -549,7 +563,7 @@ img.img-responsive {
 
 
 $mail->AddEmbeddedImage('Email/green-background.jpg','back');
-$mail->AddEmbeddedImage('images/product/'.$produit->id.'.jpg','pr');
+$mail->AddEmbeddedImage('C:/wamp64/www/website_GYM/views/'.$produit->image,'pr');
 $mail->AddEmbeddedImage('Email/logo.png','end');
 
  endforeach; 
