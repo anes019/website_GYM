@@ -8,7 +8,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
+  <script type="text/javascript" src="verifcoach.js"></script>
     <!-- Title Page-->
     <title>Gesion des Coaches</title>
 
@@ -134,7 +134,7 @@
                                                     <label for="text-input" class=" form-control-label">Nom coach</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="produit_input" name="nom" placeholder="nom " class="form-control"> 
+                                                    <input type="text" id="nome" name="nom" placeholder="nom " class="form-control"> 
                                                      <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
                                             </div>
@@ -143,7 +143,7 @@
                                                     <label for="marque_input" class=" form-control-label">prenom</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="marque_input" name="prenom" placeholder="prenom" class="form-control">
+                                                    <input type="text" id="prenom" name="prenom" placeholder="prenom" class="form-control">
                                                      <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
                                             </div>
@@ -156,7 +156,7 @@
                                                     <label for="mini-descript_input" class=" form-control-label">specialite</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <textarea name="specialite" id="mini-descript_input" rows="4" placeholder="Contenu..." class="form-control"></textarea>
+                                                    <textarea name="specialite" id="specialite" rows="4" placeholder="Contenu..." class="form-control"></textarea>
                                                 </div>
                                             </div>
 
@@ -165,7 +165,7 @@
                                                     <label for="text-input" class=" form-control-label">email</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="produit_input" name="email" placeholder="email" class="form-control"> 
+                                                    <input type="text" id="mail" name="email" placeholder="email" class="form-control"> 
                                                      <small class="help-block form-text">veuillez remplir ce chalmp</small>
                                                 </div>
 
@@ -187,7 +187,7 @@
                                        
                                    
                                     <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-sm" onclick="submit_p()">
+                                        <button type="submit" class="btn btn-primary btn-sm" onclick="verifchamps()">
                                             <i class="fa fa-dot-circle-o"></i> Submit
                                         </button>
                                         <button type="reset" class="btn btn-danger btn-sm" onclick="reset_produits()">
