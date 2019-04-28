@@ -48,10 +48,10 @@ $mail->Host = 'smtp.gmail.com';
 $mail->Port = 587;
 
 
-$mail->Username = 'anes.temani@esprit.tn';
+$mail->Username = 'bfacademy29@gmail.com';
 
 
-$mail->Password = '**********';
+$mail->Password = 'sitewebgym';
 
 
 $mail->SetFrom('BFACADEMY@gmail.com', 'BFACADEMY');

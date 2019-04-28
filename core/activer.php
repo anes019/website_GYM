@@ -12,6 +12,7 @@ if($row['EmailConfirmed']==1)
 	session_start();
 	    $_SESSION['l']= $row['USERNAME'];
     $_SESSION['p']=$row['PASSWORD'];
+     $_SESSION['ID']=$row['ID_CLIENT'];
 			      ?>
       <script language="javascript">
       	 alert('Mail already confirmed  ');
@@ -30,6 +31,8 @@ $msg=$client->activer($_GET['activation_code']);
 		session_start();
 	    $_SESSION['l']= $row['USERNAME'];
     $_SESSION['p']=$row['PASSWORD'];
+     $_SESSION['ID']=$row['ID_CLIENT'];
+
 		      ?>
       <script language="javascript">
       	 alert('Mail confirmed ');

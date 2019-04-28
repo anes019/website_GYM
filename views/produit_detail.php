@@ -9,7 +9,7 @@ require '_header.php';
 
 
 <?PHP
-session_start();
+//session_start();
 include "../core/ProduitsC.php";
 $id=$_GET['id'];
 
