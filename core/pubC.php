@@ -275,7 +275,19 @@ return $rowcount;
             die('Erreur: '.$e->getMessage());
         }
   }
+  function supprimerPub_all(){
+    $sql="DELETE FROM pub ";
+    $db = config::getConnexion();
+        $req=$db->prepare($sql);
+    
+    try{
+            $req->execute();
 
+        }
+        catch (Exception $e){
+            die('Erreur: '.$e->getMessage());
+        }
+  }
   function modifierPub($pub,$id){
     $sql="UPDATE pub SET nom=:nom, pos=:pos,im=:im WHERE id=:id";
     
