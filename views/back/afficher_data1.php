@@ -72,7 +72,7 @@ include 'head.php'
  <th> pourcentage </th>
  <th> prix</th>
  <th> prix_promo</th>
- <th> delete </th>
+ <th>Delete</th>
  <th> update </th>
 
   </tr >
@@ -107,7 +107,8 @@ foreach($listePromo as $row)
 
     <input type="hidden" value="<?PHP echo $row[0]; ?>" name="id">
     </form>
-    </td>    
+    </td>  
+
     </tr>
 
 
@@ -119,6 +120,7 @@ foreach($listePromo as $row)
 
 </table>
 
+<a class="btn btn-success" href="crud_promo/supprimer_tout.php">Delete all</a>
 
 
 
