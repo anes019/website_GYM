@@ -238,7 +238,7 @@ elseif ($trie ==11) {
 elseif ($trie ==12) {
    $listePubs=$pub1C->afficherPub_trie_nbid($page1,$pa);
 }
-elseif (isset($_POST['valueToSearch'])) {
+elseif (!empty($_POST['valueToSearch'])) {
    $listePubs=$pub1C->afficherPub_search($_POST['valueToSearch']);
 }
 else
@@ -263,13 +263,19 @@ foreach($listePubs as $row){
             <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
 
     <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
-   
+   <input type="hidden" value="<?PHP echo $trie; ?>" name="pa2">
+   <input type="hidden" value="<?PHP echo $page; ?>" name="pa1">
+   <input type="hidden" value="<?PHP echo $pa; ?>" name="pa">
     </form>
 </td>
         <td><form action="crud_pub/modifierPub.php">
             <button class="btn btn-success"" type="submit" name="supprimer" value="supprimer"><i class="fa fa-dot-circle-o"></i> Update </button>
 
     <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+    <input type="hidden" value="<?PHP echo $row['im']; ?>" name="imageee">
+       <input type="hidden" value="<?PHP echo $trie; ?>" name="pa2">
+   <input type="hidden" value="<?PHP echo $page; ?>" name="pa1">
+   <input type="hidden" value="<?PHP echo $pa; ?>" name="pa">
     </form>
     </td>
     </tr>
