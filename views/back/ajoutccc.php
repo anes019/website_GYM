@@ -2,7 +2,7 @@
 include "../../entites/coachb.php";
 include "../../core/coachbC.php";
 
-if (!empty($_POST['nom']) and !empty($_POST['prenom']) and !empty($_POST['specialite']) and !empty($_POST['email']) and !empty($_FILES['image']['name']) )
+if (!empty($_POST['nom']) and !empty($_POST['prenom']) and !empty($_POST['specialite']) and !empty($_POST['email']) and !empty($_FILES['image']['name']) and preg_match ( " /^.+@.+\.[a-zA-Z]{2,}$/ " , $_POST['email'] ) )
 {
 	$name = $_FILES['image']['name'];
   $target_dir = "img_coach/";
