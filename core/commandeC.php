@@ -342,7 +342,7 @@ return $rowcount;
 
 	function affichercommande_search($search){
 
-    $sql="SELECT * FROM `commande` WHERE CONCAT(`nom_prenom`,`tel`,`nom_prod`,`quantite`,`prix`,`adresse`,`region`,`ville`,`mode_livraison`,`mode_paiement`) LIKE '%".$search."%'";
+    $sql="SELECT * FROM `commande` WHERE CONCAT(`nom_prenom`,`tel`,`nom_prod`,`quantite`,`prix`,`adresse`,`region`,`ville`,`mode_livraison`,`mode_paiement`) LIKE '%".$search."%' ";
     $db = config::getConnexion();
     try{
     $liste=$db->query($sql);
