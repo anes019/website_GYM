@@ -3,8 +3,11 @@
 
 <head>
     <!-- Required meta tags-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
    <?php 
-include 'statistique_walid.php'
+include 'statistique_walid.php';
+include 'statistique_belkis.php';
+
 ?> 
   
     <!-- Title Page-->
@@ -74,13 +77,42 @@ include 'head.php'
             </div>          
              </div>
              </div>
-    <!---end stat_2_walid-->           
-
-
-            </div>
+    <!---end stat_2_walid-->  
+     </div>
             </div>
         </div>
+        </div>        
+   <!--stat_2_walid-->    
+<div class="section__content section__content--p30">
+                    <h3 class="title-5 m-b-35">Statistique commandes</h3> 
+                    <div class="container-fluid">
+                     <div class="row">
+       <div class="col-lg-6">
+             <div class="au-card m-b-30">
+             <div class="au-card-inner">
+               
+ <div id="chart_div1">
+          </div> 
+            </div>          
+             </div>
+             </div>
+    <!---end stat_2_walid--> 
+       <!--stat_2_walid-->           
+       <div class="col-lg-6">
+             <div class="au-card m-b-30">
+             <div class="au-card-inner">
+               
+ <div id="piechart_3d1">
+          </div> 
+            </div>          
+             </div>
+             </div>
+    <!---end stat_2_walid-->  
+ </div>
+            </div>
         </div>
+        </div> 
+           
            
 
 
