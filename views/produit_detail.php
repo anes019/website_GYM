@@ -1,3 +1,13 @@
+<?php 
+ session_start();
+ include'header.php' ;
+
+ ?>
+<?php  
+require '_header.php';
+?>
+
+
 <?PHP
 session_start();
 include "../core/ProduitsC.php";
@@ -75,9 +85,7 @@ font-size: 160%;
 
   </head>
   <body  id="produits">
-  <?PHP
-	include'header.php' ;
-?>
+
       <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
       <div class="overlay"></div>
       <div class="container">
@@ -103,6 +111,7 @@ font-size: 160%;
 											<?php
                                             foreach($listeproduit as $row){ 
                                             	$idp=$row['id'];
+                                            	$quan=$row['quantite'];
                                             ?>		
 						<tr>
 							<?php 
@@ -144,7 +153,7 @@ font-size: 160%;
 										<h5><?PHP if ($row['ingredient']!=""){ echo "Ingredient :".$row['ingredient'];} ?></h5>
 										<br>
 										<h5><?PHP if ($row['poids']!=""){ echo "Poids :".$row['poids'].".Kg";} ?></h5>
-										<h5 style="color: red;"><?PHP if ($row['quantite']!=""){ echo "in stock";} 
+										<h5 style="color: red;"><?PHP if ($row['quantite']>0){ echo "in stock";} 
 										else{echo "out of stock";}
 										?>																	
 										<br> 
@@ -165,6 +174,7 @@ if(isset($_SESSION['ID']))
 	          {
 	          	$idc=$_SESSION['ID'];
 	//afficher note          	
+
 $sql=" SELECT * from note where id_client='$idc' and id_produit='$id'";
     $db = config::getConnexion(); 
 
@@ -199,13 +209,6 @@ if($listnot->rowCount()) {
 												<img width="30" height="30" src="images/star_w.png">
 												
 
-
-
-
-
-
-
-
 <?php
 
 												}}}  ?>
@@ -213,9 +216,10 @@ if($listnot->rowCount()) {
 									
 
 					<td width="80%">
-							<td width="80%">								
+							<td width="80%">
+							<?php if( $quan>0){?>								
 											<a href="ajouterPanier.php?id=<?php echo $row['id']?>"  class="addPanier"  >
-											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>											
+											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>					<?php }?>							
 											
 								<td width="9%">			
 										<a href="whichlist_ajout.php?id=<?php echo"$id"?>" class="social-info">

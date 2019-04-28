@@ -1,3 +1,13 @@
+<?php 
+ session_start();
+ include'header.php' ;
+
+ ?>
+<?php  
+require '_header.php';
+?>
+
+
 <?PHP
 
 include "../core/crudsC.php";
@@ -75,9 +85,7 @@ $listeproduit=$prC->afficherProd($idc);
 
   </head>
   <body  id="produits">
-  	<?PHP
-	include'header.php' ;
-?>
+
     <!-- END nav -->
       <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
       <div class="overlay"></div>
@@ -158,11 +166,20 @@ $listeproduit=$prC->afficherProd($idc);
 								<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
 									<img  src='<?php echo $row['image']; ?>' width="200" height="250" >
 									</a>
-								
 								<div class="product-details">
 									<div class="product-details">
 									<h6><?PHP echo $row['nom']; ?></h6>
-									<div class="price"><h6>PRIX: <?PHP echo $row['prix']; ?> dt</h6></div>	
+									<div class="price"><h6>
+									 <?PHP echo  "PRIX:".$row['prix']."DT";?>
+									 <br>
+									 <?php
+									if( $row['quantite']==0){
+									 	echo "out of stock";}
+									 	?>
+									 	 	
+
+
+									</h6></div>	
 								</div>
 
 
@@ -197,9 +214,12 @@ $listeproduit=$prC->afficherProd($idc);
 								
 												<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
 											<img class="img-fluid" src="images/det.png" title="details" alt="details" title="Details"></a>
-
-											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="social-info" >
-											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" ></a>
+ 							<?php if( $row['quantite']>0){?>
+									 	
+									 	 
+											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="addPanier"  >
+											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" style="width: 30px;margin-top: -34px"></a>
+											<?php }?>
 									</div>
 
 						

@@ -177,7 +177,17 @@ $idc=0;
 								<div class="product-details">
 									<div class="product-details">
 									<h6><?PHP echo $row['nom']; ?></h6>
-									<div class="price"><h6>PRIX: <?PHP echo $row['prix']; ?> dt</h6></div>	
+									<div class="price"><h6>
+									 <?PHP echo  "PRIX:".$row['prix']."DT";?>
+									 <br>
+									 <?php
+									if( $row['quantite']==0){
+									 	echo "out of stock";}
+									 	?>
+									 	 	
+
+
+									</h6></div>	
 								</div>
 
 
@@ -213,9 +223,12 @@ $idc=0;
 								
 												<a href="produit_detail.php?id=<?php echo $row['id'];?>" class="social-info">
 											<img class="img-fluid" src="images/det.png" title="details" alt="details" title="Details"></a>
-
+ 							<?php if( $row['quantite']>0){?>
+									 	
+									 	 
 											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="addPanier"  >
 											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" style="width: 30px;margin-top: -34px"></a>
+											<?php }?>
 									</div>
 
 
