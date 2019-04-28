@@ -13,7 +13,12 @@
 
         }
 
+ #wiou1{
+            right: 2%;
+            position: absolute;
 
+
+        }
 
     </style>
    
@@ -182,7 +187,7 @@ include 'head.php'
 &trie=<?PHP echo 8 ?>
  ">↑</th>
  <th> image </th>
-    <th> Delete </th>
+    <th>Delete</th>
  <th> Update </th>
 
   </tr >
@@ -285,6 +290,7 @@ foreach($listePubs as $row){
 </tbody>
 </table>
 
+<div id="wiou1">
 <?PHP
 if (isset($_POST['search'])) 
 {
@@ -323,7 +329,8 @@ $count =ceil($count/$pa);
 
 echo "<br>";
 ?>
-<a id="page" class="btn btn-success" href="afficher_data.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo"Debut";?></a>
+
+<a id="page" style="" class="btn btn-success" href="afficher_data.php?page=<?PHP echo 1; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo"Debut";?></a>
 <?PHP
 for ($i=1; $i <=$count ; $i++) { 
     ?><a id="page" class="btn btn-success"href="afficher_data.php?page=<?PHP echo $i; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo $i;?></a>
@@ -336,13 +343,17 @@ for ($i=1; $i <=$count ; $i++) {
 ?>
 <a class="btn btn-success" href="afficher_data.php?page=<?PHP echo $count; ?>&sort=<?PHP echo $_GET['sort'] ?>&trie=<?PHP echo $_GET['trie'] ?>"><?PHP echo" fin";?></a>
 <br>
+
   <?PHP  
 }
 ?>
+</div>
+<br>
+<a class="btn btn-success" href="crud_pub/supprimer_tout.php">Delete All</a>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
 <br>
 
 
