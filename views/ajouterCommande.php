@@ -10,7 +10,8 @@ include "C:/wamp64/www/website_GYM/core/commandeC.php";
 include "C:/wamp64/www/website_GYM/entites/facture.php";
 include "C:/wamp64/www/website_GYM/core/factureC.php";
 
-              
+             
+
 if (!empty($_POST['nom_prenom']) and !empty($_POST['numero']) and !empty($_POST['nom_prod']) and !empty($_POST['qte'])  and !empty($_POST['prix']) and !empty($_POST['adresse']) and !empty($_POST['region']) and !empty($_POST['ville']) and !empty($_POST['r1']) and !empty($_POST['r2']))
 
 {
@@ -28,8 +29,8 @@ $facture1C=new factureC();
 
 $facture1C->ajouterFacture($facture1);
 echo "valider";
-header('Location: mes_cmd.php');
 
+ header('Location: mes_cmd.php');
 }else{
   echo "vérifier les champs";
 }
@@ -552,6 +553,7 @@ img.img-responsive {
     <br>
 </body>
 </html>" ;
+ 
  $ids = array_keys($_SESSION['panier']);
               if(empty($ids)){
                 $produits = array();
@@ -560,13 +562,14 @@ img.img-responsive {
               }
               
               foreach($produits as $produit):
-
-
 $mail->AddEmbeddedImage('Email/green-background.jpg','back');
 $mail->AddEmbeddedImage('C:/wamp64/www/website_GYM/views/'.$produit->image,'pr');
 $mail->AddEmbeddedImage('Email/logo.png','end');
 
- endforeach; 
+//header('location:panier.php?delPanier='.$produit->id);  
+
+endforeach;
+
 if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
