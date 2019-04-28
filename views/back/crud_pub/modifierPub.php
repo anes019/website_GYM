@@ -5,7 +5,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="veriferChamps_Pub.js"></script>
+    <script src="veriferChamps_Pub1.js"></script>
 </head>
 
 <body>
@@ -66,8 +66,13 @@ if (isset($_GET['id'])){
  </div>
           
 <div class="col-12 col-md-9">
-      <label for="images_input" class=" form-control-label">Images input</label>
-    <input type="file" id="images_input" name="im"  value="<?PHP echo $im ?>" class="form-control-file">
+      <label for="images_input" class=" form-control-label">Images a choisir</label>
+    <input type="file" id="images_input" name="im"  onchange="readURL(this);" class="form-control-file"><br>
+    <img id="blah" src="#" alt="" />
+    <br>
+    <label for="images_input" class=" form-control-label">Images deja choisie</label><br>
+    <img height="55px" width="200px" src="<?PHP echo $_GET['imageee'];?>" />
+    
   <br>
 </div>
    <div class="card-footer">
@@ -84,19 +89,40 @@ if (isset($_GET['id'])){
 <?PHP
 	}
 }
+  $pa=$_GET['pa'];
+$pa1=$_GET['pa1'];
+$pa2=$_GET['pa2'];
 if (isset($_POST['modifier'])){
          if(empty($_POST['nom']) || empty($_POST['pos'])|| empty($name))
        {
-          header('Location: ../afficher_data.php?page=1&sort=2&trie=0');
+          header('Location: ../afficher_data.php?page='.$pa1.'&sort='.$pa.'&trie='.$pa2.'');
        }
        else
 	{$target_dir = "upload/";
    $pub=new pub($_POST['nom'],$_POST['pos'],$target_dir.$name);
 	$pubC->modifierPub($pub,$_POST['cin_ini']);
 	echo $_POST['cin_ini'];
-	header('Location: ../afficher_data.php?page=1&sort=2&trie=0');
+
+header('Location: ../afficher_data.php?page='.$pa1.'&sort='.$pa.'&trie='.$pa2.'');
 }
 }
 ?>
 </body>
+<script type="text/javascript">
+  function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(55);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
 </HTMl>
