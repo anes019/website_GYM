@@ -8,14 +8,29 @@
 include 'statistique_walid.php';
 include 'statistique_belkis.php';
 include 'statistique_mandouch.php';
+include "C:/wamp64/www/website_GYM/core/crudsC.php";
+include "C:/wamp64/www/website_GYM/core/Clients.php";
+$clie=new Clients();
+$listcli=$clie->afficherClients();
+$prC=new ProduitC();
+$listeproduit=$prC->afficher_produit();
+$aC=new abonementC();
+$liste_abo=$aC->afficher_abonement_front();
+
+$db = config::getConnexion();
+$liste=$db->query("SELECT * from facture");
+$prix=0;
+ foreach($liste as $row){ 
+    $prix+=$row['prix'];
+                                            }
+
 ?> 
   
     <!-- Title Page-->
        <meta charset="utf-8">
     <title>Data Table</title>
     <script type="text/javascript" src="datatabel/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="datatabel/datatabel/media/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="datatabel/datatabel/media/css/jquery.dataTables.min.css">
+   
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -48,7 +63,84 @@ include 'statistique_mandouch.php';
 include 'head.php'
 ?>
                                        
-        <div class="main-content">
+       <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                <div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php  echo $listcli->rowCount()?></h2>
+                                                <span>Membres</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart1"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php  echo $listeproduit->rowCount()?></h2>
+                                                <span>Produits</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c3">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-calendar-note"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php  echo $liste_abo->rowCount()?></h2>
+                                                <span>Abonements</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c4">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-money"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2><?php  echo $prix?></h2>
+                                                <span>Gain total</span>
+                                            </div>
+                                        </div>
+                                        <div class="overview-chart">
+                                            <canvas id="widgetChart4"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>        
+
 
 
              <!--stat_1_walid-->  
