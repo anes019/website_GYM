@@ -30,7 +30,7 @@ $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'walid.tayeche@esprit.tn';                 // SMTP username
-$mail->Password = '***********';                           // SMTP password
+$mail->Password = 'azerty&psn1234';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
@@ -39,7 +39,7 @@ $mail->addAddress('walid.tayeche@esprit.tn', 'Walid Tayeche');     // Add a reci
    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
-$mail->Subject = 'Here is the subject';
+$mail->Subject = '!!! PROMO !!!';
 $mail->Body    ="<!DOCTYPE html>
 <html>
 <head>
@@ -453,7 +453,7 @@ img.img-responsive {
     							<td class='inner-td'>
     								<p class='h2'>".$_POST['nom']."</p>
     								<p class='h2'>-".$_POST['pour']."%</p>
-                                     <img src='cid:pr' class='center'>
+                                     <img src='cid:pr' class='center'width='400px'height='200px' >
     								<p class='button-holder-center'>
     									
     								</p>

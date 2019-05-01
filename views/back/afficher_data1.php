@@ -59,7 +59,11 @@ include 'head.php'
                                         <button  id="wiou" type="submit" class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="crud_promo/ajouter_pub.php"></a>
                                             <i class="zmdi zmdi-plus"></i>add Promo </button>
                                         </form>
-
+<form action="../PDF/html2pdf/examples/extrai_promo.php" method="POST">
+                                                    <button ><image src="../images/icons/download.png" style="width:40px">
+                                                           extrait
+                                                       </button>
+                                                        </form>
 <h3 class="title-5 m-b-35">Table Produits En Promo</h3>
 
  <table id="datatables1" class=" table table-borderless table-striped table-earning">
