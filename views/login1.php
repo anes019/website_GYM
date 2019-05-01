@@ -46,7 +46,7 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
   </head>
-    <body>
+    <body onload ="document.getElementById('modal-wrapper').style.display='block'">
    
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
@@ -73,90 +73,12 @@
 
     <!-- END nav -->
 
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-3 bread">Gym Trainer</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>LOGIN</span></p>
-          </div>
-        </div>
-      </div>
-    </section>
+
       
      
-    
-
-       <div style="background-image: url('images/bg_2.jpg');">
-      <br>
-<br>
-<br>
-    <br>
-<br>
-<br>
-<div class="container-login100" >
-      <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-        <form  id ="form" class="login100-form validate-form"  method="POST" action="../core/check_acc3.php">
-          <span class="login100-form-title p-b-55">
-            Login
-          </span>
-
-          <div class="wrap-input100 validate-input m-b-16" >
-            <input class="input100" type="text" name="email" id="mail" required placeholder="Email address or user name">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-               
-              <span class="lnr lnr-envelope"></span>
-               
-            </span>
-          </div>
-           <span class="check_ok" style="color:#149541; font-size:1em;"></span>
-      <span class="check_false"  style="color:#F55 ; font-size:1em;"></span>
-           <span id='email'></span><br>
-           
-          <div class="wrap-input100 validate-input m-b-16" >
-            <input class="input100" type="password" name="pass" id="pass" required placeholder="Password">
-            <span class="focus-input100"></span>
-            <span class="symbol-input100">
-              <span class="lnr lnr-lock"></span>
-            </span>
-          </div>
-             <span class="check_ok1" style="color:#149541; font-size:1em;"></span>
-      <span class="check_false1"  style="color:#F55 ; font-size:1em;"></span>
-        
-          
-          <div class="container-login100-form-btn p-t-25">
-            <button class="login100-form-btn" id="login">
-              Login
-            </button>
-          </div>
-
-   
 
 
 
-          <div class="text-center w-full p-t-115">
-            <span class="txt1">
-              Not a member?
-            </span>
-
-            <a class="txt1 bo1 hov1" href="Inscription.php">
-              Sign up now             
-            </a>
-          </div>
-        </form>
-      
-
-          
-
-    </div>
-  </div>
-
-
-   </section>
-<br>
-<br>
     
     
   

@@ -33,6 +33,7 @@ session_start();
   <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font7.ttf">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
@@ -50,7 +51,7 @@ session_start();
 
 
   </head>
-<body>
+<body onload="generateCaptcha();">
 
     <!-- END nav -->
 
@@ -88,7 +89,7 @@ session_start();
   
   <ul>
     <li>
-      <input type="radio"  id="one" name="choix" value="probleme d'achat en ligne"   />
+      <input type="radio" checked  id="one" name="choix" value="probleme d'achat en ligne"   />
       <label for="one" >problème d'achat en ligne</label>
       
       <div class="check"></div>
@@ -102,7 +103,7 @@ session_start();
     </li>
 
   </ul>
-    <span id='r'></span><br>
+ 
 </div>
         
 
@@ -129,13 +130,34 @@ session_start();
             <div class="contact100-form-checkbox">
               
     <span class="label-input100">Captcha <br> <br> </span> 
-    <input type="text" id="cap" name="captcha" style=" border: 1px solid black;
-  border-radius: 4px;" />
+ 
+   <input type="text" id="txtInput" style=" height: 40px; border: 1px solid #444444; "> 
+     <br>
+      <br>
+    <input type="text" id="mainCaptcha"readonly="readonly"  
+     style="  background-image:url('images/bg6.png');
 
-    <img src="imageC.php" onclick="this.src='imageC.php?' + Math.random();" alt="captcha" style="cursor:pointer; height: 45px">
+ height: 40px;
+   width:150px;
+  font-variant: small-caps; 
+
+   font-size:2vw;
+ text-align: center;
+
+   "
+onclick="generateCaptcha();"
+      > 
+
+    
+    
+    
+               
+
+
 
 <br>
- <span id='caa'></span><br>
+ <span id='success'></span><br>
+
           </div>
         </div>
           
@@ -189,53 +211,69 @@ session_start();
      
     
       <script>
+
+ 
+         function generateCaptcha()
+         {
+             var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9');
+             var i;
+             for (i=0;i<4;i++){
+               var a = alpha[Math.floor(Math.random() * alpha.length)];
+               var b = alpha[Math.floor(Math.random() * alpha.length)];
+               var c = alpha[Math.floor(Math.random() * alpha.length)];
+               var d = alpha[Math.floor(Math.random() * alpha.length)];
+                var e = alpha[Math.floor(Math.random() * alpha.length)];
+                 var g = alpha[Math.floor(Math.random() * alpha.length)];
+                  var f = alpha[Math.floor(Math.random() * alpha.length)];
+                   var h = alpha[Math.floor(Math.random() * alpha.length)];
+
+              }
+            var code = a + '' + b + '' + '' + c + '' + d+''+g+''+e+''+f+''+h;
+            document.getElementById("mainCaptcha").value = code
+          }
+
+
+          function CheckValidCaptcha(event){
+              var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+              var string2 = removeSpaces(document.getElementById('txtInput').value);
+              if (string1 == string2){
+         document.getElementById('success').innerHTML = " ";
+
+    
+         //alert("Form is validated Successfully");
+        
+              }
+              else{       
+         event.preventDefault();
+         document.getElementById('success').innerHTML = "Please enter a valid captcha.";
+ document.getElementById('success').style.color="red";
+              }
+          }
+          function removeSpaces(string){
+            return string.split(' ').join('');
+          }
+
+
+
+
             var formValid = document.getElementById('login');
      
  
-            var termuse= document.getElementById('caa');
-            var radd= document.getElementById('r');
-            var captcha = document.getElementById("cap");
-            var code = document.getElementById("code");
-            var rad = document.getElementById("one");
-            var rad1 = document.getElementById("two");
-            var msg = document.getElementById("test");
-            var cont = document.getElementById("con");
-            var usernameValid=/^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
-            var emailValid= /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i; 
-            formValid.addEventListener('click', validation);
+          
+
+         
+      
+         var cap = document.getElementById("success");
+            formValid.addEventListener('click', CheckValidCaptcha);
+                
+            var str = document.getElementById('txtInput');
+            function validation(){
+      
+    CheckValidCaptcha();
             
 
-            function validation(event){
-      
-                if (rad.checked == false && rad1.checked==false) {
-                    event.preventDefault();
-                    radd.textContent = 'veuillez choisir un type';
-                    radd.style.color = 'red';
-                }
-                else { radd.textContent = '';  }
+   }
             
-if (captcha.value=='') {
-                    event.preventDefault();
-                    termuse.textContent = 'captcha invalid';
-                    termuse.style.color = 'red';
-                }
-                else { termuse.textContent = 'captcha valid';  
- termuse.style.color = 'green';
-              }
-        if (captcha.value != code.value) {
-                    event.preventDefault();
-                    termuse.textContent = 'captcha invalid';
-                    termuse.style.color = 'red';
-                }
-                else { termuse.textContent = 'captcha valid';  
-              termuse.style.color = 'green';}
-           if (msg.value=='') {
-                    event.preventDefault();
-                    con.textContent = 'vous devez remplir ce champ   ';
-                    con.style.color = 'red';
-                }
-                else { con.textContent = '';  } 
-}
 
 </script>
 

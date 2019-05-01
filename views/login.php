@@ -131,6 +131,17 @@ window.location.href="../views/page profil.php";
             <a class="txt1 bo1 hov1" href="Inscription.php">
               Sign up now             
             </a>
+           <br>
+           <br>
+            <a class="txt1 bo1 hov1" href="MDP oublie.php">
+                    Forget passwort?            
+            </a>
+          </div>
+
+          <div class="text-center w-full p-t-115">
+        
+
+            
           </div>
         </form>
       

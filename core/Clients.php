@@ -199,6 +199,8 @@ function modifierImage($Client,$login,$pwd){
             die('Erreur: '.$err->getMessage());
         } 
   }
+
+
   function afficheradmin($login,$pwd){
     $sql="SElECT * From admins WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
     $db = configa::getConnexion();
@@ -298,6 +300,29 @@ catch (Exception $err){
 
 
 
+ function change($email,$token){
+         $var= $email ;
+         $e=$token;
+        
+
+    $sql ="UPDATE client SET PASSWORD='$e'  WHERE EMAIL='$var'";
+    $db = configa::getConnexion();
+    try{
+   
+      $req=$db->prepare($sql);
+     
+     $req->execute(); 
+         return ("ok");
+      }
+
+catch (Exception $err){
+ return ("no");
+  }
+
+    
+
+ 
+}
 
 
  function activer($email){

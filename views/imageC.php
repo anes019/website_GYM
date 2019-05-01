@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 header('Content-Type: image/png');
 $largeur=80;
 $hauteur=25;
@@ -19,13 +18,14 @@ for($i=0;$i<=$lignes;$i++){
     imageline($image,rand(1,$largeur-25),rand(1,$hauteur),rand(1,$largeur+25),rand(1,$hauteur),imagecolorallocate($image, $rgb['r'], $rgb['g'], $rgb['b']));
 }
 $code1=substr(str_shuffle($caracteres),0,8);
-$_SESSION['code']=$code1;
+
 $code="";
 for($i=0;$i<=strlen($code1);$i++){
     $code .=substr($code1,$i,1)." ";
+  
 }
 
-imagestring($image, 5, 10, 5,$_SESSION['code'], imagecolorallocate($image, 0, 0, 0));
+imagestring($image, 5, 10, 5,$code1, imagecolorallocate($image, 0, 0, 0));
 
 imagepng($image);
 
