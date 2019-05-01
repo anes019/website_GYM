@@ -144,7 +144,7 @@
                <br>
            <br>
             <a class="txt1 bo1 hov1" href="MDP oublie.php">
-                    Forget passwort?            
+                    Forget password?            
             </a>
           </div>
         </form>

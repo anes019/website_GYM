@@ -121,6 +121,9 @@ session_start();
             <a class="txt1 bo1 hov1" href="Inscription.php">
               Sign up now             
             </a>
+                <a class="txt1 bo1 hov1" href="MDP oublie.php">
+                    Forget password?            
+            </a>
           </div>
         </form>
       
