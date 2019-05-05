@@ -47,7 +47,9 @@ if (isset($_GET['modif'])){
 </head>
 
 
-
+       <?php 
+include 'head.php'
+?>
 
 
 <div class="main-content">

@@ -1,5 +1,5 @@
 <?PHP
-include "../config1.php";
+include "C:/wamp64/www/website_GYM/config1.php";
 class Clients {
 
 	 function id()

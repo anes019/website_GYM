@@ -1,5 +1,5 @@
 <?PHP
-include "C:/wamp/www/website_GYM/config.php";
+include "C:/wamp64/www/website_GYM/config.php";
 class coachbC {
 
 	
