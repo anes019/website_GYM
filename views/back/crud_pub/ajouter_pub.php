@@ -110,10 +110,42 @@
  <div class="col-12 col-md-9">
       <label> Position: </label>
        <select name="pos" id="position" class="form-control">
+        <?php
+
+// php select option value from database
+
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "site_web";
+
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+$query = "SELECT * FROM pub where pos ='pos_init'";
+
+
+$result1 = mysqli_query($connect, $query);
+$rowcount=mysqli_num_rows($result1);
+if ($rowcount == 0) {
+  ?>
        <option value="0">choix</option>
+       <option value="POS_INIT">pos_init</option>
        <option value="1">pos 1</option>
        <option value="2">pos 2</option>
        <option value="3">pos 3</option>
+ <?php
+ }
+ else{ ?>
+
+       <option value="0">choix</option>
+       
+       <option value="1">pos 1</option>
+       <option value="2">pos 2</option>
+       <option value="3">pos 3</option>
+
+  <?php 
+ }
+ ?>      
        </select> <br> 
  </div>     
 
