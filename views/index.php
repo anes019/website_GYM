@@ -93,7 +93,7 @@ position: absolute;
   #pop2{
           height: 200px;
      width: 900px;
-        bottom: -265%;
+        bottom: -275%;
      right: 18%;
      position: absolute;
   }

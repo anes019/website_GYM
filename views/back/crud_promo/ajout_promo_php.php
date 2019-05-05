@@ -1,6 +1,15 @@
 <?PHP
+require  "../../../core/Clients.php";
 include "C:/wamp64/www/website_GYM/entites/promo.php";
 include "C:/wamp64/www/website_GYM/core/crudsC.php";
+
+            $client=new Clients();
+$info=$client->afficherClients();
+
+
+
+  
+
 
 if (isset($_POST['nom']) and isset($_POST['idp']) and isset($_POST['pour']) and $_POST['idp'] !== '888' and $_POST['nom'] !== '0'and $_POST['pour'] !== '0' and $_POST['idp'] !== '0'  ){
 	
@@ -21,7 +30,7 @@ $promo1C->modifierPromo_Produit($_POST['idp'],$_POST['pour']);
 $promo1C->ajouterPromo($promo1);
 if ($_POST['mail']=='on') {
 	require 'php-mailer-master/PHPMailerAutoload.php';
-
+foreach($info as $row){
 $mail = new PHPMailer;
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -35,7 +44,7 @@ $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, 
 $mail->Port = 587;                                    // TCP port to connect to
 
 $mail->setFrom('walid.tayeche@esprit.tn', 'Walid Tayeche');
-$mail->addAddress('walid.tayeche@esprit.tn', 'Walid Tayeche');     // Add a recipient
+$mail->addAddress($row['EMAIL'], 'Walid Tayeche');     // Add a recipient
    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
@@ -533,7 +542,7 @@ if(!$mail->send()) {
     echo 'Message has been sent';
 }
  	
- } 
+ }} 
 header('Location: ajouter_promo.php');
 
 	

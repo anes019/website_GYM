@@ -70,7 +70,7 @@ function make_slides($connect)
    <div class="carousel-caption">
 
    </div>
-<form method="POST" action="nblike.php">
+<form method="POST" action="nblike.php" target="_self">
   <button class="btn btn-primary btn-sm" id="butt" type="submit" name="done"> Like </button>
  
       <input type="hidden" value="'.$row["id"].'" name ="id" >
