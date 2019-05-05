@@ -223,10 +223,10 @@ $query = "SELECT * FROM pub where pos ='pos_init'";
 ?>
 <?php
 while($row1 = mysqli_fetch_array($result))
-{ $x= $row1['im'];
+{ 
   
- }
-  $imageFileType = strtolower(pathinfo($x,PATHINFO_EXTENSION));
+ 
+  $imageFileType = strtolower(pathinfo($row1['im'],PATHINFO_EXTENSION));
 
   $extensions_arr = array("mp4");
  
@@ -235,7 +235,7 @@ while($row1 = mysqli_fetch_array($result))
 ?>
 
 <video id="vid" width="850px" height="430px" autoplay>
-  <source src="back/crud_pub/<?php echo $x; ?>" type="video/mp4">
+  <source src="back/crud_pub/<?php echo $row1['im']; ?>" type="video/mp4">
   <source src="images/pog.ogg" type="video/ogg">
   Your browser does not support the video tag.
 </video>
@@ -244,8 +244,9 @@ while($row1 = mysqli_fetch_array($result))
 else
 { ?>                  
 
-<img width="850px" height="430px" src="back/crud_pub/<?php echo $x; ?>">
+<img width="850px" height="430px" src="back/crud_pub/<?php echo $row1['im']; ?>">
 <?php
+}
 }
 ?>
 
