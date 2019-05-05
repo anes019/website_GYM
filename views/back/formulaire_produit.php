@@ -247,7 +247,7 @@ else{
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="js/produits.js"></script>
+    <!--script src="js/produits.js"></script-->
 
 </body>
 

@@ -122,7 +122,8 @@ font-size: 160%;
 						<?php }?>
 							<td><img  src='<?php echo $row['image']; ?>' width="350" height="350" ></td>
 							<td width="60 %"></td>
-						<td>
+
+						<td width="100%">
 
 							<div class="single-product">																	
 								<div class="product-details">
@@ -147,7 +148,7 @@ font-size: 160%;
 
 			<?php }  ?>											
 										<h5><?PHP echo $row['description']; ?></h5>
-										<br>
+										
 										<h5><?PHP if ($row['gout']!=""){ echo "Gout :  ".$row['gout'];} ?></h5>
 										<br>
 										<h5><?PHP if ($row['ingredient']!=""){ echo "Ingredient :".$row['ingredient'];} ?></h5>
@@ -164,8 +165,8 @@ font-size: 160%;
 									</div>
 								</div>
 							</div>
-							</td>
-							<td width="40%"></td>
+							</td><td width="100%"></td>
+							<td width="80%"></td>
 							                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
 
 
@@ -187,7 +188,7 @@ if($listnot->rowCount()) {
 													for($i=0;$i<5;$i++){
 														if($row['notee']>$i)
 														{
-					?>	<td><a href="<?php echo "ajouter_note.php?id=".$idp."&note=".($i+1)."" ?> " class="social-info">
+					?>	<td width="80%"><a href="<?php echo "ajouter_note.php?id=".$idp."&note=".($i+1)."" ?> " class="social-info">
 												<img width="30" height="30" src="images/star.png">
 
 
@@ -221,11 +222,11 @@ if($listnot->rowCount()) {
 											<a href="ajouterPanier.php?id=<?php echo $row['id']?>"  class="addPanier"  >
 											 <img src="images/pan.png" title="Panier" alt="Panier" width="40" height="40"></a>					<?php }?>							
 											
-								<td width="9%">			
+								<td width="15%">			
 										<a href="whichlist_ajout.php?id=<?php echo"$id"?>" class="social-info">
 													<img  src="images/wish.png" >	
 												</a>
-									<td width="9%">
+									<td width="15%">
 										<a href="supp_wishlist.php?delete=<?php echo $row['id'];?>">
                                             <img  src="images/del.png" > </a>
                                    </td> 

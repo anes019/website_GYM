@@ -70,7 +70,7 @@ include 'head.php'
  <th>id</th>
 <th>nom</th>
 <th>Quantite au stock</th>
-<th>description</th>
+
  <th>poids</th>       
   <th>gout</th>
     <th>prix</th>                                          
@@ -88,7 +88,7 @@ include 'head.php'
                                                 <td><?PHP echo $row['id']; ?></td>
                                                 <td><?PHP echo $row['nom']; ?></td>
                                                 <td><?PHP echo $row['quantite']; ?></td>
-                                                <td><?PHP echo $row['description']; ?></td>
+                                            
                                                 <td><?PHP echo $row['poids']; ?></td>
                                                 <td><?PHP echo $row['gout']; ?></td>
                                                 <td><?PHP echo $row['prix']; ?></td>
