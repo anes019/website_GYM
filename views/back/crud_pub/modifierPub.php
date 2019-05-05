@@ -57,9 +57,10 @@ if (isset($_GET['id'])){
  <div class="col-12 col-md-9">
       <label> Position: </label>
        <select name="pos" id="position"  class="form-control">
-       <option value="<?PHP echo $pos ?>"> pos <?PHP echo $pos ?></option>
+       <option value="<?PHP echo $pos ?>">  <?PHP echo $pos ?></option>
        <option value="0">choix</option>
        <option value="1">pos 1</option>
+       <option value="POS_INIT">pos_init</option>
        <option value="2">pos 2</option>
        <option value="3">pos 3</option>
        </select>  
