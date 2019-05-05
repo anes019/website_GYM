@@ -1,3 +1,5 @@
+
+
 <?PHP
 require  "../core/Clients.php";
 ?>
@@ -9,7 +11,7 @@ require  "../core/Clients.php";
  <link rel="stylesheet" href="styl.css">
 
 </head>
-<body>
+<body >
 	
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">

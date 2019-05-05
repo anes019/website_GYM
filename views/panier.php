@@ -1,3 +1,5 @@
+
+
 <?php 
 session_start();
  include'header.php' 
@@ -259,6 +261,7 @@ if(isset( $_SESSION['l']))
 }
 else {
                         ?>
+    
 <span onclick="document.getElementById('modal-wrapper').style.display='block'" class="site-btn sb-dark">
 finaliser votre commande </span>
             
