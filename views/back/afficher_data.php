@@ -260,9 +260,19 @@ foreach($listePubs as $row){
     <td><?PHP echo $row['pos']; ?></td>
     <td><?PHP echo $row['nb']; ?></td>
     <td>
+      <?php
+  $imageFileType = strtolower(pathinfo($row['im'],PATHINFO_EXTENSION));
+
+  $extensions_arr = array("mp4");
+ if( !in_array($imageFileType,$extensions_arr) ) 
+      {?>
        
     	<img hight="800px" width="400px" src='crud_pub/<?php echo $row['im']; ?>' >
-
+<?php
+}
+else
+  {echo "video";}
+?>
     </td>
         <td><form  action="crud_pub/supprimer_pub.php">
             <button class="btn-danger btn" type="submit" name="supprimer" value="supprimer"><i class="fa fa-ban"></i> Delete </button>
