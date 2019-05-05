@@ -13,7 +13,7 @@ if(isset($_POST['but_upload']) and isset($_POST['nom']) and isset($_POST['pos'])
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
   // Valid file extensions
-  $extensions_arr = array("jpg","jpeg","png","gif");
+  $extensions_arr = array("jpg","jpeg","png","gif","mp4");
 
   // Check extension
   if( in_array($imageFileType,$extensions_arr) ){
