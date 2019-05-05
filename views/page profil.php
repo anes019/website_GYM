@@ -2,7 +2,7 @@
 
 session_start();
 	include'header.php' ;
-
+require '_header.php';
 
 ?>
 
@@ -207,7 +207,10 @@ session_start();
       </li>
       <li><a href="#5" data-toggle="tab" style="position: relative;  left: 70%; " >Wishlist</a>
       </li>
-        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -390%; top: 585px; ">CHANGE PASSWORD  <br>
+
+        <li><a href="#6" data-toggle="tab" style="position: relative;  left: 85%; " >My Orders</a>
+      </li>
+        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -440%; top: 585px; ">CHANGE PASSWORD  <br>
           <br>
           <br></a>
       </li>
@@ -473,6 +476,102 @@ $listew=$wC->afficher_wishlist($_SESSION['ID']);
 
 
         </div>
+
+
+
+
+    <div class="tab-pane" id="6">
+       
+   
+ <div class="cart-table-warp">
+              
+               <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th>nom et prenom</th>                                                
+                                                <th>produit commandé</th>
+                                                <th>quantite</th>
+                                                <th>prix</th>
+                                               
+                                                <th>adresse</th>
+                                                <th>mode livraison</th>
+                                                <th>mode paiement</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <?PHP
+include "C:/wamp64/www/website_GYM/core/commandeC.php";
+include "C:/wamp64/www/website_GYM/core/factureC.php";
+    $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
+foreach($info as $row){ 
+  $nom_prenom=$row['Firstname'].' '.$row['Lastname'];
+}
+
+$commande1C=new commandeC();
+$listecommandes=$commande1C->recupererCommandenom($nom_prenom);
+
+foreach($listecommandes as $row){
+    ?>                 
+                                        <tbody> 
+
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                
+                                                <td>
+                                                   <?PHP echo $row['nom_prenom']; ?> 
+                                                </td>
+                                                <td><?PHP echo $row['nom_prod']; ?></td>
+                                                   
+                                                <td>
+                                                    <?PHP echo $row['quantite']; ?>
+                                                </td>
+                                                <td><?PHP echo $row['prix']; ?></td>
+                                                    
+                                                
+                                               <td>
+                                                   <?PHP echo $row['adresse']; ?>
+                                                </td>
+                                             
+                                                <td>
+                                                    <?PHP echo $row['mode_livraison']; ?>
+                                                </td>
+                                                <td>
+                                                    
+                                                        <?PHP echo $row['mode_paiement']; ?>
+                                                    
+                                                </td></form>
+                                                <td>
+                                                  <form action="PDF/html2pdf/examples/index.php" method="POST">
+                                                    <button ><image src="images/icons/download.png" style="width:40px">
+                                                            <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
+                                                       </button>
+                                                        </form>
+                                                    
+    
+                                                    
+                                                </td>
+                                            </tr>
+
+
+                                                                                        <?PHP
+}
+?>
+                                        </tbody>
+
+                                    </table>
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+
 
         <div class="tab-pane" id="3">
            <div class="row">

@@ -1,14 +1,39 @@
-<?php  
 
-include "Clients.php";
-if(isset($_POST['email']))
-{ $client=new Clients();
-	     $token = 'qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM0123456789';
+
+<?php
+include "../entites/client.php";
+include "../Core/Clients.php";
+
+  $pseudo =$_POST['email'];
+
+
+
+
+
+if(!empty($_POST['email']))
+{
+
+  try{
+ $db = configa::getConnexion();
+  $db->exec('SET NAMES utf8');
+  }
+  
+  catch(Exeption $e){
+  die('Erreur:'.$e->getMessage());
+  }
+$req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || EMAIL=:pseudo )&& role="user")');
+  $req->execute(array(':pseudo'=>$pseudo));
+  if($req->rowCount()>0)
+  {
+    
+
+ $client=new Clients();
+       $token = 'qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM0123456789';
         $token = str_shuffle($token);
         $token = substr($token, 0, 10);
 $msg=$client->change($_POST['email'],$token);
-	if($msg='ok')  
-	{
+  if($msg='ok')  
+  {
 
 
 require_once "phpmailer/class.phpmailer.php";
@@ -76,22 +101,57 @@ try {
 
 
 
-		      ?>
+          ?>
       <script language="javascript">
-      	 alert('check your email');
+         alert('check your email');
 location.replace("../views/login.php");
 
 </script>
 <?PHP 
-	}  
-	else 
-	{
-		echo 'error';
-	}
+  }  
+  else 
+  {
+    echo 'error';
+  }
 
-} 
-else{echo 'error2' ; } 
- ?>
+
+
+
+ }
+ else { $status = 'error';
+  echo '<script language="javascript"> alert("'.$pseudo.' Is not a membre "); ;</script>';
+    $message = 'compte introuvable';
+    ?>
+    <script type=""> location.replace("../views/login.php");</script>
+    <?php
+     }
+}
+
+else
+{
+  $status = 'error';
+  $message = 'veuillez saisir votre username ';
+}
+
+
+
+
+//echo json_encode($data);
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

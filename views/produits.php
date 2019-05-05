@@ -226,7 +226,7 @@ $idc=0;
  							<?php if( $row['quantite']>0){?>
 									 	
 									 	 
-											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="addPanier"  >
+											 	<a href="ajouterPanier.php?id=<?php echo $row['id']?>" class="ajout"  >
 											 <img class="img-fluid" src="images/pan.png" title="Panier" alt="Panier" style="width: 30px;margin-top: -34px"></a>
 											<?php }?>
 									</div>
@@ -264,8 +264,9 @@ $idc=0;
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
   <script>
+
 (function($){
- $('.addPanier').click(function(event){
+ $('.ajout').click(function(event){
  	$.get($(this).attr('href'),{},function(data){
  		if(data.error){
  			alert(data.message);

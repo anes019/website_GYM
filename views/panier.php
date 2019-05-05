@@ -254,11 +254,12 @@ button:hover {
 if(isset( $_SESSION['l']))
   {
 ?>
-<script type="text/javascript">
-  window.location="commande_form_adresse.php";
-</script>
+ <a href="commande_form_adresse.php" class="site-btn sb-dark" >finaliser votre commande</a>
 <?php
 }
+
+
+
 else {
                         ?>
     
