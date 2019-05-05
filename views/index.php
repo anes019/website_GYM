@@ -1,75 +1,34 @@
-
 <?php
-
-include 'pub_front.php'
-
+include "pub_front.php";
 ?>
-
-
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <style type="text/css">
-    #pop{ 
-       
-        height: 200px;
-     width: 900px;
-        bottom: 40%;
-     right: 15%;
-     
-
-position: absolute;
-
-
-    }
-
-  #skip253{
-     height: 200px;
-     width: 900px;
-     
-  }
-  #pop2{
-          height: 200px;
-     width: 900px;
-        bottom: -265%;
-     right: 18%;
-     position: absolute;
-  }
-
-  #butt{
-        height: 30px;
-     width: 120px;
-        bottom: 83%;
-     right: 46%;
-     position: absolute;
-  }
-    #butt1{
-        height: 30px;
-     width: 80px;
-        bottom: 83%;
-     right: 35%;
-     position: absolute;
-  }
-    #pop3{
-          height: 200px;
-     width: 900px;
-        
-     margin-left: 250px;
-     margin-bottom: 20px;
-    
-  }
-  #toR{
-right: 18%;
-
-  }
-  </style>
-    <title>Muscle - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!----------------------------------------------------------------------->
+<html>
+<head>
+        <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<script src="validerchampcour.js"></script>
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="bluetablee.css">
+         <link rel="stylesheet" href="myButton.css">
+             <link rel="stylesheet" href="mybuttonn.css">
+  
   <link type="text/css" rel="stylesheet" href="css/bootstrap_acc.min.css" />
 
   <!-- Slick -->
@@ -111,8 +70,191 @@ right: 18%;
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+     <style type="text/css">
+    #pop{ 
+       
+        height: 200px;
+     width: 900px;
+        bottom: 40%;
+     right: 15%;
+     
+
+position: absolute;
+
+
+    }
+
+  #skip253{
+     height: 200px;
+     width: 900px;
+     
+  }
+  #pop2{
+          height: 200px;
+     width: 900px;
+        bottom: -265%;
+     right: 18%;
+     position: absolute;
+  }
+
+  #butt{
+        height: 30px;
+     width: 80px;
+        bottom: 83%;
+     right: 45.2%;
+     position: absolute;
+  }
+    #butt1{
+        height: 30px;
+     width: 80px;
+        bottom: 83%;
+     right: 45%;
+     position: absolute;
+  }
+    #pop3{
+          height: 200px;
+     width: 900px;
+       bottom: 50%; 
+     right: 18%;
+     position: absolute;
+  }
+  #toR{
+right: 18%;
+
+  }
+  </style>
+<style type="text/css">
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #000;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;
+z-index: 100;
+display: none;
+}
+.cnt223 a{
+text-decoration: none;
+}
+.popup{
+width: 100%;
+margin: 0 auto;
+display: none;
+position: fixed;
+z-index: 101;
+}
+.cnt223{
+min-width: 600px;
+width: 900px;
+height: 500px;
+min-height: 150px;
+margin: 100px auto;
+background: #f3f3f3;
+position: relative;
+z-index: 103;
+padding: 15px 35px;
+border-radius: 5px;
+box-shadow: 0 2px 5px #000;
+}
+.cnt223 p{
+clear: both;
+    color: #555555;
+    /* text-align: justify; */
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.cnt223 p a{
+color: #d91900;
+font-weight: bold;
+}
+.cnt223 .x{
+float: right;
+height: 35px;
+left: 22px;
+position: relative;
+top: -25px;
+width: 34px;
+}
+.cnt223 .x:hover{
+cursor: pointer;
+}
+</style>
+<script type='text/javascript'>
+$(function(){
+var overlay = $('<div id="overlay"></div>');
+overlay.show();
+overlay.appendTo(document.body);
+$('.popup').show();
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+
+
+ 
+
+$('.x').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+</script>
+
+    <title></title>
+</head>
+<body>
+<div class='popup'>
+<div class='cnt223'>
+<a onclick="document.getElementById('vid').pause()"  href='' class='close'>Close</a>
+<br>
+<p>
+<?php
+$connect = mysqli_connect("localhost", "root", "", "site_web");
+$query = "SELECT * FROM pub where pos ='pos_init'";
+ $result = mysqli_query($connect, $query);
+?>
+<?php
+while($row1 = mysqli_fetch_array($result))
+{ $x= $row1['im'];
+  
+ }
+  $imageFileType = strtolower(pathinfo($x,PATHINFO_EXTENSION));
+
+  $extensions_arr = array("mp4");
+ 
+ if(in_array($imageFileType,$extensions_arr) ) 
+{
+?>
+
+<video id="vid" width="850px" height="430px" autoplay>
+  <source src="back/crud_pub/<?php echo $x; ?>" type="video/mp4">
+  <source src="images/pog.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+</video>
+<?php
+}
+else
+{ ?>                  
+
+<img width="850px" height="430px" src="back/crud_pub/<?php echo $x; ?>">
+<?php
+}
+?>
+
+<br/>
+<br/>
+
+</p>
+</div>
+</div>
    <?PHP
   include'header.php' ;
 ?>
@@ -178,16 +320,17 @@ pub_pos1();
               </div>
               <div class="text ml-5">
                 <h3>Analyze Your Goal</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+              
               </div>
             </div>
             <div class="services d-flex ftco-animate">
               <div class="icon d-flex justify-content-center align-items-center">
                 <span class="flaticon-gym"></span>
               </div>
+
               <div class="text ml-5">
                 <h3>Work Hard On It</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                
               </div>
             </div>
             <div class="services d-flex ftco-animate">
@@ -196,7 +339,7 @@ pub_pos1();
               </div>
               <div class="text ml-5">
                 <h3>Improve Your Performance</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                
               </div>
             </div>
             <div class="services d-flex ftco-animate">
@@ -205,7 +348,7 @@ pub_pos1();
               </div>
               <div class="text ml-5">
                 <h3>Achieve Your Perfect Body</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                
               </div>
             </div>
           </div>
@@ -257,153 +400,85 @@ pub_pos1();
       </div>
     </section>
 <!--pub2-->
-<?php
+
+  <?php
 pub_pos2();
 ?>
-  
 
   
 
-    <section class="ftco-section bg-light">
-      <div class="container-fluid">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h3 class="subheading">Shape Your Body</h3>
-            <h2 class="mb-1">Our Coaches</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 d-flex">
-            <div class="coach align-items-stretch">
-              <div class="img" style="background-image: url(images/trainer-1.jpg);"></div>
-              <div class="text bg-white p-4 ftco-animate">
-                <span class="subheading">Owner / Head Coach</span>
-                <h3><a href="#">Mark Brook</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <ul class="ftco-social-media d-flex mt-4">
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a></li>
-                </ul>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 d-flex">
-            <div class="coach d-md-flex flex-column-reverse align-items-stretch">
-              <div class="img" style="background-image: url(images/trainer-2.jpg);"></div>
-              <div class="text bg-white p-4 ftco-animate">
-                <span class="subheading">Owner / Head Coach</span>
-                <h3><a href="#">Sarah Henderson</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <ul class="ftco-social-media d-flex mt-4">
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a></li>
-                </ul>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 d-flex">
-            <div class="coach align-items-stretch">
-              <div class="img" style="background-image: url(images/trainer-3.jpg);"></div>
-              <div class="text bg-white p-4 ftco-animate">
-                <span class="subheading">Owner / Head Coach</span>
-                <h3><a href="#">George Hump</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <ul class="ftco-social-media d-flex mt-4">
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a></li>
-                </ul>
-                <p></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 d-flex">
-            <div class="coach d-md-flex flex-column-reverse align-items-stretch">
-              <div class="img" style="background-image: url(images/trainer-4.jpg);"></div>
-              <div class="text bg-white p-4 ftco-animate">
-                <span class="subheading">Owner / Head Coach</span>
-                <h3><a href="#">Victor Hump</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <ul class="ftco-social-media d-flex mt-4">
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a></li>
-                  <li class="ftco-animate"><a href="#" class="mr-2 d-flex justify-content-center align-items-center"><span class="icon-instagram"></span></a></li>
-                </ul>
-                <p></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section">
+   
+    
+<section class="ftco-section">
       <div class="container-fluid">
         <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
             <h3 class="subheading">Gym Classes</h3>
-            <h2 class="mb-1">Workout Classes</h2>
+            <h2 class="mb-1">Les Coures</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-3">
             <div class="package-program ftco-animate">
-              <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-1.jpg);">
-                <span>Learn More</span>
+              <a  class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-1.jpg);">
+               
               </a>
               <div class="text mt-3">
                 <h3><a href="#">Body Building</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>une discipline et un art de la performance qui consiste principalement à développer sa masse musculaire (hypertrophie) dans un but esthétique .</p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="package-program ftco-animate">
-              <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-2.jpg);">
-                <span>Learn More</span>
+              <a class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-2.jpg);">
+              
               </a>
               <div class="text mt-3">
-                <h3><a href="#">Aerobic Classes</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3><a href="#">Classe Aérobie</a></h3>
+                <p>Gymnastique effectuée en musique, aux mouvements rapides, qui est censée modeler le corps et oxygéner les tissus.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="package-program ftco-animate">
-              <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-3.jpg);">
-                <span>Learn More</span>
+              <a class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-3.jpg);">
+              
               </a>
               <div class="text mt-3">
                 <h3><a href="#">Weight Lifting</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p>l'activité de soulever des haltères ou d'autres poids lourds.Comporte l'ascenseur en un mouvement allant du sol à la position étendue et l'ascenseur en deux mouvements allant du sol à la position des épaules et des épaules à la position étendue.</p>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="package-program ftco-animate">
-              <a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-4.jpg);">
-                <span>Learn More</span>
+              <a class="img d-flex justify-content-center align-items-center" style="background-image: url(images/program-4.jpg);">
+              
               </a>
               <div class="text mt-3">
-                <h3><a href="#">Yoga Classes</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <h3><a href="#">Classe Yoga</a></h3>
+                <p>une discipline du corps et de l’esprit qui comprend une grande variété d’exercices et de techniques qui
+                    utilisent des postures physiques, des pratiques respiratoires et de méditation </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="container">
+
+        <div class="container">
         <div class="row mt-4 justify-content-center ftco-animate">
           <div class="col-md-4 text-center">
-            <a href="#" class="btn-custom py-4">View More Program <span class="ion-ios-arrow-down ml-2"></span></a>
+            <a href="program.php" class="btn-custom py-4">voir les autres coures <span class="ion-ios-arrow-down ml-2"></span></a>
           </div>
         </div>
       </div>
+          
+          
+          
+        </div>
+      
+      </div>
     </section>
+   
 
 
     <section class="ftco-section bg-light">
@@ -476,224 +551,8 @@ pub_pos2();
       </div>
     </section>
 
-    <section class="ftco-section testimony-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h3 class="subheading">Testimony</h3>
-            <h2 class="mb-1">Successful Stories</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <p class="mb-4 pb-1 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-                    <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                        <span class="quote d-flex align-items-center justify-content-center">
-                          <i class="icon-quote-left"></i>
-                        </span>
-                      </div>
-                      <div class="ml-4">
-                        <p class="name">Gabby Smith</p>
-                        <span class="position">Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <p class="mb-4 pb-1 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-                    <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url(images/person_2.jpg)">
-                        <span class="quote d-flex align-items-center justify-content-center">
-                          <i class="icon-quote-left"></i>
-                        </span>
-                      </div>
-                      <div class="ml-4">
-                        <p class="name">Floyd Weather</p>
-                        <span class="position">Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <p class="mb-4 pb-1 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-                    <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url(images/person_3.jpg)">
-                        <span class="quote d-flex align-items-center justify-content-center">
-                          <i class="icon-quote-left"></i>
-                        </span>
-                      </div>
-                      <div class="ml-4">
-                        <p class="name">James Dee</p>
-                        <span class="position">Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <p class="mb-4 pb-1 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-                    <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url(images/person_1.jpg)">
-                        <span class="quote d-flex align-items-center justify-content-center">
-                          <i class="icon-quote-left"></i>
-                        </span>
-                      </div>
-                      <div class="ml-4">
-                        <p class="name">Lance Roger</p>
-                        <span class="position">Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="text">
-                    <p class="mb-4 pb-1 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-
-                    <div class="d-flex align-items-center">
-                      <div class="user-img" style="background-image: url(images/person_2.jpg)">
-                        <span class="quote d-flex align-items-center justify-content-center">
-                          <i class="icon-quote-left"></i>
-                        </span>
-                      </div>
-                      <div class="ml-4">
-                        <p class="name">Kenny Bufer</p>
-                        <span class="position">Customer</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section bg-light">
-
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h3 class="subheading">Articles</h3>
-            <h2 class="mb-1">Recent Blog</h2>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-              </a>
-              <div class="text p-4 float-right d-block">
-                <div class="meta">
-                  <div><a href="#">December 23, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Abdominal</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-              </a>
-              <div class="text p-4 float-right d-block">
-                <div class="meta">
-                  <div><a href="#">December 23, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Abdominal</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-              </a>
-              <div class="text p-4 float-right d-block">
-                <div class="meta">
-                  <div><a href="#">December 23, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                </div>
-                <h3 class="heading mt-2"><a href="#">Young Women Doing Abdominal</a></h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-appointment">
-      <div class="overlay"></div>
-      <div class="container-wrap">
-        <div class="row no-gutters d-md-flex align-items-center">
-          <div class="col-md-6 d-flex align-self-stretch img" style="background-image: url(images/about-3.jpg);">
-          </div>
-          <div class="col-md-6 appointment ftco-animate">
-            <h3 class="mb-3">Book a Appointment</h3>
-            <form action="#" class="appointment-form">
-              <div class="d-md-flex">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="First Name">
-                </div>
-                <div class="form-group ml-md-4">
-                  <input type="text" class="form-control" placeholder="Last Name">
-                </div>
-              </div>
-              <div class="d-md-flex">
-                <div class="form-group">
-                  <div class="input-wrap">
-                    <div class="icon"><span class="ion-md-calendar"></span></div>
-                    <input type="text" class="form-control appointment_date" placeholder="Date">
-                  </div>
-                </div>
-                <div class="form-group ml-md-4">
-                  <div class="input-wrap">
-                    <div class="icon"><span class="ion-ios-clock"></span></div>
-                    <input type="text" class="form-control appointment_time" placeholder="Time">
-                  </div>
-                </div>
-                <div class="form-group ml-md-4">
-                  <input type="text" class="form-control" placeholder="Phone">
-                </div>
-              </div>
-              <div class="d-md-flex">
-                <div class="form-group">
-                  <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
-                </div>
-                <div class="form-group ml-md-4">
-                  <input type="submit" value="Appointment" class="btn btn-primary py-3 px-4">
-                </div>
-              </div>
-            </form>
-          </div>          
-        </div>
-      </div>
-    </section>
+    
+   
     
     <section class="ftco-gallery">
       <div class="container-wrap">
@@ -710,60 +569,44 @@ pub_pos2();
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-2.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+             
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-3.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+              
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-4.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+             
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-1.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-5.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+            
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-2.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-6.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+            
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-3.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-7.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+            
             </a>
           </div>
           <div class="col-md-3 ftco-animate">
             <a href="images/gallery-4.jpg" class="gallery image-popup img d-flex align-items-center" style="background-image: url(images/gallery-8.jpg);">
-              <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                <span class="icon-instagram"></span>
-              </div>
+             
             </a>
           </div>
         </div>
       </div>
     </section>
 
-<?php
-pub_pos3();
-?>
+
     <footer class="ftco-footer ftco-section img">
       <div class="overlay"></div>
       <div class="container">
@@ -841,7 +684,9 @@ pub_pos3();
         </div>
       </div>
  <!---pub3--->
-
+<?php
+pub_pos3();
+?>
 
     </footer>
     
@@ -870,6 +715,10 @@ pub_pos3();
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
-    
-  </body>
+
+
+
+</body>
 </html>
+
+
