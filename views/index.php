@@ -256,7 +256,7 @@ else
 </div>
 </div>
    <?PHP
-  include'header.php' ;
+  include'head2.php' ;
 ?>
     <!-- END nav -->
   
@@ -277,6 +277,7 @@ else
         </div>
       </div>
 
+      
       <div class="slider-item js-fullheight" style="background-image: url(images/bg_2.jpg);">
         <div class="overlay"></div>
         <div class="container">
@@ -294,9 +295,7 @@ else
     <br>
     <br>
 <!---pub1-->
-<?php
-pub_pos1();
-?>
+
 
 
     <section class="ftco-section-services ftco-degree">
