@@ -243,8 +243,11 @@ $idc=0;
 					</div>
 				</div>
 	
-
-
+</div>
+</section>
+<?php 
+include "footer.php"
+?>
 				
    <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

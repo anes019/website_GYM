@@ -88,7 +88,12 @@ $liste_abo=$aC->afficher_abonement_front();
 					</div>
 				</div>
 	
-
+</section>
+</div>
+</section>
+<?php 
+include "footer.php"
+?>
 
 
    <script src="js/jquery.min.js"></script>

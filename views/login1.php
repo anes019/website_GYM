@@ -74,7 +74,9 @@
     <!-- END nav -->
 
 
-      
+    <?php 
+include "footer.php"
+?>  
      
 
 

@@ -1,7 +1,8 @@
 
 <?php
 //index.php
-session_start();
+
+
 $connect = mysqli_connect("localhost", "root", "", "site_web");
 function make_query($connect)
 {
