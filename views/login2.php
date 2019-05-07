@@ -137,7 +137,9 @@ session_start();
    </section>
 <br>
 <br>
-    
+   <?php 
+include "footer.php"
+?> 
     
 
   <!-- loader -->

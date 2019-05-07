@@ -12,9 +12,16 @@ if(isset($_GET['id'])){
 	$json['total'] = $panier->total();
 	$json['count'] = $panier->count();
 	$json['message']= 'le produit a ete bien ajoute a votre panier ';
-	
-}else {
-	$json['message'] = 'Vous n avez pas selectionner de produit a ajouter dans le panier';
+	?>
+	<script >
+		 if(confirm('le produit a ete bien ajoute a votre panier  Voulez vous consulter votre panier '))
+		 {
+ 				location.href = 'panier.php' ;
+		 }
+		 else {location.href = 'produits.php' ;}
+	</script>
+<?php
+
 }
 echo json_encode($json);
 ?>

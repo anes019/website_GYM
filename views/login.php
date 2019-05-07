@@ -155,7 +155,9 @@ window.location.href="../views/page profil.php";
    </section>
 <br>
 <br>
-    
+    <?php 
+include "footer.php"
+?>
     
 
   <!-- loader -->

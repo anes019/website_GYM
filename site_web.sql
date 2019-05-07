@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 05 mai 2019 à 09:57
--- Version du serveur :  5.7.24
+-- Généré le :  mar. 07 mai 2019 à 14:12
+-- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -89,18 +89,20 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `nom` varchar(25) NOT NULL,
   `description` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
 INSERT INTO `categorie` (`id`, `nom`, `description`) VALUES
-(1, 'Gainer', '(Prise de poids)'),
-(3, 'Hormone Booster', 'protein '),
-(5, 'Proteine', '(Gain musculaire)'),
-(6, 'Acides Aminees', '(BCAA,HMB,GLUTAMINE)'),
-(7, 'Vitamines', 'Vitamines');
+(1, 'vetements', 'rstnqnqeedd'),
+(3, 'homme', 'llllllllllllllllllllllllllllllllllllllllllllll'),
+(5, 'jdidaaaaa', 'ffffff'),
+(6, 'prot', 'irodek rajel'),
+(9, '5373', 'xr,jskrt,f'),
+(12, 'mm', 'mmmm'),
+(13, 'nouvelle', 'll');
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `client` (
   `ID_CLIENT` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(10) NOT NULL DEFAULT 'user',
   `status` varchar(10) DEFAULT 'active',
-  `STMAIL` varchar(50) DEFAULT 'not verified',
   `USERNAME` text NOT NULL,
   `EMAIL` text NOT NULL,
   `Firstname` text NOT NULL,
@@ -128,20 +129,16 @@ CREATE TABLE IF NOT EXISTS `client` (
   `EmailConfirmed` int(11) DEFAULT '0',
   `token` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID_CLIENT`)
-) ENGINE=InnoDB AUTO_INCREMENT=177 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=191 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `client`
 --
 
-INSERT INTO `client` (`ID_CLIENT`, `role`, `status`, `STMAIL`, `USERNAME`, `EMAIL`, `Firstname`, `Lastname`, `Nombre des reclamations`, `sexe`, `PASSWORD`, `BIRTHDAY`, `IMAGE`, `adresse`, `mobile`, `EmailConfirmed`, `token`) VALUES
-(147, 'user', 'active', 'not verified', 'dfnr', 'khalil@esprit.tn', 'vqvr', 'qrevver', NULL, 'homme', 'a', NULL, NULL, 'rhrht', 245375, 1, ''),
-(149, 'user', 'active', 'not verified', 'kh', 'khalilchakroun11@gmail.com', 'khalil', 'kh', NULL, 'male', 'kh', '2019-04-19', '', 'biz', 52147852, 1, '6P*hyFTYwp'),
-(167, 'admin', 'active', 'not verified', 'anes019a', 'anes.temani@esprit.tna', 'aa', 'azer', NULL, 'male', 'aa', '2019-04-12', '', 'azer', 22222222, 0, '0'),
-(173, 'user', 'active', 'not verified', 'anes0', 'anestemani00@gmail.com', 'aa', 'aa', NULL, 'male', 'aa', '0000-00-00', '', 'aa', 52715563, 1, 'lvTry9cIFS'),
-(174, 'user', 'active', 'not verified', 'oussama122', 'anes.temani@esprit.tn', 'ouss', 'saaa', NULL, 'male', '1234', '0000-00-00', '8001556042080.jpg', 'kkkkjj', 52715568, 1, 'g(dV!uF9jC'),
-(175, 'user', 'active', 'not verified', 'walid17', 'walid.tayeche@esprit.tn', 'fhj', 'm', NULL, 'male', '123', '2019-04-05', '6011556311413.jpg', 'hl', 23569888, 1, 'KSH6p!AmqF'),
-(176, 'user', 'active', 'not verified', 'walid178', 'beutch21@orange.fr', 'jhlljk', 'kjlj', NULL, 'male', '123', '2019-04-13', '5541556126556.jpg', 'kk', 23569888, 1, 'EjhpV3xtyF');
+INSERT INTO `client` (`ID_CLIENT`, `role`, `status`, `USERNAME`, `EMAIL`, `Firstname`, `Lastname`, `Nombre des reclamations`, `sexe`, `PASSWORD`, `BIRTHDAY`, `IMAGE`, `adresse`, `mobile`, `EmailConfirmed`, `token`) VALUES
+(167, 'admin', 'active', 'anes019a', 'anes.temani@esprit.tna', 'aa', 'azer', NULL, 'male', 'aa', '2019-04-12', '', 'azer', 22222222, 0, '0'),
+(189, 'user', 'active', 'ous', 'anestemani00@gmail.com', 'aaaa', 'azerezr', NULL, 'male', 'zz', '2019-05-24', '6901557096293.jpg', 'azer', 52715563, 1, 'J7DaS/IKGi'),
+(190, 'user', 'active', 'anes019', 'anes.temani@esprit.tn', 'anes', 'temani', NULL, 'male', 'YthPd8XEVz', '1988-07-14', '9561557129807.jpg', 'korba', 52715563, 1, '/awcN4WZC3');
 
 -- --------------------------------------------------------
 
@@ -231,7 +228,18 @@ INSERT INTO `commande` (`id`, `nom_prenom`, `tel`, `nom_prod`, `quantite`, `prix
 (6, 'firas', '2523438', 'wifek', 1, '99999', 'rue', 'hh', 'hh', 'livraison standard', 'Paiement Ã  la livraison'),
 (7, 'walid', '23565689', '53743', 1, '124.3', 'gjk', 'gj', 'df', 'retrait Ã  la salle', 'Paiement Ã  la livraison'),
 (8, 'walid', '235689', '53743', 10, '124.3', 'gjk', 'gj', 'df', 'retrait Ã  la salle', 'Paiement Ã  la livraison'),
-(9, 'vqvr qrevver', '245375', 'fnxn', 1, '20', 'rue', 'zagh', 'zagh', 'livraison standard', 'Paiement Ã  la livraison');
+(9, 'vqvr qrevver', '245375', 'fnxn', 1, '20', 'rue', 'zagh', 'zagh', 'livraison standard', 'Paiement Ã  la livraison'),
+(10, 'mohamedali jbali', '22113355', 'JUMBO GAINER', 1, '60', 'azet', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(11, 'mohamedali jbali', '22113355', 'JUMBO GAINER ', 1, '120', 'korba', 'a', 'azer', 'livraison standard', 'Paiement Ã  la livraison'),
+(12, 'mohamedali jbali', '22113355', 'JUMBO GAINER', 1, '260', 'ezr', 'nabeul', 'aa', 'livraison standard', 'Paiement Ã  la livraison'),
+(13, 'mohamedali jbali', '22113355', 'JUMBO GAINER', 1, '260', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(14, 'mohamedali jbali', '22113355', 'MASSIVE GAINER', 1, '130', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(15, 'mohamedali jbali', '22113355', 'JUMBO GAINER', 1, '60', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(16, 'mohamedali jbali', '22113355', 'JUMBO GAINER ', 1, '120', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(17, 'aaaa azerezr', '52715563', 'JUMBO GAINER ', 1, '120', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(18, 'aaaa azerezr', '52715563', 'MASS 20 SCITEC', 1, '80', 'korba', 'nabeul', 'azer', 'livraison standard', 'Paiement Ã  la livraison'),
+(19, 'aaaa azerezr', '52715563', 'MASS 20 SCITEC', 1, '80', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison'),
+(20, 'anes temani', '52715563', 'MASS INFUSION NUTREX ', 4, '210', 'korba', 'korba', 'aa', 'livraison standard', 'Paiement Ã  la livraison');
 
 -- --------------------------------------------------------
 
@@ -284,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `facture` (
   `total` float NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cmd` (`id_cmd`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `facture`
@@ -299,7 +307,47 @@ INSERT INTO `facture` (`id`, `id_cmd`, `nom_prenom`, `dat`, `adresse`, `region`,
 (8, 6, 'firas', '2019-04-21 21:24:44', 'rue', 'hh', 'hh', 'livraison standard', 'Paiement Ã  la livraison', 'wifek', 1, 99999, 100005),
 (9, 7, 'walid', '2019-04-24 16:40:32', 'gjk', 'gj', 'df', 'retrait Ã  la salle', 'Paiement Ã  la livraison', '53743', 1, 124.3, 130.3),
 (10, 8, 'walid', '2019-04-25 22:48:24', 'gjk', 'gj', 'df', 'retrait Ã  la salle', 'Paiement Ã  la livraison', '53743', 10, 124.3, 130.3),
-(11, 9, 'vqvr qrevver', '2019-04-29 00:42:15', 'rue', 'zagh', 'zagh', 'livraison standard', 'Paiement Ã  la livraison', 'fnxn', 1, 20, 26);
+(11, 9, 'vqvr qrevver', '2019-04-29 00:42:15', 'rue', 'zagh', 'zagh', 'livraison standard', 'Paiement Ã  la livraison', 'fnxn', 1, 20, 26),
+(12, 10, 'mohamedali jbali', '2019-05-05 19:32:28', 'azet', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER', 1, 60, 66),
+(13, 11, 'mohamedali jbali', '2019-05-05 19:49:07', 'korba', 'a', 'azer', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER ', 1, 120, 126),
+(14, 12, 'mohamedali jbali', '2019-05-05 19:49:31', 'ezr', 'nabeul', 'aa', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER', 1, 260, 266),
+(15, 13, 'mohamedali jbali', '2019-05-05 19:51:56', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER', 1, 260, 266),
+(16, 14, 'mohamedali jbali', '2019-05-05 19:56:10', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASSIVE GAINER', 1, 130, 136),
+(17, 15, 'mohamedali jbali', '2019-05-05 21:02:04', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER', 1, 60, 66),
+(18, 16, 'mohamedali jbali', '2019-05-05 21:37:56', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER ', 1, 120, 126),
+(19, 17, 'aaaa azerezr', '2019-05-05 21:52:44', 'korba', 'nabeul', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'JUMBO GAINER ', 1, 120, 126),
+(20, 18, 'aaaa azerezr', '2019-05-05 22:29:32', 'korba', 'nabeul', 'azer', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(21, 19, 'aaaa azerezr', '2019-05-05 22:34:49', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(22, 19, 'aaaa azerezr', '2019-05-05 22:34:53', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(23, 19, 'aaaa azerezr', '2019-05-05 22:34:56', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(24, 19, 'aaaa azerezr', '2019-05-05 22:35:00', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(25, 19, 'aaaa azerezr', '2019-05-05 22:35:03', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(26, 19, 'aaaa azerezr', '2019-05-05 22:35:07', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(27, 19, 'aaaa azerezr', '2019-05-05 22:35:10', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(28, 19, 'aaaa azerezr', '2019-05-05 22:35:13', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(29, 19, 'aaaa azerezr', '2019-05-05 22:35:17', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(30, 19, 'aaaa azerezr', '2019-05-05 22:35:20', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(31, 19, 'aaaa azerezr', '2019-05-05 22:35:23', 'korba', 'a', 'Korba', 'livraison standard', 'Paiement Ã  la livraison', 'MASS 20 SCITEC', 1, 80, 86),
+(32, 20, 'anes temani', '2019-05-06 08:06:02', 'korba', 'korba', 'aa', 'livraison standard', 'Paiement Ã  la livraison', 'MASS INFUSION NUTREX ', 4, 210, 216);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `newsletter`
+--
+
+DROP TABLE IF EXISTS `newsletter`;
+CREATE TABLE IF NOT EXISTS `newsletter` (
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `newsletter`
+--
+
+INSERT INTO `newsletter` (`email`) VALUES
+('anestemani00@gmail.com'),
+('anes.temani@esprit.tn');
 
 -- --------------------------------------------------------
 
@@ -315,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `note` (
   `notee` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_client` (`id_produit`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `note`
@@ -329,7 +377,10 @@ INSERT INTO `note` (`id`, `id_client`, `id_produit`, `notee`) VALUES
 (12, 147, 39, 5),
 (13, 147, 64, 5),
 (15, 175, 64, 4),
-(16, 147, 77, 3);
+(16, 147, 77, 3),
+(17, 188, 77, 4),
+(18, 190, 76, 4),
+(20, 189, 76, 1);
 
 -- --------------------------------------------------------
 
@@ -362,8 +413,8 @@ CREATE TABLE IF NOT EXISTS `produits` (
 --
 
 INSERT INTO `produits` (`id`, `type`, `nom`, `quantite`, `cat_id`, `prix`, `description`, `ingredient`, `gout`, `poids`, `image`, `note`, `etat`, `prix_promo`) VALUES
-(76, 'proteine', 'JUMBO GAINER', 20, 1, 60, 'Gainer haute performance pour une prise de masse maximale en musculation. IdÃ©al pour les ectomorphes et les personnes ayant du mal Ã  prendre de la masse.', '', '', 1, 'images/jumbo-scitec-nutrition-600x600.jpg', 0, 'false', 0),
-(77, 'proteine', 'MASS 20 SCITEC', 20, 1, 80, 'MASS 20 SCITEC – 1.75KG est une formule pour la prise de masse et de force: Supplément facile à digérer qui contribue à l’amélioration des performances et de la croissance musculaire.', NULL, NULL, 1.75, 'images/MASS-20-SCITEC-600x600.jpg\r\n', 3, 'false', 0),
+(76, 'proteine', 'JUMBO GAINER', 20, 1, 60, 'Gainer haute performance pour une prise de masse maximale en musculation. IdÃ©al pour les ectomorphes et les personnes ayant du mal Ã  prendre de la masse.', '', '', 1, 'images/jumbo-scitec-nutrition-600x600.jpg', 3, 'true', 54),
+(77, 'proteine', 'MASS 20 SCITEC', 20, 1, 80, 'MASS 20 SCITEC – 1.75KG est une formule pour la prise de masse et de force: Supplément facile à digérer qui contribue à l’amélioration des performances et de la croissance musculaire.', NULL, NULL, 1.75, 'images/MASS-20-SCITEC-600x600.jpg\r\n', 4, 'false', 0),
 (78, 'proteine', 'JUMBO GAINER ', 20, 1, 120, 'Gainer haute performance pour une prise de masse maximale en musculation. Idéal pour les ectomorphes et les personnes ayant du mal à prendre de la masse.', NULL, NULL, 2.86, 'images/Scitec-Jumbo-2.86kg1.jpg', 0, 'false', 0),
 (82, 'proteine', 'MASS INFUSION NUTREX ', 210, 1, 210, 'Formule complète de gain de poids\r\nFournit des protéines de lactosérum de haute qualité\r\n50g de protéines\r\n200g de glucides\r\n1120 Calories\r\n22g Acides aminés essentiels\r\n10g BCAA\r\n8.1g Précurseurs de glutamine', NULL, NULL, 5.5, 'images/MASS-INFUSION-CHOCOLATEs.jpg', 0, 'false', 0),
 (83, 'proteine', 'JUMBO GAINER', 20, 1, 260, 'Gainer haute performance pour une prise de masse maximale en musculation. Idéal pour les ectomorphes et les personnes ayant du mal à prendre de la masse.', NULL, NULL, 8.8, 'images/JUMBO-GAINER-8-600x600.jpg', 0, 'false', 0),
@@ -372,12 +423,12 @@ INSERT INTO `produits` (`id`, `type`, `nom`, `quantite`, `cat_id`, `prix`, `desc
 (86, 'proteine', 'MASSIVE GAINER', 20, 1, 130, 'Augmente le poids\r\nAugmente le volume musculaire\r\nAugmente la force musculaire\r\nAccroît l’énergie\r\nAméliore le rendement sportif\r\nAccélère la récupération des muscles\r\nPrévient le catabolisme\r\nContient une dose cliniquement validée de créatine\r\nComprend du Vitargo breveté', NULL, NULL, 3.7, 'images/massive-gainer-quamtrax-4KG.jpg', 0, 'false', 0),
 (87, 'proteine', 'MASSIVE GAINER', 20, 1, 185, 'Augmente le poids\r\nAugmente le volume musculaire\r\nAugmente la force musculaire\r\nAccroît l’énergie\r\nAméliore le rendement sportif\r\nAccélère la récupération des muscles\r\nPrévient le catabolisme\r\nContient une dose cliniquement validée de créatine\r\nComprend du Vitargo breveté', NULL, NULL, 7, 'images/massive-gainer-quamtrax-7KG.jpg', 0, 'false', 0),
 (88, 'proteine', 'MUTANT MASS', 20, 1, 250, 'Gainer de très haute qualité pour une prise de muscle ultra-rapide en évitant la prise de gras\r\nComposition très complète\r\nPermet une prise de muscle très rapide, un gain de force optimal et une hausse des performances\r\nConvient aux débutants comme aux pratiquants confirmés', NULL, NULL, 6.8, 'images/mutant-mass-2kg-coconut-mutant_1_1-600x600.jpg', 0, 'false', 0),
-(89, 'proteine', 'TRUE MASS', 20, 1, 175, 'Protein Multi-fonctionnelle et Glucides Matrice\r\nBCAA et d’autres acides aminés essentiels et non essentiels\r\nDeux sources de glucides, y compris la farine d’avoine\r\nExcellente source de fibre. Contient 16g de gras par portion', NULL, NULL, 4.7, 'images/TRUE-MASS-1200-600x600.jpg', 0, 'false', 0),
+(89, 'proteine', 'TRUE MASS', 20, 1, 175, 'Protein Multi-fonctionnelle et Glucides Matrice\r\nBCAA et d’autres acides aminés essentiels et non essentiels\r\nDeux sources de glucides, y compris la farine d’avoine\r\nExcellente source de fibre. Contient 16g de gras par portion', NULL, NULL, 4.7, 'images/TRUE-MASS-1200-600x600.jpg', 0, 'true', 105),
 (92, 'proteine', 'SERIOUS MASS', 20, 1, 220, 'Serious Mass est un excellent supplément calorique qui apporte un surplus de calories basées sur une combinaison d’hydrates de carbone et de protéines avec un minimum de graisse qui, avec une alimentation et un entraînement adéquate, vous donnera le parfait matériel de construction musculaire donnant la possibilité de supprimer un ou deux repas par jour.', NULL, NULL, 5.45, 'images/eu_seriousmass_12lb_vanilla-600x600.jpg', 0, 'false', 0),
 (93, 'proteine', 'PURE GAIN XL', 20, 1, 50, 'Pure Gain XL 1KG est spécialement formulé pour les sportifs ayant besoin d’une recharge extra de glycogène musculaire pour fournir de l’énergie et de la puissance pendant l’exercice, ce qui se traduit par une augmentation du  rendement sportif lors des entraînements prolongés, une augmentation de la force et de la puissance lors des entraînements  anaérobiques et  une rapide récupération post-entraînement.', NULL, NULL, 1, 'images/PURE-GAIN-XL-1KG-600x600.jpg', 0, 'false', 0),
 (94, 'proteine', 'PURE GAIN XL', 20, 1, 175, 'Pure Gain XL 7KG est spécialement formulé pour les sportifs ayant besoin d’une recharge extra de glycogène musculaire pour fournir de l’énergie et de la puissance pendant l’exercice, ce qui se traduit par une augmentation du  rendement sportif lors des entraînements prolongés, une augmentation de la force et de la puissance lors des entraînements  anaérobiques et  une rapide récupération post-entraînement.', NULL, NULL, 7, 'images/gain-xl-gainer-prise-de-masse7KG.jpg', 0, 'false', 0),
 (95, 'proteine', 'PURE GAIN XL', 20, 1, 120, 'Pure Gain XL 7KG est spécialement formulé pour les sportifs ayant besoin d’une recharge extra de glycogène musculaire pour fournir de l’énergie et de la puissance pendant l’exercice, ce qui se traduit par une augmentation du  rendement sportif lors des entraînements prolongés, une augmentation de la force et de la puissance lors des entraînements  anaérobiques et  une rapide récupération post-entraînement.', NULL, NULL, 3, 'images/pure-gain-xl-3xl-nutrition-1-600x600.jpg', 0, 'false', 0),
-(96, 'proteine', 'REAL GAINS UNIVERSAL', 20, 1, 220, '– Gainer mondialement réputé pour son efficacité\r\n\r\n– Complexe de protéines et de glucides\r\n\r\n– Prise de masse musculaire sèche exceptionnelle', NULL, NULL, 4.7, 'images/REAL-GAINS-600x600.jpg', 0, 'false', 0),
+(96, 'proteine', 'REAL GAINS UNIVERSAL', 20, 1, 220, '– Gainer mondialement réputé pour son efficacité\r\n\r\n– Complexe de protéines et de glucides\r\n\r\n– Prise de masse musculaire sèche exceptionnelle', NULL, NULL, 4.7, 'images/REAL-GAINS-600x600.jpg', 0, 'true', 110),
 (97, 'proteine', '100% WHEY PLATINIUM', 20, 5, 180, 'Isolats et peptides de whey\r\n\r\n–  5.5g de BCAA, 4g de L-Glutamine et 11.6g d’acides aminés essentiels par dose\r\n\r\n– Whey haut de gamme aux goût fantastiques', NULL, NULL, 2.3, 'images/Platinum-100-Whey-Essential-Series-1-600x600.jpg', 0, 'false', 0),
 (101, 'proteine', 'ISO 100 DYMATIZE', 20, 5, 195, '90% d’isolat de whey hydrolysée\r\n\r\n– 0 lactose, 0 graisse, 0 glucides, 0 cholestérol\r\n\r\n– Pureté exceptionnelle !', NULL, NULL, 1.41, 'images/th.jpg', 0, 'false', 0),
 (102, 'proteine', 'ELITE WHEY DYMATIZE', 20, 5, 380, ' Protéine de lactosérum exceptionnelle\r\n\r\n– Très riche en acides aminés\r\n\r\n– Enzymes digestives', NULL, NULL, 4.5, 'images/WHEY-ELITE2-600x600.jpg', 0, 'false', 0),
@@ -476,7 +527,16 @@ CREATE TABLE IF NOT EXISTS `promo` (
   `pour` varchar(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_produit_promo` (`idp`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `promo`
+--
+
+INSERT INTO `promo` (`id`, `nom`, `idp`, `pour`) VALUES
+(1, 'Promo_hiver', 76, '10'),
+(2, 'Promo_hiver', 89, '40'),
+(3, 'Promo_hiver', 96, '50');
 
 -- --------------------------------------------------------
 
@@ -493,16 +553,18 @@ CREATE TABLE IF NOT EXISTS `pub` (
   `nb` int(11) NOT NULL,
   `nb_dis` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `pub`
 --
 
 INSERT INTO `pub` (`id`, `nom`, `pos`, `im`, `nb`, `nb_dis`) VALUES
-(37, 'zba9', '1', 'upload/pub7.jpg', 0, 0),
-(38, 'zba9', '1', 'upload/pub1.jpg', 0, 0),
-(39, 'walid', '2', 'upload/pub5.jpg', 0, 0);
+(37, 'zba9', '1', 'upload/pub7.jpg', 2, 0),
+(38, 'zba9', '1', 'upload/pub1.jpg', 1, 0),
+(39, 'walid', '2', 'upload/pub5.jpg', 0, 0),
+(41, 'anes', 'POS_INIT', 'upload/pog.mp4', 0, 0),
+(42, 'anes', '3', 'upload/anes.png', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -516,7 +578,16 @@ CREATE TABLE IF NOT EXISTS `pub_liked` (
   `client` varchar(255) NOT NULL,
   `pub` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `pub_liked`
+--
+
+INSERT INTO `pub_liked` (`id`, `client`, `pub`) VALUES
+(25, 'anestemani00@gmail.com', 37),
+(26, 'anestemani00@gmail.com', 38),
+(27, 'anes.temani@esprit.tn', 37);
 
 -- --------------------------------------------------------
 
@@ -535,31 +606,36 @@ CREATE TABLE IF NOT EXISTS `reclamation` (
   `ETAT` varchar(20) NOT NULL DEFAULT 'not treated',
   PRIMARY KEY (`Id_reclamation`),
   KEY `FK` (`ID_client`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reclamation`
+--
+
+INSERT INTO `reclamation` (`Id_reclamation`, `TYPE`, `ID_client`, `Username`, `CONTENU`, `IMAGE`, `ETAT`) VALUES
+(25, 'service dans la salle', 189, 'anestemani00@gmail.com', 'aze', NULL, 'not treated');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Structure de la table `reserver`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(15) NOT NULL,
-  `user_email` varchar(40) NOT NULL,
-  `user_pass` varchar(255) NOT NULL,
-  `joining_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `role` varchar(255) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `reserver`;
+CREATE TABLE IF NOT EXISTS `reserver` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coache` varchar(255) NOT NULL,
+  `horaire` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `users`
+-- Déchargement des données de la table `reserver`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_email`, `user_pass`, `joining_date`, `role`) VALUES
-(1, 'belkis', 'belkis.baccar@esprit.tn', 'bbb', '2019-04-14 18:29:20', 'utilisateur');
+INSERT INTO `reserver` (`id`, `coache`, `horaire`, `date`) VALUES
+(3, 'lamia', '11 am', '3/6/2019');
 
 -- --------------------------------------------------------
 
@@ -582,7 +658,11 @@ INSERT INTO `wishlist` (`id_client`, `id_produit`) VALUES
 (1, 32),
 (147, 36),
 (149, 34),
-(149, 36);
+(149, 36),
+(188, 77),
+(189, 76),
+(189, 77),
+(190, 82);
 
 --
 -- Index pour les tables déchargées
@@ -594,19 +674,8 @@ INSERT INTO `wishlist` (`id_client`, `id_produit`) VALUES
 ALTER TABLE `categorie` ADD FULLTEXT KEY `desc_cat` (`description`);
 
 --
--- Index pour la table `produits`
---
-ALTER TABLE `produits` ADD FULLTEXT KEY `descr_fulltext` (`description`);
-
---
 -- Contraintes pour les tables déchargées
 --
-
---
--- Contraintes pour la table `produits`
---
-ALTER TABLE `produits`
-  ADD CONSTRAINT `fk_catid` FOREIGN KEY (`cat_id`) REFERENCES `categorie` (`id`);
 
 --
 -- Contraintes pour la table `reclamation`

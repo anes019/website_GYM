@@ -51,7 +51,7 @@
 <!--===============================================================================================-->
  
   <link rel="stylesheet" href="css/cart.css"/>
-  <script type="text/javascript" src="cmd.js"></script>
+
 </head>
 <body >
 
@@ -280,7 +280,7 @@ foreach($info as $row){
                                                            
                                                        
                                                         
-						<button class="login100-form-btn" onClick="controle()"> <input type="hidden" value="<?PHP echo $row['Firstname']; ?>" name="Firstname">
+						<button class="login100-form-btn" id="login"> <input type="hidden" value="<?PHP echo $row['Firstname']; ?>" name="Firstname">
                 confirmer
               </button></form>
 						</div>
@@ -419,7 +419,46 @@ foreach($info as $row){
     </footer>
 		
 	
+<script >
+	  var formValid = document.getElementById('login');
 
+ formValid.addEventListener('click', controle);
+function controle(event)
+{
+	
+
+	 var tel = document.getElementById('tel');
+	 var add = document.getElementById('add');
+ var reg = document.getElementById('reg');
+ var ville = document.getElementById('ville');
+ var r1 = document.getElementById('r1');
+
+ 
+if(add.value.length==0)
+{ event.preventDefault();}
+
+
+if (reg.value.length == 0)
+{ event.preventDefault();}
+
+
+if(ville.value.length == 0)
+{ event.preventDefault();}
+
+
+if(r1.value.length == 0)
+{ event.preventDefault();}
+
+
+if (tel.value.length !=8)
+{ event.preventDefault();}
+
+
+
+ }
+
+ 
+</script>
 
 </body>
 </html>

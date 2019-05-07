@@ -220,8 +220,23 @@ if($listnot->rowCount()) {
 <?php
 														}
 														?>
-
-
+<br>
+<br>
+</a>
+</td>
+</a>
+</td>
+</a>
+</td>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<?php 
+include "footer.php"
+?>
  <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>

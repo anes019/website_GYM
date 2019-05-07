@@ -59,6 +59,26 @@ $C1 = $result[0];
 	}
 
   
+
+  function ajouterNews($email){
+    
+    $sql="insert into newsletter (email) values (:email)";
+    $db = configa::getConnexion();
+    try{
+        $req=$db->prepare($sql);
+
+  $email;
+    $req->bindValue(':email',$email);
+
+          $req->execute();
+           
+        }
+        catch (Exception $err){
+            echo 'Erreur: '.$err->getMessage();
+        }
+    
+  }
+
   function ajouteADMIN($Client){
     $sql="insert into client (USERNAME,EMAIL,PASSWORD,Firstname,Lastname,mobile,sexe,IMAGE,BIRTHDAY,adresse,token,role) values (:USERNAME,:EMAIL,:PASSWORD ,:Firstname,:Lastname,:mobile,:sexe,:IMAGE,:BIRTHDAY,:adresse,:token,:role)";
     $db = configa::getConnexion();

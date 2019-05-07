@@ -1,4 +1,7 @@
-function controle()
+  var formValid = document.getElementById('login');
+
+ formValid.addEventListener('click', controle);
+function controle(event)
 {
 	
 	 var nom = document.getElementById('nom');
@@ -10,10 +13,10 @@ function controle()
 
  if (nom.value.length == 0 ||tel.value.length == 0 ||add.value.length == 0 ||
  	reg.value.length == 0 ||ville.value.length == 0 ||r1.value.length == 0 ) {
- 	alert("remplir tout les champs");
+ 	 event.preventDefault();
  }
 
  if (tel.value.length < 0 || tel.value.length <8 ||tel.value.length > 8) {
- 	alert("numero doit comporte 8 chiffres (positive)");
+ event.preventDefault();
  }
 }
