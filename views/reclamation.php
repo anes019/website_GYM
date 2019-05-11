@@ -47,7 +47,58 @@ session_start();
   <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util_form.css">
 
- 
+ <style type="text/css">
+ 	[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+ </style>
 
 
   </head>
@@ -86,9 +137,9 @@ session_start();
     
 
 
- <div class="card">
+ <div >
   <h2>Type de reclamation</h2>
-  
+  <br>
   <ul>
     <li>
       <input type="radio" checked  id="one" name="choix" value="probleme d'achat en ligne"   />
@@ -96,7 +147,8 @@ session_start();
       
       <div class="check"></div>
     </li>
-    
+    <br>
+    <br>
     <li>
       <input type="radio"  id="two" name="choix" value="service dans la salle" />
       <label for="two" >service dans la salle </label>
