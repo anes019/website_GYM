@@ -1,7 +1,6 @@
 <?PHP
 require  "../../../core/Clients.php";
-include "C:/wamp64/www/website_GYM/entites/promo.php";
-include "C:/wamp64/www/website_GYM/core/crudsC.php";
+
 
             $client=new Clients();
 $info=$client->afficherClients();
@@ -9,25 +8,6 @@ $info=$client->afficherClients();
 
 
 
-
-if (isset($_POST['nom']) and isset($_POST['idp']) and isset($_POST['pour']) and $_POST['idp'] !== '888' and $_POST['nom'] !== '0'and $_POST['pour'] !== '0' and $_POST['idp'] !== '0'  ){
-	
-
-
-
-$promo1=new promo($_POST['nom'],$_POST['idp'],$_POST['pour']);
-//Partie2
-/*
-var_dump($employe1);
-}
-*/
-//Partie3
-$promo1C=new promoC();
-
-$promo1C->modifierPromo_Produit($_POST['idp'],$_POST['pour']);
-
-$promo1C->ajouterPromo($promo1);
-if ($_POST['mail']=='on') {
 	require 'php-mailer-master/PHPMailerAutoload.php';
 foreach($info as $row){
 $mail = new PHPMailer;
@@ -524,15 +504,10 @@ img.img-responsive {
     <br>
 </body>
 </html>" ;
-$mail->AddEmbeddedImage('Email/green-background.png','back');
+$mail->AddEmbeddedImage('');
 
-    $prC=new ProduitC();
-    $result=$prC->recuperer_produit($_POST['idp']);
-    foreach($result as $row){
-        $image=$row['image'];
- }
-$mail->AddEmbeddedImage('C:/wamp64/www/website_GYM/views/'.$image,'pr');
-$mail->AddEmbeddedImage('Email/logo.png','end');
+
+
 
 if(!$mail->send()) {
     echo 'Message could not be sent.';
