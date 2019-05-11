@@ -43,8 +43,8 @@ $mail->Password = 'sitewebgym';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-$mail->setFrom('walid.tayeche@esprit.tn', 'Walid Tayeche');
-$mail->addAddress($row['EMAIL'], 'Walid Tayeche');     // Add a recipient
+$mail->setFrom('bfacademy29@gmail.com', 'bfacademy');
+$mail->addAddress($row['EMAIL'], 'bfacademy');     // Add a recipient
    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
