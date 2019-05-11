@@ -1,7 +1,7 @@
 <?PHP
 
 session_start();
-	include'header.php' ;
+	
 require '_header.php';
 
 ?>
@@ -16,22 +16,19 @@ require '_header.php';
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/linearicons2.css">
+    <link rel="stylesheet" href="css/themify-icons2.css">
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -110,7 +107,9 @@ require '_header.php';
 
   </head>
   <body>
-   
+     <?php
+   include'head2.php';
+?>
 
     <!-- END nav -->
         <!-------------------------------------------------------------------------------------->
@@ -119,7 +118,7 @@ require '_header.php';
        <!-------------------------------------------------------------------------------------->
         <!-------------------------------------------------------------------------------------->  
 
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap js-fullheight" style="background-image: url('images/gallery-3.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
@@ -203,14 +202,14 @@ require '_header.php';
       </li>
       <li><a href="#2" data-toggle="tab" style="position: relative;  left: 70%; " >SETTINGS</a>
       </li>
-      <li><a href="#3" data-toggle="tab" style="position: relative;  left: -980%; top: 540px;">Claims</a>
+      <li><a href="#3" data-toggle="tab" style="position: relative;  left: -760%; top: 540px;">Claims</a>
       </li>
       <li><a href="#5" data-toggle="tab" style="position: relative;  left: 70%; " >Wishlist</a>
       </li>
 
         <li><a href="#6" data-toggle="tab" style="position: relative;  left: 85%; " >My Orders</a>
       </li>
-        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -440%; top: 585px; ">CHANGE PASSWORD  <br>
+        <li><a href="#4" data-toggle="tab" style="position: relative;  left: -360%; top: 585px; ">CHANGE PASSWORD  <br>
           <br>
           <br></a>
       </li>

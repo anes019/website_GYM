@@ -1,6 +1,6 @@
 <?php 
  session_start();
- include'header.php' ;
+
 
  ?>
 <?php  
@@ -85,9 +85,11 @@ $listeproduit=$prC->afficherProd($idc);
 
   </head>
   <body  id="produits">
-
+  <?php
+   include'head2.php';
+?>
     <!-- END nav -->
-      <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+      <section class="hero-wrap js-fullheight" style="background-image: url('images/image_6.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">

@@ -7,7 +7,7 @@
   padding: 0;
   line-height: 1;
   display: block;
-  position: relative;
+  position: fixed;
   font-family: 'PT Sans', sans-serif;
 }
 #cssmenu ul {
@@ -69,7 +69,7 @@
   background: #000000;
   z-index: 1;
   top: 13px;
-  right: 15px;
+  right: 8px;
 }
 #cssmenu.align-right ul li ul li.has-sub:after {
   right: auto;
@@ -112,7 +112,7 @@
   background: #4cb6ea;
 }
 #cssmenu ul li ul li:hover > ul {
-  left: 100%;
+  left: 80%;
   top: 0;
 }
 #cssmenu ul li ul li:hover > ul > li {
@@ -140,7 +140,7 @@
   right: 0;
 }
 #cssmenu.align-right ul ul li:hover > ul {
-  right: 100%;
+  right: 80%;
   left: auto;
 }
 #cssmenu.align-right ul ul li a {

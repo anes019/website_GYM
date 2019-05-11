@@ -1,7 +1,36 @@
+<?PHP
+require  "../core/Clients.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<style>
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  
+ background-color: rgba(0, 0, 0, .5);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#E73075, #F93415); 
+ 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#BD0958, #F93415);  
+
+}
+</style>
+	<script src="scrip.js"></script>
+	<link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="css/style.css">
 <style type="text/css">
 
 #walid{
@@ -10,6 +39,11 @@ border-radius: 2px;
 font-size: 16px;
 
 }
+#walid1:hover{
+
+
+}
+
 a{  
 	
 	text-align: center;
@@ -102,32 +136,6 @@ nav ul li a:hover::after{
   
 }
 </style>
-<script type="text/javascript">
-	var open = document.getElementById('hamburger');
-var changeIcon = true;
-
-open.addEventListener("click", function(){
-
-    var overlay = document.querySelector('.overlay');
-    var nav = document.querySelector('nav');
-    var icon = document.querySelector('.menu-toggle i');
-
-    overlay.classList.toggle("menu-open");
-    nav.classList.toggle("menu-open");
-
-    if (changeIcon) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
-
-        changeIcon = false;
-    }
-    else {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
-        changeIcon = true;
-    }
-});
-</script>
 </head>
 <body>
 
@@ -136,37 +144,152 @@ open.addEventListener("click", function(){
         
         
         
-            <nav class="navbar navbar-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+            
            
                     
-                   
-                <ul>
-                    <li><a  href="#">Home</a></li>
+                  
+                 <?php
+
+	          if(!isset( $_SESSION['l']))     
+	          {
+	          		?><nav class="navbar navbar-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+ <ul  ><li><a  href=""></a></li></ul>
+<ul>
+                    <li><a   href="index.php">accueil</a></li>
                     
                 </ul>
-                <ul> <li><a href="#">abonements</a></li>
+                <ul> <li><a href="abonements.php">abonements</a></li>
                     
                 </ul>
                 <ul>
-                    <li><a href="#">coaches</a></li>
+                    <li><a href="program.php">program</a></li>
                     
                 </ul>
                 
-                  <ul> <img width="120px" style="position: relative; right: -12%; top: 10px;" src="1.png">
+                  <ul><li><a href="index.php"><img width="120px" style="position: relative; right: -12%; top: 10px;" src="1.png"></a></li>
                     
                 </ul>
                  
-                 <ul> <li><a href="#">produits</a></li>
+                 <ul> <li><a href="produits.php">produits</a></li>
                     
                 </ul>
-                 <ul> <li><a href="#">inscription</a></li>
+
+                 <ul> <li><a href="Inscription.php">inscription</a></li>
                     
                 </ul>
-                 <ul> <li><a  id="walid" class="btn-custom py-4" href="#">login</a></li>
+
+                 <ul> <li><a id="walid"   class="btn btn-primary "  href="login.php">login</a></li>
                     
                 </ul>
+                <ul><li><a href="panier.php"><img width="65px" width="65px"  src="images/icons/panier.png"></a></li></ul>
             </nav>
-      
+                   <?php 
+	     }else {
+	     	?>	
+	     	<nav class="navbar navbar-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+	     	    <ul>
+                    <li><a   href="#"></a></li>
+                    
+                </ul>
+                 <ul>
+                    <li><a   href="#"></a></li>
+                    
+                </ul>
+	     	      <ul>
+                    <li><a   href="index.php">accueil</a></li>
+                    
+                </ul>
+                <ul  ><li><a  href=""></a></li></ul>
+
+                <ul> <li><a href="abonements.php">abonements</a></li>
+                    
+                </ul>
+                <ul  ><li><a  href=""></a></li></ul>
+                <ul>
+                    <li><a style="margin-right: 50px;" href="program.php">program </a></li>
+                   
+                </ul>
+                
+                  <ul><li><a href="index.php"><img width="120px" style="position: relative; right: 5%; top: 10px;" src="1.png"></a></li>
+                    
+                </ul>
+               <ul  ><li><a  href=""></a></li></ul>
+                 <ul> <li><a href="produits.php">produits</a></li>
+                    
+                </ul>
+                <ul  ><li><a  href=""></a></li></ul>
+                  <ul  ><li><a id="walid1" href="reclamation.php">Reclamation</a></li></ul>
+                     
+              
+   <?PHP
+        
+            $client=new Clients();
+$info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
+
+foreach($info as $row){
+  ?> 
+<div id='cssmenu' style=" top: -3px; right: -20px;">
+
+<ul >
+
+   <li class='active '><a href='#'>
+
+   	<img class="pad" id="output" style="  height:50px  ;width:50px ;   border-radius:80px;   " alt="" /></a>
+   	  
+      <ul>
+      		  <p><?PHP  echo  $row['USERNAME']; ?></p>
+
+
+	  
+         <li ><a  class="btn btn-primary " href='page profil.php'><span>Profil</span></a>
+         </li>
+         <br>
+            <li ><a class="btn btn-primary " href="../core/logout.php"><span>Logout</span></a>
+         </li>
+       	   
+      </ul>
+   </li>
+
+</ul>
+</div>
+
+    <?php   }?>
+
+ <ul><li><a href="panier.php"><img width="65px" width="65px"  src="images/icons/panier.png"></a></li></ul>
+                    
+                
+<?php
+     }
+	           ?>
+
+
+
+                  
+               
+            </nav>
+     
 </header>
+<script type="text/javascript">
+  
+         function previewFile(){
+       var preview = document.getElementById('output');
+     
+
+           preview.src = "./uploades/medium/<?PHP echo $row['IMAGE']; ?>";
+       }
+
+ previewFile(); 
+
+
+
+</script>
+<script >
+	 $('#clickable_div').mouseover( function(){
+    $('#nav_menu').slideDown();
+})
+$('#wrap').mouseleave( function(){
+    $('#nav_menu').slideUp();
+});
+</script>
 </body>
 </html>

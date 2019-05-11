@@ -29,11 +29,11 @@ $liste_abo=$aC->afficher_abonement_front();
   <body  id="produits">
 
 	        <?php 
- include'header.php' 
+ include'head2.php' 
  ?>
 
     <!-- END nav -->
-      <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+      <section class="hero-wrap js-fullheight" style="background-image: url('images/gallery-5.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">

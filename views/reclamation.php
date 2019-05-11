@@ -2,7 +2,7 @@
 session_start();
 
 
- include'header.php' 
+
  ?>
 <html lang="en">
   <head>
@@ -23,7 +23,7 @@ session_start();
     <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/main2.css">
     <link rel="stylesheet" href="css/linearicons2.css">
     <link rel="stylesheet" href="css/themify-icons2.css">
@@ -46,16 +46,18 @@ session_start();
   <link rel="stylesheet" type="text/css" href="css/util.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util_form.css">
-  <link rel="stylesheet" type="text/css" href="css/main_form.css">
- <link rel="stylesheet" type="text/css" href="css/style_reclamation.css">
+
+ 
 
 
   </head>
 <body onload="generateCaptcha();">
-
+<?php
+ include'head2.php' ;
+?>
     <!-- END nav -->
 
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">

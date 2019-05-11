@@ -2,7 +2,7 @@
 
 <?php 
 session_start();
- include'header.php' 
+ 
  ?>
 <?php  
 require '_header.php';
@@ -19,22 +19,20 @@ require '_header.php';
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/linearicons2.css">
+    <link rel="stylesheet" href="css/themify-icons2.css">
+
 	<link rel="stylesheet" href="css/cart.css"/>
 
 
@@ -121,12 +119,15 @@ button:hover {
     to {transform: scale(1)}
 }
 </style>
+
 </head>
 <body>
-  	
+  <?php
+   include'head2.php';
+?>
 
 
-<section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+<section class="hero-wrap js-fullheight" style="background-image:  url('images/image_2.jpg'); height: 1000px; width: 1382px;">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">

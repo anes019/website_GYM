@@ -185,35 +185,18 @@ width: 34px;
 .cnt223 .x:hover{
 cursor: pointer;
 }
+
 </style>
-<script type='text/javascript'>
-$(function(){
-var overlay = $('<div id="overlay"></div>');
-overlay.show();
-overlay.appendTo(document.body);
-$('.popup').show();
-$('.close').click(function(){
-$('.popup').hide();
-overlay.appendTo(document.body).remove();
-return false;
-});
 
-
- 
-
-$('.x').click(function(){
-$('.popup').hide();
-overlay.appendTo(document.body).remove();
-return false;
-});
-});
-</script>
 
     <title></title>
 </head>
 <body>
+
 <div class='popup'>
+
 <div class='cnt223'>
+	<a id="count" disabled></a>
 <a onclick="document.getElementById('vid').pause()"  href='' class='close'>Close</a>
 <br>
 <p>
@@ -257,6 +240,7 @@ else
 </p>
 </div>
 </div>
+
    <?PHP
   include'head2.php' ;
 ?>
@@ -280,7 +264,7 @@ else
       </div>
 
       
-      <div class="slider-item js-fullheight" style="background-image: url(images/bg_2.jpg);">
+      <div class="slider-item js-fullheight" style="background-image: url(images/program-3.jpg);">
         <div class="overlay"></div>
         <div class="container">
           <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
@@ -636,8 +620,45 @@ include "footer.php"
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script>
+function countDown(secs,elem) {
+	$('.close').hide();
+	var element = document.getElementById(elem);
+	element.innerHTML = " Please wait for "+secs+" seconds";
+	if(secs < 1) {
+		clearTimeout(timer);
+		element.innerHTML = "";
+	
+		$('.close').show();
+	}
+	secs--;
+	var timer = setTimeout('countDown('+secs+',"'+elem+'")',1000);
+}
+</script>
+<script>countDown(10,"count");</script>
+<script type='text/javascript'>
+$(function(){
+	sessionStorage.getItem('#popup')
+var overlay = $('<div id="overlay"></div>');
+if (sessionStorage.getItem('#popup')!=='true') {
+overlay.show();
+overlay.appendTo(document.body);
+
+$('.popup').show();
 
 
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+}
+else
+{document.getElementById('vid').pause();}
+sessionStorage.setItem('#popup','true');
+ 
+});
+</script>
 
 </body>
 </html>

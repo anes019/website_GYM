@@ -1,6 +1,6 @@
 <?php 
  session_start();
- include'header.php' ;
+ include'head2.php' ;
 
  ?>
 <?php  
@@ -62,6 +62,7 @@ $idc=0;
   <head>
     <title>Academie</title>
     <meta charset="utf-8">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -74,7 +75,7 @@ $idc=0;
     <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/main2.css">
     <link rel="stylesheet" href="css/linearicons2.css">
     <link rel="stylesheet" href="css/themify-icons2.css">
@@ -82,7 +83,7 @@ $idc=0;
   <body  id="produits">
  
     <!-- END nav -->
-      <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+      <section class="hero-wrap js-fullheight" style="background-image: url('images/image_6.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
