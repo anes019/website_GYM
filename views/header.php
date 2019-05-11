@@ -9,7 +9,12 @@ require  "../core/Clients.php";
 <head>
 	   <script src="scrip.js"></script>
  <link rel="stylesheet" href="styl.css">
-
+   <script src="js/bootbox.all.js"></script>
+      <script src="js/bootbox.all.min"></script>
+         <script src="js/bootbox"></script>
+            <script src="js/bootbox.locales"></script>
+               <script src="js/bootbox.locales.min"></script>
+                  <script src="js/bootbox.min"></script>
 </head>
 <body >
 	

@@ -1,5 +1,5 @@
 <?PHP
-include "C:/wamp64/www/website_GYM/config.php";
+include_once "C:/wamp64/www/website_GYM/config.php";
 include "C:/wamp64/www/website_GYM/entites/produit.php";
 include "C:/wamp64/www/website_GYM/entites/abonement.php";
 include "C:/wamp64/www/website_GYM/entites/categorie.php";

@@ -4,7 +4,7 @@ class factureC {
 	
 	function ajouterFacture($facture){
 		$sql="insert into facture (id_cmd,nom_prenom,adresse,region,ville,mode_livraison,mode_paiement,nom_prod,quantite,prix,total) values (:id_cmd,:nom_prenom,:adresse,:region,:ville,:mode_livraison,:mode_paiement,:nom_prod,:quantite,:prix,:total)";
-		$db = config2::getConnexion();
+		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
 		

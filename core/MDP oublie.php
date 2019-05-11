@@ -14,7 +14,7 @@ if(!empty($_POST['email']))
 {
 
   try{
- $db = configa::getConnexion();
+ $db = config::getConnexion();
   $db->exec('SET NAMES utf8');
   }
   

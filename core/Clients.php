@@ -1,11 +1,11 @@
 <?PHP
-include "C:/wamp64/www/website_GYM/config1.php";
+include_once "C:/wamp64/www/website_GYM/config.php";
 class Clients {
 
 	 function id()
 	{
 		$sql=" select ID_CLIENT from Client ORDER BY ID_CLIENT DESC LIMIT 1" ;
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
       $req=$db->prepare($sql);
      $req->execute(); 
 
@@ -22,7 +22,7 @@ $C1 = $result[0];
 	
 	function ajouterClient($Client){
 		$sql="insert into client (USERNAME,EMAIL,PASSWORD,Firstname,Lastname,mobile,sexe,IMAGE,BIRTHDAY,adresse,token) values (:USERNAME,:EMAIL,:PASSWORD ,:Firstname,:Lastname,:mobile,:sexe,:IMAGE,:BIRTHDAY,:adresse,:token)";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
         $USERNAME=$Client->getUsername();
@@ -63,7 +63,7 @@ $C1 = $result[0];
   function ajouterNews($email){
     
     $sql="insert into newsletter (email) values (:email)";
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
         $req=$db->prepare($sql);
 
@@ -81,7 +81,7 @@ $C1 = $result[0];
 
   function ajouteADMIN($Client){
     $sql="insert into client (USERNAME,EMAIL,PASSWORD,Firstname,Lastname,mobile,sexe,IMAGE,BIRTHDAY,adresse,token,role) values (:USERNAME,:EMAIL,:PASSWORD ,:Firstname,:Lastname,:mobile,:sexe,:IMAGE,:BIRTHDAY,:adresse,:token,:role)";
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
         $req=$db->prepare($sql);
         $USERNAME=$Client->getUsername();
@@ -122,7 +122,7 @@ $C1 = $result[0];
 	function modifierClient($Client,$ID){
 		
 		$sql="UPDATE Client SET USERNAME=:USERNAME,adresse=:adresse,mobile=:mobile,EMAIL=:EMAIL  WHERE ID_CLIENT='$ID' ";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 	  
 		try{
 			
@@ -150,7 +150,7 @@ $C1 = $result[0];
 function modifierImage($Client,$login,$pwd){
 		
 		$sql="UPDATE Client SET IMAGE=:IMAGE WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 	  
 		try{
 			
@@ -174,7 +174,7 @@ function modifierImage($Client,$login,$pwd){
 	function modifierMDP($Client,$login,$pwd){
 		
 		$sql="UPDATE Client SET PASSWORD=:PASSWORD  WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 	  
 		try{
 			
@@ -198,7 +198,7 @@ function modifierImage($Client,$login,$pwd){
 	
 	function afficherClient($login,$pwd){
 		$sql="SElECT * From client WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
 		$info=$db->query($sql);
 		return $info;
@@ -210,7 +210,7 @@ function modifierImage($Client,$login,$pwd){
   
   function afficherClient2($login){
     $sql="SElECT * From client WHERE token='$login' ";
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
     $info=$db->query($sql);
     return $info;
@@ -223,7 +223,7 @@ function modifierImage($Client,$login,$pwd){
 
   function afficheradmin($login,$pwd){
     $sql="SElECT * From admins WHERE (USERNAME='$login' && PASSWORD='$pwd') || (EMAIL='$login' && PASSWORD='$pwd')";
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
     $info=$db->query($sql);
     return $info;
@@ -236,7 +236,7 @@ function afficherClients(){
 
 
 	$sql="SElECT * From client ";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
 		$info=$db->query($sql);
 		return $info;
@@ -252,7 +252,7 @@ function entete(){
 
 
 		$sql="DESC client";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
 		$requete=$db->query($sql);
 		$entete = $requete->fetchAll();
@@ -267,7 +267,7 @@ function entete(){
 	function NombreReclamation_tr($id){
  
 			$sql=" SELECT COUNT(*)   FROM reclamation WHERE (ID_client='$id' and ETAT='not treated ')" ;
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
       $req=$db->prepare($sql);
      $req->execute(); 
@@ -284,7 +284,7 @@ catch (Exception $err){
     function NombreReclamation_tt(){
  
       $sql=" SELECT COUNT(*)   FROM reclamation WHERE  ETAT='not treated '" ;
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
       $req=$db->prepare($sql);
      $req->execute(); 
@@ -303,7 +303,7 @@ catch (Exception $err){
 	function NombreReclamation($ID){
          
 			$sql=" SELECT COUNT(*)   FROM reclamation WHERE  ID_CLIENT='$ID'" ;
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
       $req=$db->prepare($sql);
      $req->execute(); 
@@ -326,7 +326,7 @@ catch (Exception $err){
         
 
     $sql ="UPDATE client SET PASSWORD='$e'  WHERE EMAIL='$var'";
-    $db = configa::getConnexion();
+    $db = config::getConnexion();
     try{
    
       $req=$db->prepare($sql);
@@ -350,7 +350,7 @@ catch (Exception $err){
         
 
  		$sql ="UPDATE client SET EmailConfirmed='1' WHERE token='$var'";
- 		$db = configa::getConnexion();
+ 		$db = config::getConnexion();
  		try{
     
       $req=$db->prepare($sql);
@@ -388,7 +388,7 @@ catch (Exception $err){
     ORDER BY ID_CLIENT DESC
   ";
 
-     $db = configa::getConnexion();
+     $db = config::getConnexion();
         try{
            return ( $db->query($query));
         }
@@ -405,7 +405,7 @@ catch (Exception $err){
         $query = "
   SELECT * FROM client WHERE role='user' ORDER BY ID_CLIENT DESC ";
 
-     $db = configa::getConnexion();
+     $db = config::getConnexion();
         try{
            return ( $db->query($query));
         }
@@ -419,7 +419,7 @@ catch (Exception $err){
   function SuppClient2($id){
          $var=$id;
         $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
@@ -434,7 +434,7 @@ catch (Exception $err){
     }
   function SuppClient($id){
          $var=$id;
-           $db = configa::getConnexion();
+           $db = config::getConnexion();
             try{
          $req = $db->prepare("SELECT Id_reclamation  FROM reclamation  where ID_CLIENT ='". $var. "'");
   $req->execute(array(':id'=>$var));
@@ -448,14 +448,14 @@ catch (Exception $err){
 
   $sql = "DELETE FROM reclamation WHERE ID_CLIENT ='". $var. "'";  
 
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
           $req->execute();
           
       $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
@@ -481,7 +481,7 @@ catch (Exception $err){
     }
     else 
       {       $sql = "DELETE FROM client WHERE ID_CLIENT ='". $var. "'";  
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
@@ -501,7 +501,7 @@ catch (Exception $err){
 	
 	function ajouterClient2($a,$b,$c,$e,$r){
 		$sql="insert into client (Firstname,Lastname,EMAIL,mobile,adresse) values (:Firstname,:Lastname,:EMAIL,:mobile,:adresse)";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
         $req=$db->prepare($sql);
        $Firstname=$a;
@@ -531,7 +531,7 @@ catch (Exception $err){
 	function modifierClient2($column_name,$text,$id){
 		
 		$sql = "UPDATE client SET ".$column_name."='".$text."' WHERE ID_CLIENT='".$id."'";  
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 	  
 		try{
 			
@@ -553,7 +553,7 @@ function entete2(){
 
 
 		$sql="DESC client";
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
 		$requete=$db->query($sql);
 		$entete = $requete->fetchAll();
@@ -567,7 +567,7 @@ function entete2(){
 
 	function NombreReclamation_tr2(){
 			$sql=" SELECT COUNT(*)   FROM reclamation WHERE (ID_client='32' and ETAT='not treated ')" ;
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
       $req=$db->prepare($sql);
      $req->execute(); 
@@ -584,7 +584,7 @@ catch (Exception $err){
 
 	function NombreReclamation2(){
 			$sql=" SELECT COUNT(*)  as tr   FROM reclamation " ;
-		$db = configa::getConnexion();
+		$db = config::getConnexion();
 		try{
     
 return ( $db->query($sql));
@@ -601,7 +601,7 @@ catch (Exception $err){
         function Enable($id){
          $var=$id;
        $sql = "UPDATE client SET  status = 'active' WHERE ID_CLIENT = '".$var."'";  
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
@@ -617,7 +617,7 @@ catch (Exception $err){
         function Disable($id){
          $var=$id;
        $sql = "UPDATE client SET  status = 'Blocked' WHERE ID_CLIENT = '".$var."'";  
-        $db = configa::getConnexion();
+        $db = config::getConnexion();
         try{
         $req=$db->prepare($sql);
        
