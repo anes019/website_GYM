@@ -31,7 +31,11 @@ if(isset($_GET['id'])){
 <script >
 
 
-
+ if(confirm('le produit a ete bien ajoute a votre panier  Voulez vous consulter votre panier '))
+		 {
+ 				location.href = 'panier.php' ;
+		 }
+		 else {location.href = 'produits.php' ;}
 
 
 
