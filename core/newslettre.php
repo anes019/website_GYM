@@ -1,5 +1,5 @@
 <?php
-include "C:/wamp64/www/website_GYM/config1.php";
+include "C:/wamp64/www/website_GYM/config.php";
 
 
 
@@ -8,7 +8,7 @@ if(!empty($_POST['email']))
 
   $email =$_POST['email'];
   try{
- $db = configa::getConnexion();
+ $db = config::getConnexion();
   $db->exec('SET NAMES utf8');
   }
   
@@ -20,7 +20,7 @@ $req = $db->prepare('SELECT email  FROM newsletter WHERE email=:email' );
   if($req->rowCount()==0)
   {
 $sql="insert into newsletter (email) values (:EMAIL)" ;
-  $db = configa::getConnexion();
+  $db = config::getConnexion();
     try{
         $req=$db->prepare($sql);
        $req->bindValue(':EMAIL',$email);

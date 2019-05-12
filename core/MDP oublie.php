@@ -31,7 +31,10 @@ $req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || 
        $token = 'qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM0123456789';
         $token = str_shuffle($token);
         $token = substr($token, 0, 10);
-$msg=$client->change($_POST['email'],$token);
+
+
+    $password=hash('sha512', $token);
+$msg=$client->change($_POST['email'],$password);
   if($msg='ok')  
   {
 
@@ -63,7 +66,7 @@ $mail->SMTPDebug = 0;
 
 $mail->SMTPAuth = true;
 
-// sets the prefix to the server
+
 $mail->SMTPSecure = 'tls';
 
 
@@ -83,6 +86,7 @@ $mail->SetFrom('BFACADEMY@gmail.com', 'BFACADEMY');
 
 
 $mail->AddAddress($_POST['email']);
+$mail->Subject = 'RESET PASSWORD';
 
 //
 $mail->MsgHTML($message);

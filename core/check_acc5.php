@@ -14,6 +14,9 @@ include "../Core/Clients.php";
 
 if(!empty($_POST['email']) && !empty($_POST['pass']))
 {
+    $password =$_POST['pass'];
+
+    $password=hash('sha512',$password);
 
   try{
  $db = config::getConnexion();
@@ -28,7 +31,7 @@ $req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || 
   if($req->rowCount()>0)
   {
       $req = $db->prepare('SELECT ID_CLIENT FROM client WHERE ((USERNAME=:pseudo && PASSWORD=:pass)) || (EMAIL=:pseudo && PASSWORD=:pass)');
-  $req->execute(array(':pseudo'=>$pseudo ,':pass'=>$pass));
+  $req->execute(array(':pseudo'=>$pseudo ,':pass'=>$password));
   if($req->rowCount()>0)
   {
   $req = $db->prepare('SELECT ID_CLIENT  FROM client WHERE ((USERNAME=:pseudo  || EMAIL=:pseudo ) && (EmailConfirmed=1))');
@@ -42,7 +45,7 @@ if($req->rowCount()>0){
   	echo '<script language="javascript"> alert("welcome to Our site '.$pseudo.'"); ;</script>';
       session_start();
     $_SESSION['l']= $pseudo;
-    $_SESSION['p']=$pass;
+    $_SESSION['p']=$password;
                    $client=new Clients();
 $info=$client->afficherClient($_SESSION['l'],$_SESSION['p']);
 

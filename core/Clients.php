@@ -247,6 +247,19 @@ function afficherClients(){
 	}
 
 
+function NEWS(){
+
+
+  $sql="SElECT * From newsletter ";
+    $db = config::getConnexion();
+    try{
+    $info=$db->query($sql);
+    return $info;
+    }
+        catch (Exception $err){
+            die('Erreur: '.$err->getMessage());
+        } 
+  }
 
 function entete(){
 

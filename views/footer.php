@@ -25,8 +25,10 @@ include_once "pub_front.php";
             <form method="POST" action="../core/newslettre.php">
  <span  >S’abonner à notre newsletter </span> 
 
-                     <input type="email" name="email" required="email"  class="glyphicon glyphicon-ok-sign" style="height: 26px">   <button  type =" submit" class="glyphicon glyphicon-ok-sign" style="height: 26.5px" >
-       </button>
+                     <input type="email" name="email" required="email"  class="glyphicon glyphicon-ok-sign" style="height: 26px"> 
+
+
+
      </form>
           </div>
 

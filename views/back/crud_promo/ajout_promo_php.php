@@ -38,13 +38,13 @@ $mail = new PHPMailer;
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'anes.temani@esprit.tn';                 // SMTP username
-$mail->Password = 'anes@1996';                           // SMTP password
+$mail->Username = 'bfacademy29@gmail.com';                 // SMTP username
+$mail->Password = 'sitewebgym';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-$mail->setFrom('walid.tayeche@esprit.tn', 'Walid Tayeche');
-$mail->addAddress($row['EMAIL'], 'Walid Tayeche');     // Add a recipient
+$mail->setFrom('bfacademy29@gmail.com', 'bfacademy');
+$mail->addAddress($row['EMAIL'], 'bfacademy');     // Add a recipient
    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
