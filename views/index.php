@@ -255,8 +255,9 @@ else
           <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
             <div class="col-sm-6 ftco-animate text-center">
-              <h1 class="mb-4">Fuel Your Body Fitness</h1>
-              <h2 class="subheading">Be One Of Us</h2>
+              <h1 class="mb-4">
+améliorer votre forme</h1>
+              <h2 class="subheading">avec BF Academie</h2>
             </div>
 
           </div>
@@ -270,8 +271,8 @@ else
           <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
 
             <div class="col-sm-7 ftco-animate text-center">
-              <h1 class="mb-4">Challenge Yourself</h1>
-              <h2 class="subheading">Get Your Body Fit</h2>
+              <h1 class="mb-4">relevez le défi</h1>
+              <h2 class="subheading">devenir anormal</h2>
             </div>
 
           </div>
@@ -295,44 +296,46 @@ else
               
            
      </div><div class="col-md-12 heading-section ftco-animate">
-                <h3 class="subheading">Shape Your Body</h3>
-                <h2 class="mb-4">What We Do?</h2>
+                
+                <h2 class="mb-4">ce que nous faisons?</h2>
               </div>
             </div>
-            <div class="services d-flex ftco-animate">
+            <div style=" position: absolute; left: 50%; top: 25%;" class="services d-flex ftco-animate">
               <div class="icon d-flex justify-content-center align-items-center">
                 <span class="flaticon-ruler"></span>
               </div>
               <div class="text ml-5">
-                <h3>Analyze Your Goal</h3>
+                <h3>Analysez votre objectif</h3>
               
               </div>
             </div>
-            <div class="services d-flex ftco-animate">
+            <div style=" position: absolute; left: 50%; top: 40%;" class="services d-flex ftco-animate">
               <div class="icon d-flex justify-content-center align-items-center">
                 <span class="flaticon-gym"></span>
               </div>
 
               <div class="text ml-5">
-                <h3>Work Hard On It</h3>
+                <h3>travaillé fort pour votre objectif</h3>
                 
               </div>
             </div>
-            <div class="services d-flex ftco-animate">
+            <div style=" position: absolute; left: 50%; top: 55%;" class="services d-flex ftco-animate">
               <div class="icon d-flex justify-content-center align-items-center">
                 <span class="flaticon-tools-and-utensils"></span>
               </div>
               <div class="text ml-5">
-                <h3>Improve Your Performance</h3>
+                <h3>
+Améliorez vos performances</h3>
                 
               </div>
             </div>
-            <div class="services d-flex ftco-animate">
+            <div style=" position: absolute; left: 50%; top: 70%;" class="services d-flex ftco-animate">
               <div class="icon d-flex justify-content-center align-items-center">
                 <span class="flaticon-abs"></span>
               </div>
               <div class="text ml-5">
-                <h3>Achieve Your Perfect Body</h3>
+                <h3>
+Atteignez votre corps parfait</h3>
                 
               </div>
             </div>
@@ -646,7 +649,7 @@ overlay.appendTo(document.body);
 
 $('.popup').show();
 
-
+document.getElementById('vid').play();
 $('.close').click(function(){
 $('.popup').hide();
 overlay.appendTo(document.body).remove();

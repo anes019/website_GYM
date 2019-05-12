@@ -73,9 +73,9 @@
 <style type="text/css">
 
 #walid{
-width: 80px;
+width: 160px;
 border-radius: 2px;
-font-size: 16px;
+font-size: 14px;
 
 }
 #walid1:hover{
@@ -196,11 +196,11 @@ nav ul li a:hover::after{
                     <li><a   href="index.php">accueil</a></li>
                     
                 </ul>
-                <ul> <li><a href="abonements.php">abonements</a></li>
+                <ul> <li><a href="abonements.php">abonnements</a></li>
                     
                 </ul>
                 <ul>
-                    <li><a href="program.php">program</a></li>
+                    <li><a href="program.php">programme</a></li>
                     
                 </ul>
                 
@@ -216,7 +216,7 @@ nav ul li a:hover::after{
                     
                 </ul>
 
-                 <ul> <li><a id="walid"   class="btn btn-primary "  href="login.php">login</a></li>
+                 <ul> <li><a id="walid"   class="btn btn-primary "  href="login.php">se connecter</a></li>
                     
                 </ul>
                 <ul><li><a href="panier.php"><img width="65px" width="65px"  src="images/icons/panier.png"></a></li></ul>
@@ -239,12 +239,12 @@ nav ul li a:hover::after{
                 </ul>
                 <ul  ><li><a  href=""></a></li></ul>
 
-                <ul> <li><a href="abonements.php">abonements</a></li>
+                <ul> <li><a href="abonements.php">abonnements</a></li>
                     
                 </ul>
                 <ul  ><li><a  href=""></a></li></ul>
                 <ul>
-                    <li><a style="margin-right: 50px;" href="program.php">program </a></li>
+                    <li><a style="margin-right: 50px;" href="program.php">programme</a></li>
                    
                 </ul>
                 
