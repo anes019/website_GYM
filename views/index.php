@@ -193,11 +193,11 @@ cursor: pointer;
 </head>
 <body>
 
-<div class='popup'>
+<div id="imm" class='popup'>
 
 <div class='cnt223'>
 	<a id="count" disabled></a>
-<a onclick="document.getElementById('vid').pause()"  href='' class='close'>Close</a>
+<a href='' class='close'>Close</a>
 <br>
 <p>
 <?php
@@ -228,7 +228,7 @@ while($row1 = mysqli_fetch_array($result))
 else
 { ?>                  
 
-<img width="850px" height="430px" src="back/crud_pub/<?php echo $row1['im']; ?>">
+<img   width="850px" height="430px" src="back/crud_pub/<?php echo $row1['im']; ?>">
 <?php
 }
 }
@@ -640,29 +640,76 @@ function countDown(secs,elem) {
 </script>
 <script>countDown(10,"count");</script>
 <script type='text/javascript'>
-$(function(){
-	sessionStorage.getItem('#popup')
+
+</script>
+<script type="text/javascript">
+	$(function(){
+	sessionStorage.getItem('#popup');
 var overlay = $('<div id="overlay"></div>');
+
+
+
+ 
+
+<?php
+$connect = mysqli_connect("localhost", "root", "", "site_web");
+$query = "SELECT * FROM pub where pos ='pos_init'";
+ $result = mysqli_query($connect, $query);
+?>
+<?php
+while($row1 = mysqli_fetch_array($result))
+{  
+  
+ 
+  $imageFileType = strtolower(pathinfo($row1['im'],PATHINFO_EXTENSION));
+
+  $extensions_arr = array("mp4");
+ 
+ if(in_array($imageFileType,$extensions_arr) ) 
+{
+?>
 if (sessionStorage.getItem('#popup')!=='true') {
 overlay.show();
 overlay.appendTo(document.body);
 
 $('.popup').show();
 
+
 document.getElementById('vid').play();
 $('.close').click(function(){
 $('.popup').hide();
 overlay.appendTo(document.body).remove();
-return false;
+
 });
 }
+else{document.getElementById('vid').pause();}
+
+<?php
+}
 else
-{document.getElementById('vid').pause();}
+{ ?>                  
+if (sessionStorage.getItem('#popup')!=='true') {
+overlay.show();
+overlay.appendTo(document.body);
+
+$('.popup').show();
+
+
+
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+
+});
+}
+
+<?php
+}
+}
+?>
 sessionStorage.setItem('#popup','true');
- 
 });
 </script>
-
 </body>
 </html>
 

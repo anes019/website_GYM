@@ -1,5 +1,6 @@
 <?PHP
 require  "../core/Clients.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -184,7 +185,9 @@ nav ul li a:hover::after{
                 <ul><li><a href="panier.php"><img width="65px" width="65px"  src="images/icons/panier.png"></a></li></ul>
             </nav>
                    <?php 
-	     }else {
+	     }
+
+	     else {
 	     	?>	
 	     	<nav class="navbar navbar-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
 	     	    <ul>
