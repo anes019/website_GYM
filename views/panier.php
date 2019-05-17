@@ -173,6 +173,8 @@ button:hover {
 							<tbody>
               <?php
               $ids = array_keys($_SESSION['panier']);
+
+              print_r($ids);
               if(empty($ids)){
                 $produits = array();
 

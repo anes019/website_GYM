@@ -1,189 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<html lang="en">
-  <head>
-    <title>Reclamation</title>
-    <meta charset="utf-8">
+ <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+   <script type="text/javascript" charset="utf8" src="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+  <title></title>
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-
-    <link rel="stylesheet" href="css/main2.css">
-    <link rel="stylesheet" href="css/linearicons2.css">
-    <link rel="stylesheet" href="css/themify-icons2.css">
-<!--===============================================================================================-->  
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font7.ttf">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->  
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/util_form.css">
-
- <style type="text/css">
- 	[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
-}
-[type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    line-height: 20px;
-    display: inline-block;
-    color: #666;
-}
-[type="radio"]:checked + label:before,
-[type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 18px;
-    height: 18px;
-    border: 1px solid #ddd;
-    border-radius: 100%;
-    background: #fff;
-}
-[type="radio"]:checked + label:after,
-[type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: #F87DA9;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-}
-[type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-}
-[type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-}
- </style>
-
-    <!-- END nav -->
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
 
 
+ <script src="veriferChamps_Pub.js"></script>
 
-<section>
-   <div class="container-login100" style="background-color: #c2c2a3 " >
-      <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-        <form class="login100-form validate-form" method="POST" action="envoi.php">
-          <span class="login100-form-title p-b-55">
-      ENVOI NEWLETTER
-          </span>
+    <!-- Title Page-->
+    <title>Gesion des Pubs</title>
 
-  <!------------------------------------------------------------------------------------------------------------------------->
-    <!------------------------------------------------------------------------------------------------------------------------->
-      <!------------------------------------------------------------------------------------------------------------------------->
-        <!------------------------------------------------------------------------------------------------------------------------->
-   <div class="wrap-input100 validate-input" >
-            <span class="label-input100">Sujet  <br> <br> </span> 
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-<input type="text" name="sujet" required> 
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-                        
-          </div>
-          <br>
-          <br>
-          <br>
-        
-        
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+</head>
+<body class="animsition">
+   <div class="page-wrapper">
 
-          <div class="wrap-input100 validate-input" >
-            <span class="label-input100">Votre Message  <br> <br> </span> 
-
-<TEXTAREA name="msg" rows=5 cols=50  required ></textarea>
-
-
-                        
-          </div>
-
-
-        <div class="container-login100-form-btn">
-            <div class="wrap-login100-form-btn">
-              <div class="login100-form-bgbtn"></div>
-              <button class="login100-form-btn" id="login">
-                Valider
-              </button>
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div style="width: 285.4px; height: 150px;" class="logo">
+                <a href="../dash.php">
+                    <img style="position: absolute; top: 0px; right:70px; height: 150px; "   src="../images/icon/1.png" alt="BF Academie" />
+                </a>
             </div>
+            <div  class="menu-sidebar__content js-scrollbar1">
+                <nav  class="navbar-sidebar">
+                    <ul  class="list-unstyled navbar__list">
 
-            <a href="index.html" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
-        Annuler
-              <i></i>
-            </a>
-          </div>
-        </form>
-      
+                        <li >
+                            <a href="../dash.php">
+                                <i class="fas fa-table"></i>Dashboard</a>                                      
+                        </li>
+                                <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>service commercial</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                             <li >
+                            <a href="../affichage_categorie.php">
+                                <i class="fas fa-table"></i>Gestion des Categories</a>
+                        </li>
+                        <li >
+                            <a href="../affichage_produits.php">
+                                <i class="fas fa-table"></i>Gestion des Produits</a>
+                        </li>
+                        <li >
+                            <a href="../affichage_abonement.php">
+                                <i class="fas fa-table"></i>Gestion des Abonements</a>
+                        </li>   
+                            </ul>
+                        </li> 
+                   </ul>
+                        <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Pub et Promo</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                               
+                                <li >
+                            <a href="../afficher_data.php?page=<?PHP echo 1; ?>&sort=2&trie=<?PHP echo 0 ?>">
+                                <i class="fas fa-table"></i>Gestion des Pubs </a>
+                        </li>
+                        <li >
+                            <a href="../afficher_data1.php">
+                                <i class="fas fa-table"></i>Gestion des Promos</a>
+                        </li> 
+                                
+                            </ul>
+                        </li> 
+                   </ul>
+                      
+                       
+                               <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Gestion de la salle</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="../affichercoach.php"><i class="fas fa-table"></i>afficher les Coaches</a>
+                                </li>
+                                <li>
+                                    <a href="../ajoutCoach.php"><i class="fas fa-table"></i>ajouter Coache</a>
+                                </li>
+                                <li >
+                            <a href="../affichercour.php">
+                                <i class="fas fa-table"></i>Gestion des seances</a>
+                         </li>
+                            </ul>
+                        </li> 
+                   </ul>
+                   <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>service client</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li >
+                            <a href="../table_Client.php">
+                                <i class="fas fa-table"></i>Gestion des Clients</a>
+                         </li>
+                         <li>     
+                                <a href="../table_Reclamtion.php">
+                                <i class="fas fa-table"></i>Gestion des Reclamations</a>
+                        </li>  
+                      
+                                
+                            </ul>
+                        </li> 
+                   </ul>
+                       <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>service commande</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                         <li>     
+                                <a href="../afficherFacture.php">
+                                <i class="fas fa-table"></i>Gestion des Factures</a>
+                        </li> 
+                        <li>     
+                            <a href="../afficherCommande.php?page=<?PHP echo ""; ?>&sort=2&trie=<?PHP echo 0 ?>">
+                                <i class="fas fa-table"></i>Gestion des Commandes </a>
+                             </li>  
+                      
+                                
+                            </ul>
+                            <li>     
+                            <a href="newsletter.php">
+                                <i class="fas fa-table"></i>newslettre</a>
+                             </li> 
+                        </li> 
+                   </ul>
+                         
+                                
+                            
+                        
+                   
+                </nav>
+            </div>
+        </aside>
 
-          
+             <div class="page-container">
+            <!-- HEADER DESKTOP-->
 
-    </div>
-  </div>
+           
+            <!-- HEADER DESKTOP-->
+
+<br>
+<br>
+            <div class="col-lg-2 m-auto">
+    <form action="../afficher_data.php">
+
+ </form>
+ </div> 
+              <div class="section__content section__content--p30">
+             <div class="container-fluid">
+
+<form method="post" action="envoi.php" enctype='multipart/form-data'>
+  <br>
+  <div class="card">
+
+ <div class="card-header bg-dark">
+ <h1 class="text-white text-center">  formulaire Pub </h1>
+ </div><br>
+    
+
+    <div class="col-12 col-md-9">
+  <label>sujet:</label>
+  <input type="text" name="sujet" class="form-control" id="nome"><br>
+</div>
+
+  <div class="col-12 col-md-9">
+  <label>contenu:</label>
+  <textarea type="text" name="msg" class="form-control" id="nome"></textarea><br>
+</div>
 
 
-   </section>
+ <br>
+  <div class="card-footer">
+  <button type='submit' id ="save"  value='Save name' name='but_upload' onclick="verifChamps()" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i>Submit</button>
+  <button class="btn btn-danger btn-sm" type="reset" name="done"><i class="fa fa-ban"></i> Reset </button><br>
+</div>
+</div>
+</form>
+</div>
+</div>
+ 
+<br><br><br><br>
+<br><br><br><br>
 
+   <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
 
-
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-     
-          
-
-
-
-  </body>
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+    <script src="js/produits.js"></script>
+</body>
 </html>
+
+
+
+
+
+
+
+  
+ 
+
+
+

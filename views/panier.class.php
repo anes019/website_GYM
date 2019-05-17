@@ -8,6 +8,7 @@ class panier {
 		}
 		if(!isset($_SESSION['panier'])){
 			$_SESSION['panier'] = array();
+      
 		}
 	  $this->DB = $DB;
 	  if(isset($_GET['delPanier'])){
@@ -48,10 +49,14 @@ class panier {
               if(empty($ids)){
                 $produits = array();
               }else{
-                $produits = $this->DB->query('SELECT id , prix FROM produits WHERE id IN ('.implode(',', $ids).')');
+                $produits = $this->DB->query('SELECT id , prix,prix_promo,etat FROM produits WHERE id IN ('.implode(',', $ids).')');
               }
     foreach ($produits as $produit) {
-    	$total += $produit->prix * $_SESSION['panier'][$produit->id];
+      if ($produit->etat=='false') {
+      $total += $produit->prix * $_SESSION['panier'][$produit->id];
+      }
+      else
+    	$total += $produit->prix_promo * $_SESSION['panier'][$produit->id];
    	}
    	return $total;
    }

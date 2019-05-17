@@ -17,7 +17,7 @@
                                 <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>service commercial</a>
+                                <i class="fas fa-tachometer-alt"></i>Gestion des produits</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                              <li >
                             <a href="affichage_categorie.php">
@@ -106,6 +106,10 @@
                       
                                 
                             </ul>
+                            <li>     
+                            <a href="newslettre/newsletter.php">
+                                <i class="fas fa-table"></i>Newslettre</a>
+                             </li>  
                         </li> 
                    </ul>
                          

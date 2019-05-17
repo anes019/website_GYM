@@ -1,3 +1,20 @@
+<style type="text/css">
+  
+    #butt{
+        height: 30px;
+     width: 80px;
+        bottom: 83%;
+     right: 45.2%;
+     position: absolute;
+  }
+  #pop3{
+          height: 200px;
+     width: 900px;
+       bottom: 5%; 
+     right: 18%;
+     position: absolute;
+  }
+</style>
 <?php
 include_once "pub_front.php";
 ?>

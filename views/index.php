@@ -78,7 +78,7 @@ include "pub_front.php";
         height: 200px;
      width: 900px;
         bottom: 40%;
-     right: 15%;
+     right: 20%;
      
 
 position: absolute;
@@ -94,7 +94,7 @@ position: absolute;
   #pop2{
           height: 200px;
      width: 900px;
-        bottom: -275%;
+        bottom: -175%;
      right: 18%;
      position: absolute;
   }
@@ -116,7 +116,7 @@ position: absolute;
     #pop3{
           height: 200px;
      width: 900px;
-       bottom: 50%; 
+       bottom: -3%; 
      right: 18%;
      position: absolute;
   }
@@ -245,7 +245,7 @@ else
   include'head2.php' ;
 ?>
     <!-- END nav -->
-  
+
   
 
     <section class="home-slider js-fullheight owl-carousel ftco-degree-bottom">
@@ -282,7 +282,9 @@ améliorer votre forme</h1>
     <br>
     <br>
 <!---pub1-->
-
+  <?php
+pub_pos1();
+?>
 
 
     <section class="ftco-section-services ftco-degree">
@@ -469,75 +471,7 @@ pub_pos2();
    
 
 
-    <section class="ftco-section bg-light">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section ftco-animate text-center">
-            <h3 class="subheading">Pricing Tables</h3>
-            <h2 class="mb-1">Membership Plans</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 ftco-animate">
-            <div class="block-7">
-              <div class="text-center">
-              <h2 class="heading">One Day Training</h2>
-              <span class="price"><sup>$</sup> <span class="number">7</span></span>
-              <span class="excerpt d-block">100% free. Forever</span>
-              <a href="#" class="btn btn-primary d-block px-2 py-4 mb-4">Get Started</a>
-              
-              <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-              
-              <ul class="pricing-text">
-                <li>Onetime Access To All Club</li>
-                <li>Group Trainer</li>
-                <li>Book A Group Class</li>
-                <li>Fitness Orientation</li>
-              </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="block-7">
-              <div class="text-center">
-              <h2 class="heading">Pay Every Month</h2>
-              <span class="price"><sup>$</sup> <span class="number">65</span></span>
-              <span class="excerpt d-block">All features are included</span>
-              <a href="#" class="btn btn-primary d-block px-3 py-4 mb-4">Get Started</a>
-              
-              <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-              
-              <ul class="pricing-text">
-                <li>Group Classes</li>
-                <li>Discuss Fitness Goals</li>
-                <li>Group Trainer</li>
-                <li>Fitness Orientation</li>
-              </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="block-7">
-              <div class="text-center">
-              <h2 class="heading">1 Year Membership</h2>
-              <span class="price"><sup>$</sup> <span class="number">125</span></span>
-              <span class="excerpt d-block">All features are included</span>
-              <a href="#" class="btn btn-primary d-block px-3 py-4 mb-4">Get Started</a>
-              
-              <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-              
-              <ul class="pricing-text">
-                <li>Group Classes</li>
-                <li>Discuss Fitness Goals</li>
-                <li>Group Trainer</li>
-                <li>Fitness Orientation</li>
-              </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+   
 
     
    

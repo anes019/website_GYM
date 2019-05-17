@@ -1,7 +1,7 @@
 
           <?php 
           session_start();
- include'header.php' 
+
  ?>
         
 <?php require '_header.php' ;?>
@@ -54,7 +54,11 @@
 
 </head>
 <body >
+<?php 
 
+ include'head2.php' ;
+
+ ?>
 
 
               <?php 
@@ -178,7 +182,7 @@ foreach($info as $row){
         <div class="wrap-input100 validate-input" data-validate="Cochez une option ">
          <span class="label-input100">Comment voulez-vous que votre commande soit livrée ?</span><br>
             <input class="input-checkbox100" type="radio" name="r1" id="id1" value="livraison standard">
-            <label class="label-checkbox100" for="id1">livraison standard</label><br>
+            <label class="label-checkbox100" for="id1">livraison standard (Montant de livraison 6 dt)</label><br>
             <input class="input-checkbox100" type="radio" name="r1" id="id2" value="retrait à la salle">
             <label class="label-checkbox100" for="id2">retrait à la salle</label><br>
 
@@ -227,37 +231,19 @@ foreach($info as $row){
           </td>
 
            <td >
-                   <h4><?php
-                         if($produit->etat=='false'){?>
-                          <?= number_format($produit->prix,3,',',' '); ?> DT
-                  <?php       }else{
-                  ?>
-                  <?= number_format($produit->prix_promo,3,',',' '); ?> DT
-
-                  <?php } ?></h4>
+                   <h4><?= number_format($panier->total(),2,',',' ');?>DT</h4>
            </td>
             </tr>
             <tr>
-           <td>
-             Montant de livraison
-           </td>
-            <td >
-                   <h4>6Dt</h4>
-           </td>
+          
+           
                   
 </tr>           
              
             </table>
             </div>
             <div class="total-cost">
-              <h6>Total <span><?php
-                         if($produit->etat=='false'){?>
-                          <?= number_format($produit->prix+6,3,',',' '); ?> DT
-                  <?php       }else{
-                  ?>
-                  <?= number_format($produit->prix_promo+6,3,',',' '); ?> DT
-
-                  <?php } ?></span></h6>
+             <h6>Total <span id="total"><?= number_format($panier->total(),2,',',' ');?>DT</span></h6>
             </div>
 
 </div>
@@ -333,14 +319,7 @@ foreach($info as $row){
             </div>
             <div class="total-cost">
                <h6>produits<span id="count"><?= $panier->count(); ?></span></h6>
-              <h6>Total <span><?php
-                         if($produit->etat=='false'){?>
-                          <?= number_format($produit->prix,3,',',' '); ?> DT
-                  <?php       }else{
-                  ?>
-                  <?= number_format($produit->prix_promo,3,',',' '); ?> DT
-
-                  <?php } ?></span></h6>
+              <h6>Total <span id="total"><?= number_format($panier->total(),2,',',' ');?>DT</span></h6>
             </div>
           </div>
         </div>

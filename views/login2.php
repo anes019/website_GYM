@@ -1,5 +1,5 @@
 <?php 
- include'header.php';
+
 session_start();
 
  ?>
@@ -46,11 +46,15 @@ session_start();
 
   </head>
     <body>
+  <?php
+   include'head2.php';
+?>
+  
    
 
     <!-- END nav -->
 
-    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');">
+    <section class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">

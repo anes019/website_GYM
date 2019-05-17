@@ -16,7 +16,7 @@ $x=$coach1C->row_count_coach($_POST['coaches'],$_POST['hor'],$_POST['date']);
 if ($x ==0){
 
 	$coach1C->ajoutercoach($coach1);
-	header('Location: coaches.php');
+	header('Location: program.php');
 }
 else{
 
@@ -24,7 +24,7 @@ else{
 echo"alert('coach reserve ')";
 echo"</script>";
 echo"<script language=\"javascript\">";
-echo"window.location.href='coaches.php'";
+echo"window.location.href='program.php'";
 echo"</script>";
 
 
@@ -33,7 +33,7 @@ echo"</script>";
 
 	
 }else{
-	header('Location: coaches.php');
+	header('Location: program.php');
 }
 
 

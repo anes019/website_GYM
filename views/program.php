@@ -25,6 +25,9 @@ session_start();
     <link rel="stylesheet" href="css/main2.css">
     <link rel="stylesheet" href="css/linearicons2.css">
     <link rel="stylesheet" href="css/themify-icons2.css">
+        <link rel="stylesheet" href="bluetable.css">
+                 <link rel="stylesheet" href="myButton.css">
+             <link rel="stylesheet" href="mybuttonn.css">
 <style>
 
 
@@ -119,14 +122,79 @@ button:hover {
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-3 bread">Les Cours</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Acceuil</a></span> <span>Program</span></p>
+            <h1 class="mb-3 bread">Programme </h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.php">Acceuil</a></span> </p>
           </div>
         </div>
       </div>
     </section>
 
-    
+
+     <section class="ftco-section">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-12 ftco-animate">
+<div style="right: -20%;" class="col-md-7 heading-section ftco-animate text-center">
+           
+            <h2 class="mb-1">Les Coures</h2>
+          </div>
+            <div class="sched-list">
+              <table class="blueTable">
+    <?PHP           
+include "../core/courbC.php";
+$courb1C=new courbC();
+$listecours=$courb1C->affichercourb();
+?>                          
+                   <thead>
+<tr>
+<th>Lundi</th>
+<th>Mardi</th>
+<th>Mercredie</th>
+<th>Jeudi</th>
+<th>Vendredie</th>
+<th>Samedi</th>
+<th>Dimanche</th>
+</tr>
+        </thead>
+                <tbody>
+                  <?PHP $i=0;
+            foreach($listecours as $row1){
+                
+                 $i++;
+                 if(($i%8)==0)
+                 {
+                  
+                  ?>
+                  <tr>
+
+                    
+                  </tr>
+              <?php
+                 }else{
+                 ?>           
+                
+                 
+              <td>  
+                  <?php echo $row1['cour'];?>
+                      <?php echo $row1['descrip'];?>
+                      <?php echo $row1['temps'];?>
+                </td>
+<?php 
+}}
+?>
+                 
+                </tbody>
+               
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ftco-section">
       <div class="container-fluid">
         <div class="row">
@@ -243,15 +311,7 @@ button:hover {
 
                   ?>" disabled >
                 </div>
-                <div class="form-group ml-md-4">
-                  <input type="text" name="prenom" id="prenom" class="form-control" placeholder="<?php 
-                   if(empty($_SESSION['l']))
-                   echo "Prenom";
-                  else
-                  echo $_SESSION['p']; 
-
-                  ?>" disabled>
-                </div>
+             
               </div>
               <div class="d-md-flex">
                 <div class="form-group">
@@ -319,7 +379,177 @@ button:hover {
         </div>
       </div>
     </section>
- 
+     <section class="ftco-section bg-light">
+      <div class="container-fluid">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+           
+            <h2 class="mb-1">Nos Coaches</h2>
+          </div>
+        </div>
+              <div class="container">
+    
+        <div class="row">
+          <table class="table">
+            <?PHP           
+include "../core/coachbC.php";
+$coachb1C=new coachbC();
+$listecoachs=$coachb1C->affichercoachb();
+?>                   
+<thead>
+<tr>
+<th><button class="myButton">Coache</th>
+<th></th>
+<th><button class="myButton">mail</button></th>
+</tr>
+</thead>
+<tbody> <?PHP 
+            foreach($listecoachs as $row1){ ?>
+<tr>
+<td> <button class="myButton" >Nom: <?php echo $row1['nom'];?>
+                  <br>    Prénom: <?php echo $row1['prenom'];?>
+                    <br>  Spécialite: <?php echo $row1['specialite'];?>
+                      <br> Email: <?php echo $row1['email'];?></button>
+     
+  </td>
+<td> 
+  <img id="imagesss" style="width: 330px; height: 330px;" src='back/<?php echo $row1['image']; ?>' >
+
+</td>
+<td>
+   <form action="mail1.php">
+<button class="myButton" type="submit">envoyer mail</button>
+  <input type="hidden" value="<?php echo $row1['email'];?>" name="mail">
+</form>
+</td>
+</tr>
+<?php 
+}
+?>
+</tbody>
+</table>
+   </div>       
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <section class="ftco-appointment">
+      <div class="overlay"></div>
+      <div class="container-wrap">
+        <div class="row no-gutters d-md-flex align-items-center">
+          <div class="col-md-6 d-flex align-self-stretch img" style="background-image: url(images/about-3.jpg);">
+          </div>
+          <div class="col-md-6 appointment ftco-animate">
+            <h3 class="mb-3">Reserver coach</h3>
+            <form method="POST" action="ajoutercoach.php" class="appointment-form">
+              <div class="d-md-flex">
+                <div class="form-group">
+                  <input  type="text" name="nom" id="nom" class="form-control" placeholder="<?php 
+                   if(empty($_SESSION['l']))
+                   echo "Nom";
+                  else
+                  echo $_SESSION['l']; 
+
+                  ?>" disabled >
+                </div>
+              
+              </div>
+              <div class="d-md-flex">
+                <div class="form-group">
+                  <div class="input-wrap">
+                    <div class="icon"><span class="ion-md-calendar"></span></div>
+                    <input type="date" name="date" id="date"  placeholder="Date">
+                  </div>
+                </div>
+                 
+                <div class="form-group ml-md-4">
+                  <input type="number" name="tel" id="tel" class="form-control" placeholder="telephone">
+                </div>
+              </div>
+                <div class="form-group ml-md-4">
+                  <div class="input-wrap">
+                    <div class="icon"><span class="ion-ios-clock"></span></div>
+                                   <SELECT  name="hor" id="hor" size="1">
+<OPTION>8am
+<OPTION>9am
+<OPTION selected>10am
+<OPTION>11am
+<OPTION>2am
+  <OPTION>3am
+    <OPTION>4am
+      <OPTION>5am
+</SELECT>
+                    <div >----------------------</div>
+                  
+                  </div>
+                </div>
+                <div class="form-group ml-md-4">
+                  <FORM>
+                    <?php
+
+// php select option value from database
+
+$hostname = "localhost";
+$username = "root";
+$password = "";
+$databaseName = "site_web";
+
+// connect to mysql database
+
+$connect = mysqli_connect($hostname, $username, $password, $databaseName);
+
+// mysql select query
+$query = "SELECT nom FROM coachess";
+
+// for method 1
+
+$result1 = mysqli_query($connect, $query);
+$options = "";
+$options1 = "";
+$values = "";
+$rowcount=mysqli_num_rows($result1);
+if ($rowcount > 0) {
+    # code...
+
+while($row1 = mysqli_fetch_array($result1))
+{    $values="$row1[0]";
+     $options = $options."<option value='$values'>$row1[0]</option>";
+}
+}
+
+?>
+        <select  name="coaches" id="idp">
+          <option value="0">choix</option>  
+<?php echo $options;?>
+
+        </select>
+</FORM>
+               
+              <div class="d-md-flex">
+                <div class="form-group">
+                  <textarea name="message" id="mess" cols="30" rows="2" class="form-control" placeholder="Message"></textarea>
+                </div>
+                <div class="form-group ml-md-4">
+                                <?php
+              if(empty( $_SESSION['l']))
+                {?>
+                
+                <a onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-primary py-3 px-4">
+                reserver </a> <?php
+             }
+                  else { ?>
+                    <input onclick="validerchamp()" type="submit" value="reserver" class="btn btn-primary py-3 px-4">
+                       <?php
+             }
+?>
+                </div>
+              </div>
+            </form>
+          </div>          
+        </div>
+      </div>
+    </section>
   <div id="modal-wrapper" class="modal">
   
   <form class="modal-content animate"  method="POST" action="../core/check_acc4.php">
